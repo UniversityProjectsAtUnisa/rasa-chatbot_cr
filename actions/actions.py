@@ -25,3 +25,33 @@
 #         dispatcher.utter_message(text="Hello World!")
 #
 #         return []
+from typing import Any, Text, Dict, List
+
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+
+# TODO
+
+class ActionShowItems(Action):
+    def name(self) -> Text:
+        return "action_show"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Showing items!")
+        return []
+
+class ActionRemoveItem(Action):
+    def name(self) -> Text:
+        return "action_remove"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Removing item!")
+        return []
+
+class ActionAddItem(Action):
+    def name(self) -> Text:
+        return "action_add"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Adding item!")
+        return []

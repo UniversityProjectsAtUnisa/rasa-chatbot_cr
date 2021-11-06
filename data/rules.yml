@@ -11,29 +11,41 @@ rules:
       - intent: bot_challenge
       - action: utter_iamabot
 
-  - rule: Remove item from the shopping list
+  - rule: Activate remove form
     steps:
       - intent: remove_item
-      - action: item_form
-      - active_loop: item_form
+      - action: remove_item_form
+      - active_loop: remove_item_form
 
-  - rule: Remove form
+  - rule: Submit remove form
     condition:
-      - active_loop: item_form
+      - active_loop: remove_item_form
     steps:
-      - action: item_form
+      - action: remove_item_form
       - active_loop: null
       - slot_was_set:
           - requested_slot: null
       - action: utter_thanks
       - action: action_remove
 
-  - rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  - rule: Activate add form
     steps:
-      - intent: nlu_fallback
-      - action: utter_please_rephrase
+      - intent: add_item
+      - action: add_item_form
+      - active_loop: add_item_form
+
+  - rule: Submit add form
+    condition:
+      - active_loop: add_item_form
+    steps:
+      - action: add_item_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: utter_thanks
+      - action: action_add
 
   - rule: Show the shopping list anytime the user asks for it
     steps:
       - intent: get_shoppinglist
-      - action: utter_happy # TODO: Replace with custom action
+      - action: action_show

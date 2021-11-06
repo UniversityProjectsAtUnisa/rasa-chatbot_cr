@@ -86,11 +86,8 @@ nlu:
 
   - intent: inform
     examples: |
-      - the item is [hospital](item)
-      - [hospital](item)
-
-  - lookup: item
-      data/groceries.txt
+      - the item is [beef](item)
+      - [beef](item)
 
   - intent: bot_challenge
     examples: |
@@ -121,16 +118,16 @@ nlu:
       - I want to remove
       - delete
       - I want to delete
-      - I want to remove [hospital](item)
-      - remove [hospital](item) from the shopping list
-      - remove [hospital](item)
-      - I want to delete [hospital](item)
-      - delete [hospital](item) from the shopping list
-      - delete [hospital](item)
-      - I don't want to buy [hospital](item)
-      - I won't buy [hospital](item)
-      - I will not buy [hospital](item)
-      - I'm not going to buy [hospital](item)
+      - I want to remove [beef](item)
+      - remove [beef](item) from the shopping list
+      - remove [beef](item)
+      - I want to delete [beef](item)
+      - delete [beef](item) from the shopping list
+      - delete [beef](item)
+      - I don't want to buy [beef](item)
+      - I won't buy [beef](item)
+      - I will not buy [beef](item)
+      - I'm not going to buy [beef](item)
 
   - intent: get_shoppinglist
     examples: |
@@ -147,3 +144,16 @@ nlu:
       - what do i need?
       - what did i write in the list?
       - what do i have to shop?
+
+  - intent: add_item
+    examples: |
+      - add
+      - put
+      - add [computer](item) to the shopping list
+      - add [phone](item)
+      - i want to add [shoes](item)
+      - i would like to add [tv](item)
+      - put [mouse](item) to the shopping list
+      - i want to put [mouse](item)
+      - i want to buy [bottle](item)
+      - buy [charger](item)

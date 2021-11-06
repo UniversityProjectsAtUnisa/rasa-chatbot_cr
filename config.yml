@@ -11,14 +11,15 @@ pipeline:
   - name: CRFEntityExtractor
   - name: EntitySynonymMapper
   - name: SklearnIntentClassifier
-  - name: FallbackClassifier
-    threshold: 0.7
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/ra
 policies:
   - name: MemoizationPolicy
   - name: RulePolicy
+    core_fallback_threshold: 0.4
+    core_fallback_action_name: "action_default_fallback"
+    enable_fallback_prediction: True
   - name: TEDPolicy
     max_history: 5
     epochs: 5

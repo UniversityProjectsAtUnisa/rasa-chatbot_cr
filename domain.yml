@@ -20,7 +20,9 @@ entities:
   - item
 
 actions:
+  - action_add
   - action_remove
+  - action_show
   - utter_ask_item
   - utter_please_rephrase
   - utter_greet
@@ -32,25 +34,25 @@ actions:
   - utter_out_of_scope
   - utter_ask_sure
   - utter_thanks
+  - utter_noworries
 
-  
 slots:
   item:
     type: text
     influence_conversation: false
 
 forms:
-  item_form:
+  remove_item_form:
     required_slots:
       item:
         - type: from_entity
           entity: item
 
-actions: # TODO: Add custom actions
-  - utter_greet
-  - utter_goodbye
-  - utter_noworries
-  - utter_thanks
+  add_item_form:
+    required_slots:
+      item:
+        - type: from_entity
+          entity: item
 
 responses:
   utter_greet:
@@ -90,13 +92,13 @@ responses:
 
   utter_thanks:
     - text: "Thank you"
-  
-  action_remove:
-    - text: "Item removed." # TODO: Customize
 
   utter_noworries:
     - text: "My pleasure."
     - text: "You are welcome!"
+
+  utter_default:
+    - text: Sorry I didn't get that. Can you rephrase?
 
 session_config:
   session_expiration_time: 60

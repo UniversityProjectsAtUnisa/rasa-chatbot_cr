@@ -36,8 +36,8 @@ stories:
   - story: User interrupts the form and doesn't want to continue 1
     steps:
       - intent: remove_item
-      - action: remove_form
-      - active_loop: remove_form
+      - action: remove_item_form
+      - active_loop: remove_item_form
       - intent: stop
       - action: utter_ask_sure
       - intent: affirm
@@ -47,8 +47,8 @@ stories:
   - story: User interrupts the form and doesn't want to continue 2
     steps:
       - intent: add_item
-      - action: add_form
-      - active_loop: add_form
+      - action: add_item_form
+      - active_loop: add_item_form
       - intent: stop
       - action: utter_ask_sure
       - intent: affirm
@@ -58,28 +58,28 @@ stories:
   - story: User interrupts the form and then doesn't 1
     steps:
       - intent: remove_item
-      - action: remove_form
-      - active_loop: remove_form
+      - action: remove_item_form
+      - active_loop: remove_item_form
       - intent: stop
       - action: utter_ask_sure
       - intent: deny
-      - active_loop: remove_form
+      - active_loop: remove_item_form
 
   - story: User interrupts the form and then doesn't 2
     steps:
       - intent: add_item
-      - action: add_form
-      - active_loop: add_form
+      - action: add_item_form
+      - active_loop: add_item_form
       - intent: stop
       - action: utter_ask_sure
       - intent: deny
-      - active_loop: add_form
+      - active_loop: add_item_form
 
   - story: get shopping list path
     steps:
       - intent: greet
       - action: utter_greet
       - intent: get_shoppinglist
-      - action: utter_happy # TODO: Replace with custom action
+      - action: action_show
       - intent: thankyou
       - action: utter_noworries
