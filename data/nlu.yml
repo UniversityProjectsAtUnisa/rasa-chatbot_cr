@@ -101,3 +101,5 @@ nlu:
       - i would like to add [tv](item)
       - put [mouse](item) to the shopping list
       - i want to put [mouse](item)
+      - i want to buy [bottle](item)
+      - buy [charger](item)
