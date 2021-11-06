@@ -6,8 +6,6 @@ intents:
   - affirm
   - deny
   - thankyou
-  - mood_great
-  - mood_unhappy
   - bot_challenge
   - get_shoppinglist
   - add_item
@@ -26,7 +24,6 @@ actions:
   - utter_ask_item
   - utter_please_rephrase
   - utter_greet
-  - utter_cheer_up
   - utter_did_that_help
   - utter_happy
   - utter_goodbye
@@ -58,10 +55,6 @@ responses:
   utter_greet:
     - text: "Hi. What are you looking for?"
     - text: "Hello! What can I help you find today?"
-
-  utter_cheer_up:
-    - text: "Here is something to cheer you up:"
-      image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_did_that_help:
     - text: "Did that help you?"
@@ -99,7 +92,6 @@ responses:
 
   utter_default:
     - text: Sorry I didn't get that. Can you rephrase?
-    # TODO: Quando dice che non ha capito non continua la conversazione tipo
 
 session_config:
   session_expiration_time: 60

@@ -84,17 +84,14 @@ nlu:
       - so saad
       - so sad
 
-  - intent: inform
-    examples: |
-      - the item is (item)
-      - (item)
+  # TODO: Se la lookup fallisce rispondi con Item non valido
 
   - intent: bot_challenge
     examples: |
-      - are you a bot?
-      - are you a human?
-      - am I talking to a bot?
-      - am I talking to a human?
+      - are you a bot
+      - are you a human
+      - am I talking to a bot
+      - am I talking to a human
 
   - intent: out_of_scope
     examples: |
@@ -111,6 +108,7 @@ nlu:
       - Interrupt
       - Statt zitt
       - Stacca stacca
+  # TODO: REMOVE!
 
   - intent: remove_item
     examples: |
@@ -118,16 +116,16 @@ nlu:
       - I want to remove
       - delete
       - I want to delete
-      - I want to remove (item)
-      - remove (item) from the shopping list
-      - remove (item)
-      - I want to delete (item)
-      - delete (item) from the shopping list
-      - delete (item)
-      - I don't want to buy (item)
-      - I won't buy (item)
-      - I will not buy (item)
-      - I'm not going to buy (item)
+      - I want to remove [pet care](item)
+      - remove [pet care](item) from the shopping list
+      - remove [pet care](item)
+      - I want to delete [pet care](item)
+      - delete [pet care](item) from the shopping list
+      - delete [pet care](item)
+      - I don't want to buy [pet care](item)
+      - I won't buy [pet care](item)
+      - I will not buy [pet care](item)
+      - I'm not going to buy [pet care](item)
 
   - intent: get_shoppinglist
     examples: |
@@ -149,11 +147,11 @@ nlu:
     examples: |
       - add
       - put
-      - add (item) to the shopping list
-      - add (item)
-      - i want to add (item)
-      - i would like to add (item)
-      - put (item) to the shopping list
-      - i want to put (item)
-      - i want to buy (item)
-      - buy (item)
+      - add [pet care](item) to the shopping list
+      - add [pet care](item)
+      - i want to add [pet care](item)
+      - i would like to add [pet care](item)
+      - put [pet care](item) to the shopping list
+      - i want to put [pet care](item)
+      - i want to buy [pet care](item)
+      - buy [pet care](item)
