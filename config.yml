@@ -11,6 +11,8 @@ pipeline:
   - name: CRFEntityExtractor
   - name: EntitySynonymMapper
   - name: SklearnIntentClassifier
+  - name: FallbackClassifier
+    threshold: 0.7
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/ra

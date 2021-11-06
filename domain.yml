@@ -12,26 +12,78 @@ intents:
   - get_shoppinglist
   - add_item
   - remove_item
+  - inform
+  - out_of_scope
+  - stop
+
+entities:
+  - item
+
+actions:
+  - action_remove
+  - utter_ask_item
+  - utter_please_rephrase
+  - utter_greet
+  - utter_cheer_up
+  - utter_did_that_help
+  - utter_happy
+  - utter_goodbye
+  - utter_iamabot
+  - utter_out_of_scope
+  - utter_ask_sure
+  - utter_thanks
+
+  
+slots:
+  item:
+    type: text
+    influence_conversation: false
+
+forms:
+  item_form:
+    required_slots:
+      item:
+        - type: from_entity
+          entity: item
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+    - text: "Hey! How are you?"
 
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_did_that_help:
-  - text: "Did that help you?"
+    - text: "Did that help you?"
 
   utter_happy:
-  - text: "Great, carry on!"
+    - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "I am a bot, powered by Rasa."
+
+  utter_ask_item:
+    - text: "Which shopping item in particular?"
+
+  utter_please_rephrase:
+    - text: "I'm sorry, I didn't quite understand that. Could you rephrase?"
+
+  utter_out_of_scope:
+    - text: "Sorry, I can't handle that request."
+
+  utter_ask_sure:
+    - text: "Are you sure?"
+
+  utter_thanks:
+    - text: "Thank you"
+  
+  action_remove:
+    - text: "Item removed." # TODO: Customize
+
 
 session_config:
   session_expiration_time: 60

@@ -1,30 +1,76 @@
 version: "2.0"
 
 stories:
+  - story: happy path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_great
+      - action: utter_happy
 
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - story: sad path 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: affirm
+      - action: utter_happy
 
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+  - story: sad path 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_goodbye
 
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - story: out-of-scope
+    steps:
+      - intent: out_of_scope
+      - action: utter_out_of_scope
+
+  - story: User interrupts the form and doesn't want to continue 1
+    steps:
+      - intent: remove_item
+      - action: remove_form
+      - active_loop: remove_form
+      - intent: stop
+      - action: utter_ask_sure
+      - intent: affirm
+      - action: action_deactivate_loop
+      - active_loop: null
+
+  - story: User interrupts the form and doesn't want to continue 2
+    steps:
+      - intent: add_item
+      - action: add_form
+      - active_loop: add_form
+      - intent: stop
+      - action: utter_ask_sure
+      - intent: affirm
+      - action: action_deactivate_loop
+      - active_loop: null
+
+  - story: User interrupts the form and then doesn't 1
+    steps:
+      - intent: remove_item
+      - action: remove_form
+      - active_loop: remove_form
+      - intent: stop
+      - action: utter_ask_sure
+      - intent: deny
+      - active_loop: remove_form
+
+  - story: User interrupts the form and then doesn't 2
+    steps:
+      - intent: add_item
+      - action: add_form
+      - active_loop: add_form
+      - intent: stop
+      - action: utter_ask_sure
+      - intent: deny
+      - active_loop: add_form
