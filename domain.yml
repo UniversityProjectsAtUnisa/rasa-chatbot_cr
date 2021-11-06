@@ -13,25 +13,39 @@ intents:
   - add_item
   - remove_item
 
+actions: # TODO: Add custom actions
+  - utter_greet
+  - utter_goodbye
+  - utter_noworries
+  - utter_thanks
+
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+    - text: "Hi. What are you looking for?"
+    - text: "Hello! What can I help you find today?"
 
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_did_that_help:
-  - text: "Did that help you?"
+    - text: "Did that help you?"
 
   utter_happy:
-  - text: "Great, carry on!"
+    - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "Bye"
+    - text: "Talk to you later!"
+    - text: "Have a good day."
+    - text: "Until next time!"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "I am a bot, powered by Rasa."
+
+  utter_noworries:
+    - text: "My pleasure."
+    - text: "You are welcome!"
 
 session_config:
   session_expiration_time: 60
