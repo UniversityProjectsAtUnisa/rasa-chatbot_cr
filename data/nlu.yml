@@ -35,9 +35,18 @@ nlu:
 
   - intent: operation_on_item
     examples: |
+      - [long life bakery product](item)
+      - [artif. sweetener](item)
+      - [chocolate marshmallow](item)
+      - [yogurt](item)
+      - [herbs](item)
+      - [photo](item)
+      - [flower (seeds)](item)
+      - [butter milk](item)
+      - [misc. beverages](item)
+      - [make up remover](item)
       - [tidbits](item)
       - [cookware](item)
-      - [add](operation)
       - [put](operation) [house keeping products](item) to the shopping list
       - [buy](operation) [sweet spreads](item)
       - i want to [insert](operation) [UHT-milk](item)
@@ -49,10 +58,14 @@ nlu:
       - [put](operation) [other vegetables](item)
       - [buy](operation) [rolls](item)
       - [organic sausage](item)
+      - [buy]{"entity": "operation", "value": "add"}
+      - [put]{"entity": "operation", "value": "add"}
       - [insert]{"entity": "operation", "value": "add"}
-      - [remove](operation)
-      - [dish ice cream](item)
       - [delete]{"entity": "operation", "value": "remove"}
+      - [destroy]{"entity": "operation", "value": "remove"}
+      - [remove](operation)
+      - [add](operation)
+      - [dish ice cream](item)
       - [frozen potato products](item)
 
   - lookup: operation
