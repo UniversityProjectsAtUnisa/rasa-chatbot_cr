@@ -13,48 +13,20 @@ rules:
       - action: utter_goodbye
       - action: action_restart
 
-  - rule: Say 'I am a bot' anytime the user challenges
+  - rule: Activate item form
     steps:
-      - intent: bot_challenge
-      - action: utter_iamabot
+      - intent: operation_on_item
+      - action: item_form
+      - active_loop: item_form
 
-  - rule: Activate remove form
-    steps:
-      - intent: remove_item
-      - action: remove_item_form
-      - active_loop: remove_item_form
-
-  - rule: Submit remove form
+  - rule: Submit item form
     condition:
-      - active_loop: remove_item_form
+      - active_loop: item_form
     steps:
-      - action: remove_item_form
+      - action: item_form
       - active_loop: null
       - slot_was_set:
           - requested_slot: null
-      - action: utter_thanks
-      - action: action_remove
-      - action: action_restart
+      - action: action_item
+      # - action: action_restart
 
-  - rule: Activate add form
-    steps:
-      - intent: add_item
-      - action: add_item_form
-      - active_loop: add_item_form
-
-  - rule: Submit add form
-    condition:
-      - active_loop: add_item_form
-    steps:
-      - action: add_item_form
-      - active_loop: null
-      - slot_was_set:
-          - requested_slot: null
-      - action: utter_thanks
-      - action: action_add
-      - action: action_restart
-
-  - rule: Show the shopping list anytime the user asks for it
-    steps:
-      - intent: get_shoppinglist
-      - action: action_show

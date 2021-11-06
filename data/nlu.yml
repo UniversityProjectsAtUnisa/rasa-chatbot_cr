@@ -16,10 +16,12 @@ nlu:
       - goodmorning
       - goodevening
       - good afternoon
+      - yo
+      - yo bro
+      - wassup
 
   - intent: goodbye
     examples: |
-      - good afternoon
       - cu
       - good by
       - cee you later
@@ -31,127 +33,45 @@ nlu:
       - bye bye
       - see you later
 
-  - intent: affirm
+  - intent: operation_on_item
     examples: |
-      - yes
-      - y
-      - indeed
-      - of course
-      - that sounds good
-      - correct
+      - [tidbits](item)
+      - [cookware](item)
+      - [add](operation)
+      - [put](operation) [house keeping products](item) to the shopping list
+      - [buy](operation) [sweet spreads](item)
+      - i want to [insert](operation) [UHT-milk](item)
+      - i would like to [remove](operation) [organic products](item)
+      - [delete](operation) [jam](item) to the shopping list
+      - i want to [destroy](operation) [hygiene articles](item)
+      - i want to [add](operation) [curd cheese](item)
+      - [put](operation) [zwieback](item)
+      - [put](operation) [other vegetables](item)
+      - [buy](operation) [rolls](item)
+      - [organic sausage](item)
+      - [insert]{"entity": "operation", "value": "add"}
+      - [remove](operation)
+      - [dish ice cream](item)
+      - [delete]{"entity": "operation", "value": "remove"}
+      - [frozen potato products](item)
 
-  - intent: deny
-    examples: |
-      - no
-      - n
-      - never
-      - I don't think so
-      - don't like that
-      - no way
-      - not really
-
-  - intent: mood_great
-    examples: |
-      - perfect
-      - great
-      - amazing
-      - feeling like a king
-      - wonderful
-      - I am feeling very good
-      - I am great
-      - I am amazing
-      - I am going to save the world
-      - super stoked
-      - extremely good
-      - so so perfect
-      - so good
-      - so perfect
-
-  - intent: mood_unhappy
-    examples: |
-      - my day was horrible
-      - I am sad
-      - I don't feel very well
-      - I am disappointed
-      - super sad
-      - I'm so sad
-      - sad
-      - very sad
-      - unhappy
-      - not good
-      - not very good
-      - extremly sad
-      - so saad
-      - so sad
-
-  # TODO: Se la lookup fallisce rispondi con Item non valido
-
-  - intent: bot_challenge
-    examples: |
-      - are you a bot
-      - are you a human
-      - am I talking to a bot
-      - am I talking to a human
-
-  - intent: out_of_scope
-    examples: |
-      - I want to order food
-      - What is 2 + 2?
-      - Who's the US President?
-
-  - intent: stop
-    examples: |
-      - I don't want to anymore
-      - I made a mistake
-      - Stop
-      - Abort
-      - Interrupt
-      - Statt zitt
-      - Stacca stacca
-  # TODO: REMOVE!
-
-  - intent: remove_item
-    examples: |
-      - remove
-      - I want to remove
-      - delete
-      - I want to delete
-      - I want to remove [pet care](item)
-      - remove [pet care](item) from the shopping list
-      - remove [pet care](item)
-      - I want to delete [pet care](item)
-      - delete [pet care](item) from the shopping list
-      - delete [pet care](item)
-      - I don't want to buy [pet care](item)
-      - I won't buy [pet care](item)
-      - I will not buy [pet care](item)
-      - I'm not going to buy [pet care](item)
-
-  - intent: get_shoppinglist
-    examples: |
-      - shopping list
-      - shopping
-      - list
-      - show me my list
-      - show me my shopping list
-      - show me the list
-      - show me the shopping list
-      - what is on my shopping list?
-      - what's on my shopping list?
-      - what do i have to buy?
-      - what do i need?
-      - what did i write in the list?
-      - what do i have to shop?
-
-  - intent: add_item
+  - lookup: operation
     examples: |
       - add
       - put
-      - add [pet care](item) to the shopping list
-      - add [pet care](item)
-      - i want to add [pet care](item)
-      - i would like to add [pet care](item)
-      - put [pet care](item) to the shopping list
-      - i want to put [pet care](item)
-      - i want to buy [pet care](item)
-      - buy [pet care](item)
+      - buy
+      - insert
+      - remove
+      - delete
+      - destroy
+
+  - synonym: add
+    examples: |
+      - put
+      - buy
+      - insert
+      
+  - synonym: remove
+    examples: |
+      - delete
+      - destroy

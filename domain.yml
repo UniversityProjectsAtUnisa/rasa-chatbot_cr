@@ -3,64 +3,41 @@ version: "2.0"
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
-  - thankyou
-  - bot_challenge
-  - get_shoppinglist
-  - add_item
-  - remove_item
-  - inform
-  - out_of_scope
-  - stop
+  - operation_on_item
 
 entities:
   - item
+  - operation
 
 actions:
-  - action_add
-  - action_remove
-  - action_show
-  - utter_ask_item
-  - utter_please_rephrase
   - utter_greet
-  - utter_did_that_help
-  - utter_happy
   - utter_goodbye
-  - utter_iamabot
-  - utter_out_of_scope
-  - utter_ask_sure
-  - utter_thanks
-  - utter_noworries
+  - action_item
+  - utter_ask_item
+  - utter_ask_operation
 
 slots:
+  operation:
+    type: text
+    influence_conversation: false # TODO: Magari metti a true
   item:
     type: text
     influence_conversation: false
 
 forms:
-  remove_item_form:
+  item_form:
     required_slots:
       item:
         - type: from_entity
           entity: item
-
-  add_item_form:
-    required_slots:
-      item:
+      operation:
         - type: from_entity
-          entity: item
+          entity: operation
 
 responses:
   utter_greet:
     - text: "Hi. What are you looking for?"
     - text: "Hello! What can I help you find today?"
-
-  utter_did_that_help:
-    - text: "Did that help you?"
-
-  utter_happy:
-    - text: "Great, carry on!"
 
   utter_goodbye:
     - text: "Bye"
@@ -68,30 +45,15 @@ responses:
     - text: "Have a good day."
     - text: "Until next time!"
 
-  utter_iamabot:
-    - text: "I am a bot, powered by Rasa."
-
   utter_ask_item:
     - text: "Which shopping item in particular?"
 
-  utter_please_rephrase:
-    - text: "I'm sorry, I didn't quite understand that. Could you rephrase?"
-
-  utter_out_of_scope:
-    - text: "Sorry, I can't handle that request."
-
-  utter_ask_sure:
-    - text: "Are you sure?"
-
-  utter_thanks:
-    - text: "Thank you"
-
-  utter_noworries:
-    - text: "My pleasure."
-    - text: "You are welcome!"
+  utter_ask_operation:
+    - text: "Which operation do you want to do (add, remove)?"
 
   utter_default:
     - text: Sorry I didn't get that. Can you rephrase?
+
 
 session_config:
   session_expiration_time: 60

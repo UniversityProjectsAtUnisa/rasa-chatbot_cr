@@ -1,62 +1,29 @@
-# This files contains your custom actions which can be used to run
-# custom Python code.
-#
-# See this guide on how to implement these action:
-# https://rasa.com/docs/rasa/custom-actions
-
-
-# This is a simple example for a custom action which utters "Hello World!"
-
-# from typing import Any, Text, Dict, List
-#
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
-#
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
-from typing import Any, Text, Dict, List
+from typing import Any, Text, Dict, List, Union
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import SlotSet
 
-# TODO
+# def get_entity_from_list(slots: Union[Any, List[Any]]):
+#     print(slots)
+#     if isinstance(slots, list):
+#         return slots[0] if len(set(slots)) == 1 else None
+#     return slots
 
-class ActionShowItems(Action):
+class ActionItem(Action):
     def name(self) -> Text:
-        return "action_show"
-    
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="Showing items!")
-        return []
+        return "action_item"
 
-# TODO: Una sola azione per remove e add, remove e add sono un'entity
-# Come riprodurre: appena avvii, prima di salutare, dici "beef"
-
-class ActionRemoveItem(Action):
-    def name(self) -> Text:
-        return "action_remove"
-    
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        operation = tracker.get_slot("operation")
         item = tracker.get_slot("item")
-        dispatcher.utter_message(text=f"Removing item {item}!")
-        return []
 
-class ActionAddItem(Action):
-    def name(self) -> Text:
-        return "action_add"
-    
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        item = tracker.get_slot("item")
-        dispatcher.utter_message(text=f"Adding item {item}!")
-        return []
+        dispatcher.utter_message(text=f"{operation=}")
+        if operation == "add":
+            dispatcher.utter_message(text=f"Adding item {item}.")
+        elif operation == "remove":
+            dispatcher.utter_message(text=f"Removing item {item}.")
+        else:
+            dispatcher.utter_message(text=f"Operation {operation} is invalid.")
+
+        return [SlotSet("item", None), SlotSet("operation", None)]
