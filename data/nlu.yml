@@ -131,3 +131,19 @@ nlu:
       - I won't buy [hospital](item)
       - I will not buy [hospital](item)
       - I'm not going to buy [hospital](item)
+
+  - intent: get_shoppinglist
+    examples: |
+      - shopping list
+      - shopping
+      - list
+      - show me my list
+      - show me my shopping list
+      - show me the list
+      - show me the shopping list
+      - what is on my shopping list?
+      - what's on my shopping list?
+      - what do i have to buy?
+      - what do i need?
+      - what did i write in the list?
+      - what do i have to shop?

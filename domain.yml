@@ -46,9 +46,16 @@ forms:
         - type: from_entity
           entity: item
 
+actions: # TODO: Add custom actions
+  - utter_greet
+  - utter_goodbye
+  - utter_noworries
+  - utter_thanks
+
 responses:
   utter_greet:
-    - text: "Hey! How are you?"
+    - text: "Hi. What are you looking for?"
+    - text: "Hello! What can I help you find today?"
 
   utter_cheer_up:
     - text: "Here is something to cheer you up:"
@@ -62,6 +69,9 @@ responses:
 
   utter_goodbye:
     - text: "Bye"
+    - text: "Talk to you later!"
+    - text: "Have a good day."
+    - text: "Until next time!"
 
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
@@ -84,6 +94,9 @@ responses:
   action_remove:
     - text: "Item removed." # TODO: Customize
 
+  utter_noworries:
+    - text: "My pleasure."
+    - text: "You are welcome!"
 
 session_config:
   session_expiration_time: 60

@@ -74,3 +74,12 @@ stories:
       - action: utter_ask_sure
       - intent: deny
       - active_loop: add_form
+
+  - story: get shopping list path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: get_shoppinglist
+      - action: utter_happy # TODO: Replace with custom action
+      - intent: thankyou
+      - action: utter_noworries

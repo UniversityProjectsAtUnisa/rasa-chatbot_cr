@@ -32,3 +32,8 @@ rules:
     steps:
       - intent: nlu_fallback
       - action: utter_please_rephrase
+
+  - rule: Show the shopping list anytime the user asks for it
+    steps:
+      - intent: get_shoppinglist
+      - action: utter_happy # TODO: Replace with custom action
