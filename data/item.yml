@@ -1,0 +1,179 @@
+version: "2.0" # TODO: Try to move file to data/lookups/item.yml
+nlu:
+  - lookup: item
+    examples: |
+      - pet care
+      - cookware
+      - house keeping products
+      - sweet spreads
+      - UHT-milk
+      - organic products
+      - jam
+      - hygiene articles
+      - curd cheese
+      - other vegetables
+      - rolls
+      - organic sausage
+      - ice cream
+      - frozen potato products
+      - salty snack
+      - margarine
+      - dish cleaner
+      - cling film
+      - cleaner
+      - onions
+      - cake bar
+      - photo
+      - domestic eggs
+      - shopping bags
+      - rice
+      - chicken
+      - newspapers
+      - specialty cheese
+      - instant coffee
+      - whipped
+      - sugar
+      - baking powder
+      - spread cheese
+      - white bread
+      - seasonal products
+      - frozen fruits
+      - bathroom cleaner
+      - citrus fruit
+      - pot plants
+      - cat food
+      - specialty bar
+      - dog food
+      - sliced cheese
+      - chocolate
+      - whole milk
+      - grapes
+      - turkey
+      - tropical fruit
+      - frozen fish
+      - bottled beer
+      - soap
+      - meat spreads
+      - male cosmetics
+      - chocolate marshmallow
+      - whisky
+      - prosecco
+      - salad dressing
+      - misc. beverages
+      - candles
+      - rum
+      - liqueur
+      - frankfurter
+      - prunes
+      - cocoa drinks
+      - soda
+      - artif. sweetener
+      - potato products
+      - fish
+      - bottled water
+      - frozen meals
+      - sauces
+      - berries
+      - specialty chocolate
+      - abrasive cleaner
+      - beef
+      - hamburger meat
+      - canned beer
+      - packaged fruit
+      - processed cheese
+      - napkins
+      - long life bakery product
+      - tidbits
+      - pork
+      - buns
+      - meat
+      - flower soil
+      - vegetables
+      - sour cream
+      - butter
+      - Instant food products
+      - herbs
+      - dessert
+      - liquor
+      - dishes
+      - liquor (appetizer)
+      - oil
+      - finished products
+      - cream cheese 
+      - frozen chicken
+      - mayonnaise
+      - red
+      - nuts
+      - kitchen towels
+      - spices
+      - pasta
+      - flour
+      - decalcifier
+      - blush wine
+      - zwieback
+      - female sanitary products
+      - vegetable juice
+      - film
+      - nut snack
+      - cooking chocolate
+      - pip fruit
+      - canned fish
+      - candy
+      - popcorn
+      - semi-finished bread
+      - cream
+      - sparkling wine
+      - vinegar
+      - beverages
+      - specialty vegetables
+      - roll products 
+      - pickled vegetables
+      - condensed milk
+      - sausage
+      - rubbing alcohol
+      - ketchup
+      - baby cosmetics
+      - snack products
+      - coffee
+      - kitchen utensil
+      - syrup
+      - make up remover
+      - bags
+      - brandy
+      - curd
+      - pudding powder
+      - toilet cleaner
+      - hair spray
+      - salt
+      - canned vegetables
+      - brown bread
+      - hard cheese
+      - cereals
+      - yogurt
+      - waffles
+      - skin care
+      - canned fruit
+      - fertilizer
+      - preservation products
+      - frozen dessert
+      - soft cheese
+      - frozen vegetables
+      - white wine
+      - ready soups
+      - detergent
+      - softener
+      - chewing gum
+      - dental care
+      - soups
+      - light bulbs
+      - root vegetables
+      - flower (seeds)
+      - ham
+      - tea
+      - mustard
+      - pastry
+      - liver loaf
+      - specialty fat
+      - honey
+      - butter milk
+      - fruit

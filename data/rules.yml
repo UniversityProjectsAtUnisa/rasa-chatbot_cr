@@ -27,6 +27,7 @@ rules:
           - requested_slot: null
       - action: utter_thanks
       - action: action_remove
+      - action: action_restart
 
   - rule: Activate add form
     steps:
@@ -44,6 +45,7 @@ rules:
           - requested_slot: null
       - action: utter_thanks
       - action: action_add
+      - action: action_restart
 
   - rule: Show the shopping list anytime the user asks for it
     steps:

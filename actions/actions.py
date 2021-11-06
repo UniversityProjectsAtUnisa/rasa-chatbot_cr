@@ -40,12 +40,16 @@ class ActionShowItems(Action):
         dispatcher.utter_message(text="Showing items!")
         return []
 
+# TODO: Una sola azione per remove e add, remove e add sono un'entity
+# Come riprodurre: appena avvii, prima di salutare, dici "beef"
+
 class ActionRemoveItem(Action):
     def name(self) -> Text:
         return "action_remove"
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="Removing item!")
+        item = tracker.get_slot("item")
+        dispatcher.utter_message(text=f"Removing item {item}!")
         return []
 
 class ActionAddItem(Action):
@@ -53,5 +57,6 @@ class ActionAddItem(Action):
         return "action_add"
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="Adding item!")
+        item = tracker.get_slot("item")
+        dispatcher.utter_message(text=f"Adding item {item}!")
         return []

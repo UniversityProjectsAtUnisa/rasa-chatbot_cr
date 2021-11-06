@@ -8,6 +8,10 @@ pipeline:
   - name: SpacyTokenizer
   - name: SpacyFeaturizer
   - name: RegexFeaturizer
+  - name: RegexEntityExtractor
+    case_sensitive: False
+    use_lookup_tables: True
+    use_regexes: True
   - name: CRFEntityExtractor
   - name: EntitySynonymMapper
   - name: SklearnIntentClassifier
