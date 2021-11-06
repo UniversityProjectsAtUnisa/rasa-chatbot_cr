@@ -93,6 +93,8 @@ nlu:
 
   - intent: add_item
     examples: |
+      - add
+      - put
       - add [computer](item) to the shopping list
       - add [phone](item)
       - i want to add [shoes](item)
