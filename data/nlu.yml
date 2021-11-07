@@ -33,6 +33,12 @@ nlu:
       - bye bye
       - see you later
   
+  - intent: stop
+    examples: |
+      - stop
+      - i don't want to continue
+      - i can't do it anymore
+  
   - intent: show_items
     examples: |
       - show list

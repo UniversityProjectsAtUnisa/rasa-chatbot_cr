@@ -5,6 +5,7 @@ intents:
   - goodbye
   - operation_on_item
   - show_items
+  - stop
 
 entities:
   - item
@@ -13,11 +14,14 @@ entities:
 
 actions:
   - utter_greet
+  - utter_already_greet
   - utter_goodbye
   - action_item
   - action_show_items
   - utter_ask_item
   - utter_ask_operation
+  - utter_stop
+  - utter_stop_nothing
   - validate_item_form
 
 slots:
@@ -57,6 +61,16 @@ responses:
 
   utter_ask_operation:
     - text: "Which operation do you want to do (add, remove)?"
+  
+  utter_stop:
+    - text: "Request cancelled!"
+  
+  utter_stop_nothing:
+    - text: "Nobody can stop me!!!!"
+    - text: "I'm ineluctable!!!"
+  
+  utter_already_greet:
+    - text: "I already greet you"
 
   utter_default:
     - text: Sorry I didn't get that. Can you rephrase?
