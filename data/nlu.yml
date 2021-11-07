@@ -39,7 +39,7 @@ nlu:
       - [artif. sweetener](item)
       - [chocolate marshmallow](item)
       - [yogurt](item)
-      - [herbs](item)
+      - [2](CARDINAL) [herbs](item)
       - [photo](item)
       - [flower (seeds)](item)
       - [butter milk](item)
@@ -48,7 +48,7 @@ nlu:
       - [tidbits](item)
       - [cookware](item)
       - [put](operation) [house keeping products](item) to the shopping list
-      - [buy](operation) [sweet spreads](item)
+      - [buy](operation) [3](CARDINAL) [sweet spreads](item)
       - i want to [insert](operation) [UHT-milk](item)
       - i would like to [remove](operation) [organic products](item)
       - [delete](operation) [jam](item) to the shopping list

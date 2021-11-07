@@ -8,6 +8,7 @@ intents:
 entities:
   - item
   - operation
+  - CARDINAL
 
 actions:
   - utter_greet
@@ -15,6 +16,7 @@ actions:
   - action_item
   - utter_ask_item
   - utter_ask_operation
+  - validate_item_form
 
 slots:
   operation:
@@ -22,6 +24,9 @@ slots:
     influence_conversation: false # TODO: Magari metti a true
   item:
     type: text
+    influence_conversation: false
+  CARDINAL:
+    type: text # TODO: Magari float
     influence_conversation: false
 
 forms:
@@ -53,7 +58,6 @@ responses:
 
   utter_default:
     - text: Sorry I didn't get that. Can you rephrase?
-
 
 session_config:
   session_expiration_time: 60
