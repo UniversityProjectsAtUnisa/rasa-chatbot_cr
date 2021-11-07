@@ -35,28 +35,41 @@ nlu:
 
   - intent: operation_on_item
     examples: |
-      - [long life bakery product](item)
-      - [artif. sweetener](item)
+      - [1](CARDINAL) [long life bakery product](item)
+      - [two](CARDINAL) [artif. sweetener](item)
       - [chocolate marshmallow](item)
-      - [yogurt](item)
-      - [2](CARDINAL) [herbs](item)
+      - [4](CARDINAL) [yogurt](item)
+      - [five](CARDINAL) [herbs](item)
       - [photo](item)
-      - [flower (seeds)](item)
-      - [butter milk](item)
+      - [7](CARDINAL) [flower (seeds)](item)
+      - [eight](CARDINAL) [butter milk](item)
       - [misc. beverages](item)
-      - [make up remover](item)
-      - [tidbits](item)
+      - [9](CARDINAL) [make up remover](item)
+      - [ten](CARDINAL) [tidbits](item)
       - [cookware](item)
+      - [11](CARDINAL) [bags](item)
+      - [add](operation) [10](CARDINAL) [beef](item)
+      - [insert](operation) [twelve](CARDINAL) [kitchen towels](item) to the shopping list
       - [put](operation) [house keeping products](item) to the shopping list
-      - [buy](operation) [3](CARDINAL) [sweet spreads](item)
-      - i want to [insert](operation) [UHT-milk](item)
-      - i would like to [remove](operation) [organic products](item)
-      - [delete](operation) [jam](item) to the shopping list
-      - i want to [destroy](operation) [hygiene articles](item)
+      - [buy](operation) [fourteen](CARDINAL) [kitchen utensil](item)
+      - [add](operation) [15](CARDINAL) [sweet spreads](item)
+      - i want to [delete](operation) [specialty bar](item)
+      - i want to [insert](operation) [17](CARDINAL) [UHT-milk](item)
+      - i would like to [remove](operation) [eighteen](CARDINAL) [decalcifier](item)
+      - i would like to [destroy](operation) [organic products](item)
+      - [insert](operation) [19](CARDINAL) [bottled water](item) to the shopping list
+      - [delete](operation) [twenty](CARDINAL) [jam](item) to the shopping list
+      - i want to [add](operation) [shopping bags](item)
+      - i want to [destroy](operation) [21](CARDINAL) [hygiene articles](item)
+      - i want to [remove](operation) [twenty-one](CARDINAL) [cake bar](item)
       - i want to [add](operation) [curd cheese](item)
-      - [put](operation) [zwieback](item)
-      - [put](operation) [other vegetables](item)
+      - [delete](operation) [24](CARDINAL) [female sanitary products](item)
+      - [put](operation) [twenty-five](CARDINAL) [zwieback](item)
+      - [destroy](operation) [dental care](item)
+      - [put](operation) [45](CARDINAL) [other vegetables](item)
+      - [add](operation) [seventy-two](CARDINAL) [skin care](item)
       - [buy](operation) [rolls](item)
+      - [liver loaf](item)
       - [organic sausage](item)
       - [buy]{"entity": "operation", "value": "add"}
       - [put]{"entity": "operation", "value": "add"}

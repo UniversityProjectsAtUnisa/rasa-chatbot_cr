@@ -4,6 +4,7 @@ from yaml.loader import Loader
 import random
 from functools import reduce
 from pathlib import Path
+from num2words import num2words
 
 random.seed(0)
 
@@ -11,6 +12,7 @@ item_lut = "data/lookups/item.yml"
 
 test_file = "tests/test_stories_python.yml"
 Path(test_file).parent.mkdir(parents=True, exist_ok=True)
+
 
 def map_idx_to_synonym(idx, n_synonyms: dict):
     for k, v in n_synonyms.items():
@@ -35,6 +37,13 @@ r = random.randint(0, n_synonyms - 1)
 for (idx, item) in enumerate(items):
     ret = map_idx_to_synonym((idx+r) % n_synonyms, synonyms)
     synonym, operation = ret
+
+    r_number = (idx+r) % 3
+    number = ""
+    if r_number == 0:
+        number = f"[{idx}](CARDINAL)"
+    elif r_number == 1:
+        number = f"[{num2words(idx)}](CARDINAL)"
     single_test = {
         "story": f"LUT test {operation}({synonym}) {item}",
         "steps": [
@@ -44,7 +53,7 @@ for (idx, item) in enumerate(items):
             {"action": "item_form"},
             {"active_loop": "item_form"},
             {"action": "action_listen"},
-            {"user": f"[{item}](item)",
+            {"user": f"{number} [{item}](item)",
              "intent": "operation_on_item"},
             {"action": "item_form"},
             {"active_loop": None},

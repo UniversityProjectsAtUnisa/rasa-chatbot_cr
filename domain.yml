@@ -16,7 +16,7 @@ actions:
   - action_item
   - utter_ask_item
   - utter_ask_operation
-  - validate_item_form
+  # - validate_item_form
 
 slots:
   operation:

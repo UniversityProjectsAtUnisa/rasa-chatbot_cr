@@ -32,74 +32,74 @@ class ActionItem(Action):
         return [SlotSet("item", None), SlotSet("operation", None), SlotSet("CARDINAL", None)]
 
 
-class ValidateItemForm(FormValidationAction):
-    def name(self) -> Text:
-        return "validate_item_form"
+# class ValidateItemForm(FormValidationAction):
+#     def name(self) -> Text:
+#         return "validate_item_form"
 
-    async def required_slots(
-        self,
-        slots_mapped_in_domain: List[Text],
-        dispatcher: "CollectingDispatcher",
-        tracker: "Tracker",
-        domain: "DomainDict",
-    ) -> Optional[List[Text]]:
-        required_slots = slots_mapped_in_domain + ["CARDINAL"]
-        return required_slots
+#     async def required_slots(
+#         self,
+#         slots_mapped_in_domain: List[Text],
+#         dispatcher: "CollectingDispatcher",
+#         tracker: "Tracker",
+#         domain: "DomainDict",
+#     ) -> Optional[List[Text]]:
+#         required_slots = slots_mapped_in_domain + ["CARDINAL"]
+#         return required_slots
 
-    @classmethod
-    def _filter_number(cls, text, default_quantity=1) -> Tuple[Text, int]:
-        if text is None:
-            return None, None
-        print(text)
-        words = []
-        quantity = default_quantity
-        for word in text.split(" "):
-            if word.isnumeric():
-                quantity = word
-            else:
-                words.append(word)
-        return " ".join(words), quantity
+#     @classmethod
+#     def _filter_number(cls, text, default_quantity=1) -> Tuple[Text, int]:
+#         if text is None:
+#             return None, None
+#         print(text)
+#         words = []
+#         quantity = default_quantity
+#         for word in text.split(" "):
+#             if word.isnumeric():
+#                 quantity = word
+#             else:
+#                 words.append(word)
+#         return " ".join(words), quantity
 
-    async def extract_CARDINAL(
-        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
-    ) -> Dict[Text, Any]:
-        quantity = tracker.get_slot("CARDINAL")
-        quantity_item, quantity = self._filter_number(quantity, 1)
+#     async def extract_CARDINAL(
+#         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+#     ) -> Dict[Text, Any]:
+#         quantity = tracker.get_slot("CARDINAL")
+#         quantity_item, quantity = self._filter_number(quantity, 1)
 
-        item = tracker.get_slot("item")
-        item, item_quantity = self._filter_number(item, 1)
+#         item = tracker.get_slot("item")
+#         item, item_quantity = self._filter_number(item, 1)
 
-        item = quantity_item if item is None else item
-        quantity = item_quantity if quantity is None else quantity
+#         item = quantity_item if item is None else item
+#         quantity = item_quantity if quantity is None else quantity
 
-        return {"item": item, "CARDINAL": str(quantity)}
+#         return {"item": item, "CARDINAL": str(quantity)}
 
-    def validate_CARDINAL(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
+#     def validate_CARDINAL(
+#         self,
+#         slot_value: Any,
+#         dispatcher: CollectingDispatcher,
+#         tracker: Tracker,
+#         domain: DomainDict,
+#     ) -> Dict[Text, Any]:
 
-        return {"CARDINAL": slot_value}
+#         return {"CARDINAL": slot_value}
 
-    def validate_item(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
+#     def validate_item(
+#         self,
+#         slot_value: Any,
+#         dispatcher: CollectingDispatcher,
+#         tracker: Tracker,
+#         domain: DomainDict,
+#     ) -> Dict[Text, Any]:
 
-        return {"item": slot_value}
+#         return {"item": slot_value}
 
-    def validate_operation(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
+#     def validate_operation(
+#         self,
+#         slot_value: Any,
+#         dispatcher: CollectingDispatcher,
+#         tracker: Tracker,
+#         domain: DomainDict,
+#     ) -> Dict[Text, Any]:
 
-        return {"operation": slot_value}
+#         return {"operation": slot_value}

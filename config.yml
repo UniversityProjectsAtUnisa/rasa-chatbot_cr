@@ -3,30 +3,17 @@ language: en
 pipeline:
   - name: SpacyNLP
     model: "en_core_web_lg"
-  - name: SpacyTokenizer 
+  - name: SpacyTokenizer
   - name: SpacyFeaturizer
   - name: RegexFeaturizer
-  - name: CRFEntityExtractor
-  # - name: "DucklingEntityExtractor"
-  #   # url of the running duckling server
-  #   url: "http://localhost:8000"
-  #   # dimensions to extract
-  #   dimensions: ["number"]
-  #   # allows you to configure the locale, by default the language is
-  #   # used
-  #   # if not set the default timezone of Duckling is going to be used
-  #   # needed to calculate dates from relative expressions like "tomorrow"
-  #   # Timeout for receiving response from http url of the running duckling server
-  #   # if not set the default timeout of duckling http url is set to 3 seconds.
-  #   timeout: 3
+  - name: LexicalSyntacticFeaturizer
   - name: SpacyEntityExtractor
     dimensions: ["CARDINAL"]
-  # - name: RegexEntityExtractor
-  #   case_sensitive: False
-  #   use_lookup_tables: True
-  #   use_regexes: True
+  - name: DIETClassifier
+    intent_classification: False
   - name: EntitySynonymMapper
-  - name: SklearnIntentClassifier
+  - name: DIETClassifier
+    entity_recognition: False
 
 policies:
   - name: MemoizationPolicy
