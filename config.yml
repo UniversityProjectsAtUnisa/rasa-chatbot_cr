@@ -1,11 +1,14 @@
 language: en
 
 pipeline:
+  - name: "components.preprocessors.ExcludePreprocessor"
   - name: SpacyNLP
     model: "en_core_web_lg"
   - name: SpacyTokenizer 
+  
   - name: SpacyFeaturizer
   - name: RegexFeaturizer
+    case_sensitive: False
   - name: SpacyEntityExtractor
     dimensions: ["CARDINAL"]
   - name: CRFEntityExtractor

@@ -25,12 +25,12 @@ actions:
   - validate_item_form
 
 slots:
-  operation:
-    type: text
-    influence_conversation: false # TODO: Magari metti a true
   item:
     type: text
     influence_conversation: false
+  operation:
+    type: text
+    influence_conversation: false # TODO: Magari metti a true
   CARDINAL:
     type: text # TODO: Magari float
     influence_conversation: false
@@ -48,7 +48,8 @@ forms:
 responses:
   utter_greet:
     - text: "Hi. What are you looking for?"
-    - text: "Hello! What can I help you find today?"
+    - text: "Hi! I am at your service."
+    - text: "Hello! What can I help you with today?"
 
   utter_goodbye:
     - text: "Bye"
@@ -60,20 +61,24 @@ responses:
     - text: "Which shopping item in particular?"
 
   utter_ask_operation:
-    - text: "Which operation do you want to do (add, remove)?"
+    - text: "Which operation do you want to do with it (add, remove)?"
+    - text: "What do you want to do with it (add, remove)?"
   
   utter_stop:
     - text: "Request cancelled!"
   
   utter_stop_nothing:
-    - text: "Nobody can stop me!!!!"
-    - text: "I'm ineluctable!!!"
+    - text: "There is nothing to stop at the moment. If you want to terminate the interaction we can say goodbye."
+    - text: "I am not asking anything at the moment. If you want to terminate the interaction we can say goodbye."
   
   utter_already_greet:
-    - text: "I already greet you"
+    - text: "I already greeted you."
+    - text: "Hi! (Again ?...)"
+    - text: "Hello (wtf...)"
 
   utter_default:
     - text: Sorry I didn't get that. Can you rephrase?
+    - text: Sorry I didn't understand. Can you rephrase that?
 
 session_config:
   session_expiration_time: 60

@@ -46,7 +46,7 @@ class ActionShowItems(Action):
         if len(DATA) == 0:
             dispatcher.utter_message(text='Your shopping list is empty')
         else:
-            title = '# -------- SHOPPING LIST  --------#\n'
+            title = '# -------- SHOPPING LIST  -------- #\n'
             rows = (f'{name} - {quantity}' for name, quantity in DATA.items())
             dispatcher.utter_message(text=title + '\n'.join(rows))
         return []

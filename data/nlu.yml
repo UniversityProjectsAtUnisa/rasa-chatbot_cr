@@ -36,18 +36,20 @@ nlu:
   - intent: stop
     examples: |
       - stop
-      - i don't want to continue
-      - i can't do it anymore
+      - I don't want to continue
+      - I can't do it anymore
   
   - intent: show_items
     examples: |
       - show list
       - what's in my list
       - can you tell my list
-      - what i have to buy
+      - what do I have to buy
+      - what should I buy
       - cart
       - shopping list
 
+# TODO: Se dico "I want some beef" dovrebbe capire che voglio aggiungerla anche se non dico esplicitamente add
   - intent: operation_on_item
     examples: |
       - [long life bakery product](item)
