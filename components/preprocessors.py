@@ -35,26 +35,19 @@ class ExcludePreprocessor(Component):
         pass
 
     def process(self, message: Message, **kwargs: Any) -> None:
-        phrase = message.data["text"]
+        phrase = message.get('text')
+        if phrase is None:
+            return
+
         excludes = self.component_config["exclude"]
-        sub = self.component_config["substistute"]
+        sub = self.component_config["substitute"]
+
         table = str.maketrans(excludes, sub * len(excludes))
         phrase = phrase.translate(table)
         phrase = re.sub(sub + r'{2,}', sub, phrase)
+        phrase = phrase.strip()         # Trim leading or trailing spaces...
 
-        # Trim leading or trailing spaces...
-        phrase = phrase.strip()
-
-        found = []
-        entry = {
-            "original": message.text,
-            "cleansed": phrase
-        }
-        print(f"{entry=}")
-        found.append(entry)
-        message.set(self.name, message.get(self.name, []) + found,
-                    add_to_output=True)
-        message.data["text"] = phrase
+        message.set('text', phrase, True)
 
     def persist(self, file_name: Text, model_dir: Text) -> Optional[Dict[Text, Any]]:
         pass

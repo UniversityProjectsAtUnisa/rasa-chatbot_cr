@@ -48,6 +48,7 @@ nlu:
       - what should I buy
       - cart
       - shopping list
+      - show me
 
 # TODO: Se dico "I want some beef" dovrebbe capire che voglio aggiungerla anche se non dico esplicitamente add
   - intent: operation_on_item

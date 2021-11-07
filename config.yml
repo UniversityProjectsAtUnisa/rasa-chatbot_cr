@@ -1,36 +1,34 @@
 language: en
 
+# pipeline:
+#   - name: "components.preprocessors.ExcludePreprocessor"
+#   - name: SpacyNLP
+#     model: "en_core_web_lg"
+#   - name: SpacyTokenizer 
+#   - name: SpacyFeaturizer
+#   - name: RegexFeaturizer
+#     case_sensitive: False
+#   - name: SpacyEntityExtractor
+#     dimensions: ["CARDINAL"]
+#   - name: CRFEntityExtractor
+#   - name: EntitySynonymMapper
+#   - name: SklearnIntentClassifier
+
 pipeline:
   - name: "components.preprocessors.ExcludePreprocessor"
   - name: SpacyNLP
     model: "en_core_web_lg"
-  - name: SpacyTokenizer 
-  
+  - name: SpacyTokenizer
   - name: SpacyFeaturizer
   - name: RegexFeaturizer
-    case_sensitive: False
+  - name: LexicalSyntacticFeaturizer
+  - name: SpacyTokenizer
+  - name: LanguageModelFeaturizer
+  - name: DIETClassifier
+    constrain_similarities: True
   - name: SpacyEntityExtractor
     dimensions: ["CARDINAL"]
-  - name: CRFEntityExtractor
-  # - name: "DucklingEntityExtractor"
-  #   # url of the running duckling server
-  #   url: "http://localhost:8000"
-  #   # dimensions to extract
-  #   dimensions: ["number"]
-  #   # allows you to configure the locale, by default the language is
-  #   # used
-  #   # if not set the default timezone of Duckling is going to be used
-  #   # needed to calculate dates from relative expressions like "tomorrow"
-  #   # Timeout for receiving response from http url of the running duckling server
-  #   # if not set the default timeout of duckling http url is set to 3 seconds.
-  #   timeout: 3
-
-  # - name: RegexEntityExtractor
-  #   case_sensitive: False
-  #   use_lookup_tables: True
-  #   use_regexes: True
   - name: EntitySynonymMapper
-  - name: SklearnIntentClassifier
 
 policies:
   - name: MemoizationPolicy
