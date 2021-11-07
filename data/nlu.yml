@@ -67,6 +67,11 @@ nlu:
       - [add](operation)
       - [dish ice cream](item)
       - [frozen potato products](item)
+      - i want to [buy](operation) some [ice cream](item)
+      - [buy](operation) a [flower](item)
+      - i would like to [remove](operation) a [bottled water](item)
+      - some [sauces](item)
+      - can i [buy](operation) some [salt](item)
 
   - lookup: operation
     examples: |

@@ -1,3 +1,35 @@
 version: "2.0"
 
 stories:
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: operation_on_item
+    entities:
+    - operation: add
+    - item: ice cream
+  - slot_was_set:
+    - operation: add
+  - slot_was_set:
+    - item: ice cream
+  - action: item_form
+  - active_loop: item_form
+  - slot_was_set:
+    - item: ice cream
+  - slot_was_set:
+    - operation: add
+  - slot_was_set:
+    - item: ice cream
+  - slot_was_set:
+    - operation: add
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_item
+  - slot_was_set:
+    - item: null
+  - slot_was_set:
+    - operation: null
+  - slot_was_set:
+    - CARDINAL: null

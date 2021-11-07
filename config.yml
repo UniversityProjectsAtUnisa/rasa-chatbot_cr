@@ -6,6 +6,8 @@ pipeline:
   - name: SpacyTokenizer 
   - name: SpacyFeaturizer
   - name: RegexFeaturizer
+  - name: SpacyEntityExtractor
+    dimensions: ["CARDINAL"]
   - name: CRFEntityExtractor
   # - name: "DucklingEntityExtractor"
   #   # url of the running duckling server
@@ -19,8 +21,7 @@ pipeline:
   #   # Timeout for receiving response from http url of the running duckling server
   #   # if not set the default timeout of duckling http url is set to 3 seconds.
   #   timeout: 3
-  - name: SpacyEntityExtractor
-    dimensions: ["CARDINAL"]
+
   # - name: RegexEntityExtractor
   #   case_sensitive: False
   #   use_lookup_tables: True
