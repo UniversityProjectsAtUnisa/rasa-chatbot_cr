@@ -4,6 +4,7 @@ intents:
   - greet
   - goodbye
   - operation_on_item
+  - show_items
 
 entities:
   - item
@@ -14,6 +15,7 @@ actions:
   - utter_greet
   - utter_goodbye
   - action_item
+  - action_show_items
   - utter_ask_item
   - utter_ask_operation
   - validate_item_form

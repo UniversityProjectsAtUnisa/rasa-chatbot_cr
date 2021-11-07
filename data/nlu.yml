@@ -32,6 +32,15 @@ nlu:
       - see you around
       - bye bye
       - see you later
+  
+  - intent: show_items
+    examples: |
+      - show list
+      - what's in my list
+      - can you tell my list
+      - what i have to buy
+      - cart
+      - shopping list
 
   - intent: operation_on_item
     examples: |

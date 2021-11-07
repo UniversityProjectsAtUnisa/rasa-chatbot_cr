@@ -12,6 +12,11 @@ rules:
       - intent: goodbye
       - action: utter_goodbye
       - action: action_restart
+  
+  - rule: Show list when user asks
+    steps:
+      - intent: show_items
+      - action: action_show_items
 
   - rule: Activate item form
     steps:

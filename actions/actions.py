@@ -1,9 +1,13 @@
 from typing import Any, Text, Dict, List, Union, Optional, Tuple
+from collections import defaultdict
 
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 from rasa_sdk.types import DomainDict
+
+
+DATA = defaultdict(int)
 
 
 class ActionItem(Action):
@@ -20,12 +24,32 @@ class ActionItem(Action):
         dispatcher.utter_message(text=f"{operation=}")
         if operation == "add":
             dispatcher.utter_message(text=f"Adding: {quantity=}, {item=}.")
+            DATA[item] += int(quantity)
         elif operation == "remove":
             dispatcher.utter_message(text=f"Removing: {quantity=}, {item=}.")
+            new_quantity = DATA[item] - int(quantity)
+            if new_quantity <= 0:
+                DATA.pop(item)
+            else:
+                DATA[item] = new_quantity
         else:
             dispatcher.utter_message(text=f"Operation {operation} is invalid.")
 
         return [SlotSet("item", None), SlotSet("operation", None), SlotSet("CARDINAL", None)]
+
+
+class ActionShowItems(Action):
+    def name(self) -> Text:
+        return "action_show_items"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        if len(DATA) == 0:
+            dispatcher.utter_message(text='Your shopping list is empty')
+        else:
+            title = '# -------- SHOPPING LIST  --------#\n'
+            rows = (f'{name} - {quantity}' for name, quantity in DATA.items())
+            dispatcher.utter_message(text=title + '\n'.join(rows))
+        return []
 
 
 class ValidateItemForm(FormValidationAction):
