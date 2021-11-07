@@ -55,21 +55,3 @@ for (idx, item) in enumerate(items):
 
 with open(test_file, "w") as testfile:
     yaml.dump(tests, testfile)
-
-
-# stories:
-# - story: A basic story test
-#   steps:
-#   - action: action_listen
-#   - user: |
-#       [add](operation)
-#     intent: operation_on_item
-#   - action: item_form
-#   - active_loop: item_form
-#   - action: action_listen
-#   - user: |
-#      [jam](item)
-#     intent: operation_on_item
-#   - action: item_form
-#   - active_loop: null
-#   - action: action_item
