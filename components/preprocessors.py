@@ -1,7 +1,7 @@
 from collections import defaultdict
 import re
 import typing
-from typing import Any, Optional, Text, Dict, List, Type
+from typing import Any, Optional, Text, Dict, List, Tuple, Type
 
 from rasa.nlu.components import Component
 from rasa.nlu.config import RasaNLUModelConfig
@@ -115,7 +115,7 @@ class W2NPreprocessor(Component):
         pass
 
     @classmethod
-    def _find_end_of_number(cls, booleans_list: List[Text], left: int) -> bool:
+    def _find_end_of_number(cls, booleans_list: List[bool], left: int) -> int:
         idx = left
         if not booleans_list[idx]:
             return -1
@@ -126,6 +126,22 @@ class W2NPreprocessor(Component):
         if idx + 1 >= len(booleans_list):
             return idx
         return (idx + 1) if booleans_list[idx+1] else idx
+    
+    @staticmethod
+    def _split_with_indices(text: Text) -> List[Tuple[Text, int, int]]:
+        res = []
+
+        idx = 0
+        while idx < len(text):
+            if text[idx].isalpha():
+                start = idx
+                while idx < len(text) and text[idx].isalpha():
+                    idx += 1
+                res.append((text[start:idx], start, idx))
+            else:
+                idx += 1
+        
+        return res
 
     def process(self, message: Message, **kwargs: Any) -> None:
         phrase = message.get('text')
@@ -142,9 +158,9 @@ class W2NPreprocessor(Component):
         # Split su "uno o più spazi"
         # Tupla di (parola, inizio, fine)
         # Quando metti insieme: text [:inizio1] numero1 text[fine1:inizio2]...
+        split_data = self._split_with_indices(number_sentence)
 
-
-        split_words = number_sentence.strip().split()
+        split_words = [word[0] for word in split_data]
 
         booleans_list = [
             word in self.american_number_system for word in split_words]
@@ -158,20 +174,20 @@ class W2NPreprocessor(Component):
                 left = right
             left += 1
 
-        text = phrase.strip().split()
-
-        newtext = []
+        newtext = ""
         idx = 0
 
         for left, right in numbers_boundaries:
-            newtext += text[idx:left]
+            origin_left = split_data[left][1]
+            origin_right = split_data[right][2]
+
+            newtext += phrase[idx:origin_left]
             number = w2n.word_to_num(" ".join(split_words[left:right + 1]))
-            newtext.append(str(number))
-            idx = right+1
+            newtext += str(number)
 
-        newtext += text[idx:]
-        newtext = " ".join(newtext)
+            idx = origin_right
 
+        newtext += phrase[idx:]
         message.set('text', newtext, True)
 
     def persist(self, file_name: Text, model_dir: Text) -> Optional[Dict[Text, Any]]:

@@ -126,7 +126,8 @@ nlu:
       - [buy](operation) a [flower](item)
       - i would like to [remove](operation) a [bottled water](item)
       - some [sauces](item)
-      - can i [buy](operation) some [salt](item)
+      - can I [buy](operation) some [salt](item)
+      - I'd like to [remove](operation) some [bread](item)
 
   - lookup: operation
     examples: |

@@ -18,7 +18,7 @@ class ActionItem(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         operation = tracker.get_slot("operation")
-        item = tracker.get_slot("item")
+        item = stemmer.stem(tracker.get_slot("item"))
         # TODO: Use stem as id in the final database
         quantity = tracker.get_slot("CARDINAL")
         print(f"{operation=} {item=} {quantity=}")
