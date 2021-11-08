@@ -5,34 +5,15 @@ pipeline:
     exclude: ",-."
   - name: components.preprocessors.W2NPreprocessor
   - name: ConveRTTokenizer
-  - name: LexicalSyntacticFeaturizer
-  - name: ConveRTFeaturizer
-    model_url: "https://github.com/connorbrinton/polyai-models/releases/download/v1.0/model.tar.gz"
+  - name: LanguageModelFeaturizer
   - name: RegexFeaturizer
     case_sensitive: False
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
   - name: DIETClassifier
     constrain_similarities: True
     epochs: 200
   - name: EntitySynonymMapper
-
-# pipeline:
-#   # - name: "components.preprocessors.ExcludePreprocessor"
-#   # - name: SpacyNLP
-#   #   model: "en_core_web_lg"
-#   # - name: SpacyTokenizer
-#   # - name: SpacyFeaturizer
-#   - name: LanguageModelTokenizer
-#   - name: LanguageModelFeaturizer
-#     model_name: gpt2
-#     model_weights: gpt2
-#   - name: RegexFeaturizer
-#     case_sensitive: False
-#   # - name: LexicalSyntacticFeaturizer
-#   - name: DIETClassifier
-#     constrain_similarities: True
-#   # - name: SpacyEntityExtractor
-#   #   dimensions: ["CARDINAL"]
-#   - name: EntitySynonymMapper
 
 policies:
   - name: MemoizationPolicy
