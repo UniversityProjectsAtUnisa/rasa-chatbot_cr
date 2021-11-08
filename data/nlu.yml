@@ -68,6 +68,11 @@ nlu:
       - [put](operation) [264457](CARDINAL) [house keeping products](item) to the shopping list
       - [put](operation) [house keeping products](item) to the shopping list
       - [buy](operation) [3](CARDINAL) [sweet spreads](item)
+      - [add](operation) [100](CARDINAL) [other vegetables](item)
+      - [insert](operation) [101](CARDINAL) [dish cleaner](item)
+      - [buy](operation) [102](CARDINAL) [cling film](item)
+      - [add](operation) [103](CARDINAL) [cleaner](item)
+      - [put](operation) [120](CARDINAL) [sugar](item)
       - i want to [insert](operation) [UHT-milk](item)
       - i want to [insert](operation) [2123](CARDINAL) [UHT-milk](item)
       - i would like to [remove](operation) [organic products](item)
@@ -87,8 +92,8 @@ nlu:
       - [destroy]{"entity": "operation", "value": "remove"}
       - [remove](operation)
       - [add](operation)
-      - [add](operation) [1524](CARDINAL)
-      - [add](operation) [1525](CARDINAL)
+      - [buy](operation) [1524](CARDINAL)
+      - [put](operation) [1525](CARDINAL)
       - [add](operation) [1526](CARDINAL)
       - [dish ice cream](item)
       - [frozen potato products](item)

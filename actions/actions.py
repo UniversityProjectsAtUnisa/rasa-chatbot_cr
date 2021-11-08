@@ -57,6 +57,22 @@ class ValidateItemForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_item_form"
 
+    async def required_slots(
+        self,
+        slots_mapped_in_domain: List[Text],
+        dispatcher: "CollectingDispatcher",
+        tracker: "Tracker",
+        domain: "DomainDict",
+    ) -> Optional[List[Text]]:
+        required_slots = slots_mapped_in_domain + ["CARDINAL"]
+        return required_slots
+
+    async def extract_CARDINAL(
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+    ) -> Dict[Text, Any]:
+        quantity = tracker.get_slot("CARDINAL")
+        return {"CARDINAL": quantity}
+
     def validate_item(
         self,
         slot_value: Any,
@@ -76,7 +92,12 @@ class ValidateItemForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        return {"CARDINAL": slot_value}
+        quantity = "1"
+        if slot_value is not None:
+            for word in slot_value.split(" "):
+                if word.isnumeric():
+                    quantity = word
+        return {"CARDINAL": quantity}
 
     def validate_operation(
         self,
