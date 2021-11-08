@@ -32,7 +32,25 @@ nlu:
       - see you around
       - bye bye
       - see you later
+  
+  - intent: stop
+    examples: |
+      - stop
+      - I don't want to continue
+      - I can't do it anymore
+  
+  - intent: show_items
+    examples: |
+      - show list
+      - what's in my list
+      - can you tell my list
+      - what do I have to buy
+      - what should I buy
+      - cart
+      - shopping list
+      - show me
 
+# TODO: Se dico "I want some beef" dovrebbe capire che voglio aggiungerla anche se non dico esplicitamente add
   - intent: operation_on_item
     examples: |
       - [1](CARDINAL) [long life bakery product](item)
@@ -41,7 +59,8 @@ nlu:
       - [4](CARDINAL) [yogurt](item)
       - [five](CARDINAL) [herbs](item)
       - [photo](item)
-      - [7](CARDINAL) [flower (seeds)](item)
+      - [flower](item)
+      - [butter milk](item)
       - [eight](CARDINAL) [butter milk](item)
       - [misc. beverages](item)
       - [9](CARDINAL) [make up remover](item)
@@ -50,7 +69,6 @@ nlu:
       - [11](CARDINAL) [bags](item)
       - [add](operation) [10](CARDINAL) [beef](item)
       - [insert](operation) [twelve](CARDINAL) [kitchen towels](item) to the shopping list
-      - [put](operation) [house keeping products](item) to the shopping list
       - [buy](operation) [fourteen](CARDINAL) [kitchen utensil](item)
       - [add](operation) [15](CARDINAL) [sweet spreads](item)
       - i want to [delete](operation) [specialty bar](item)
@@ -62,6 +80,21 @@ nlu:
       - i want to [add](operation) [shopping bags](item)
       - i want to [destroy](operation) [21](CARDINAL) [hygiene articles](item)
       - i want to [remove](operation) [twenty-one](CARDINAL) [cake bar](item)
+      - [put](operation) [264457](CARDINAL) [house keeping products](item) to the shopping list
+      - [put](operation) [house keeping products](item) to the shopping list
+      - [buy](operation) [3](CARDINAL) [sweet spreads](item)
+      - [add](operation) [100](CARDINAL) [other vegetables](item)
+      - [insert](operation) [101](CARDINAL) [dish cleaner](item)
+      - [buy](operation) [102](CARDINAL) [cling film](item)
+      - [add](operation) [103](CARDINAL) [cleaner](item)
+      - [put](operation) [120](CARDINAL) [sugar](item)
+      - i want to [insert](operation) [UHT-milk](item)
+      - i want to [insert](operation) [2123](CARDINAL) [UHT-milk](item)
+      - i would like to [remove](operation) [organic products](item)
+      - [delete](operation) [152352345](CARDINAL) [jam](item) to the shopping list
+      - [delete](operation) [jam](item) to the shopping list
+      - i want to [destroy](operation) [hygiene articles](item)
+      - i want to [destroy](operation) [16345](CARDINAL) [hygiene articles](item)
       - i want to [add](operation) [curd cheese](item)
       - [delete](operation) [24](CARDINAL) [female sanitary products](item)
       - [put](operation) [twenty-five](CARDINAL) [zwieback](item)
@@ -78,8 +111,18 @@ nlu:
       - [destroy]{"entity": "operation", "value": "remove"}
       - [remove](operation)
       - [add](operation)
+      - [buy](operation) [1524](CARDINAL)
+      - [put](operation) [1525](CARDINAL)
+      - [add](operation) [1526](CARDINAL)
       - [dish ice cream](item)
       - [frozen potato products](item)
+      - i want to [buy](operation) [124265](CARDINAL) [ice cream](item)
+      - i want to [buy](operation) [756](CARDINAL) [ice cream](item)
+      - i want to [buy](operation) some [ice cream](item)
+      - [buy](operation) a [flower](item)
+      - i would like to [remove](operation) a [bottled water](item)
+      - some [sauces](item)
+      - can i [buy](operation) some [salt](item)
 
   - lookup: operation
     examples: |
@@ -101,3 +144,7 @@ nlu:
     examples: |
       - delete
       - destroy
+
+  - regex: CARDINAL
+    examples: |
+      - [1-9]\d*

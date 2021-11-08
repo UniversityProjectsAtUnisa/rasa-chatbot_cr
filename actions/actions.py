@@ -1,15 +1,13 @@
 from typing import Any, Text, Dict, List, Union, Optional, Tuple
+from collections import defaultdict
 
+from word2number import w2n
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 from rasa_sdk.types import DomainDict
 
-# def get_entity_from_list(slots: Union[Any, List[Any]]):
-#     print(slots)
-#     if isinstance(slots, list):
-#         return slots[0] if len(set(slots)) == 1 else None
-#     return slots
+DATA = defaultdict(int)
 
 
 class ActionItem(Action):
@@ -20,86 +18,92 @@ class ActionItem(Action):
         operation = tracker.get_slot("operation")
         item = tracker.get_slot("item")
         quantity = tracker.get_slot("CARDINAL")
+        print(f"{operation=} {item=} {quantity=}")
+        if quantity is None:
+            quantity = '1'
 
         dispatcher.utter_message(text=f"{operation=}")
         if operation == "add":
-            dispatcher.utter_message(text=f"Adding {quantity} item {item}.")
+            dispatcher.utter_message(text=f"Adding: {quantity=}, {item=}.")
+            DATA[item] += int(quantity)
         elif operation == "remove":
-            dispatcher.utter_message(text=f"Removing {quantity} item {item}.")
+            dispatcher.utter_message(text=f"Removing: {quantity=}, {item=}.")
+            new_quantity = DATA[item] - int(quantity)
+            if new_quantity <= 0:
+                DATA.pop(item)
+            else:
+                DATA[item] = new_quantity
         else:
             dispatcher.utter_message(text=f"Operation {operation} is invalid.")
 
         return [SlotSet("item", None), SlotSet("operation", None), SlotSet("CARDINAL", None)]
 
 
-# class ValidateItemForm(FormValidationAction):
-#     def name(self) -> Text:
-#         return "validate_item_form"
+class ActionShowItems(Action):
+    def name(self) -> Text:
+        return "action_show_items"
 
-#     async def required_slots(
-#         self,
-#         slots_mapped_in_domain: List[Text],
-#         dispatcher: "CollectingDispatcher",
-#         tracker: "Tracker",
-#         domain: "DomainDict",
-#     ) -> Optional[List[Text]]:
-#         required_slots = slots_mapped_in_domain + ["CARDINAL"]
-#         return required_slots
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        if len(DATA) == 0:
+            dispatcher.utter_message(text='Your shopping list is empty')
+        else:
+            title = '# -------- SHOPPING LIST  -------- #\n'
+            rows = (f'{name} - {quantity}' for name, quantity in DATA.items())
+            dispatcher.utter_message(text=title + '\n'.join(rows))
+        return []
 
-#     @classmethod
-#     def _filter_number(cls, text, default_quantity=1) -> Tuple[Text, int]:
-#         if text is None:
-#             return None, None
-#         print(text)
-#         words = []
-#         quantity = default_quantity
-#         for word in text.split(" "):
-#             if word.isnumeric():
-#                 quantity = word
-#             else:
-#                 words.append(word)
-#         return " ".join(words), quantity
 
-#     async def extract_CARDINAL(
-#         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
-#     ) -> Dict[Text, Any]:
-#         quantity = tracker.get_slot("CARDINAL")
-#         quantity_item, quantity = self._filter_number(quantity, 1)
+class ValidateItemForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_item_form"
 
-#         item = tracker.get_slot("item")
-#         item, item_quantity = self._filter_number(item, 1)
+    async def required_slots(
+        self,
+        slots_mapped_in_domain: List[Text],
+        dispatcher: "CollectingDispatcher",
+        tracker: "Tracker",
+        domain: "DomainDict",
+    ) -> Optional[List[Text]]:
+        required_slots = slots_mapped_in_domain + ["CARDINAL"]
+        return required_slots
 
-#         item = quantity_item if item is None else item
-#         quantity = item_quantity if quantity is None else quantity
+    async def extract_CARDINAL(
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+    ) -> Dict[Text, Any]:
+        quantity = tracker.get_slot("CARDINAL")
+        return {"CARDINAL": quantity}
 
-#         return {"item": item, "CARDINAL": str(quantity)}
+    def validate_item(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        quantity = tracker.get_slot("CARDINAL")
+        if quantity is not None and quantity in slot_value:
+            slot_value = slot_value.replace(quantity, '').strip()
+        return {"item": slot_value}
 
-#     def validate_CARDINAL(
-#         self,
-#         slot_value: Any,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: DomainDict,
-#     ) -> Dict[Text, Any]:
+    def validate_CARDINAL(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        quantity = "1"
+        if slot_value is not None:
+            for word in slot_value.split(" "):
+                if word.isnumeric():
+                    quantity = word
+        return {"CARDINAL": quantity}
 
-#         return {"CARDINAL": slot_value}
-
-#     def validate_item(
-#         self,
-#         slot_value: Any,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: DomainDict,
-#     ) -> Dict[Text, Any]:
-
-#         return {"item": slot_value}
-
-#     def validate_operation(
-#         self,
-#         slot_value: Any,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: DomainDict,
-#     ) -> Dict[Text, Any]:
-
-#         return {"operation": slot_value}
+    def validate_operation(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        return {"operation": slot_value}

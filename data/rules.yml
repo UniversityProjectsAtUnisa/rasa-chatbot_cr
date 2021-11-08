@@ -6,12 +6,38 @@ rules:
     steps:
       - intent: greet
       - action: utter_greet
+  
+  - rule: Say 
+    conversation_start: false
+    steps:
+      - intent: greet
+      - action: utter_already_greet
 
   - rule: Say goodbye anytime the user says goodbye
     steps:
       - intent: goodbye
       - action: utter_goodbye
       - action: action_restart
+  
+  - rule: Stop item form when user asks
+    condition:
+      - active_loop: item_form
+    steps:
+      - intent: stop
+      - action: utter_stop
+      - action: action_restart
+  
+  - rule: Stop item form when user asks
+    condition:
+      - active_loop: null
+    steps:
+      - intent: stop
+      - action: utter_stop_nothing
+  
+  - rule: Show list when user asks
+    steps:
+      - intent: show_items
+      - action: action_show_items
 
   - rule: Activate item form
     steps:
@@ -29,4 +55,3 @@ rules:
           - requested_slot: null
       - action: action_item
       # - action: action_restart
-

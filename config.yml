@@ -1,19 +1,19 @@
 language: en
 
 pipeline:
-  - name: SpacyNLP
-    model: "en_core_web_lg"
-  - name: SpacyTokenizer
-  - name: SpacyFeaturizer
+  # - name: components.preprocessors.ExcludePreprocessor
+  #   exclude: ",-."
+  - name: components.preprocessors.W2NPreprocessor
+  - name: WhitespaceTokenizer
+  - name: LanguageModelFeaturizer
   - name: RegexFeaturizer
+    case_sensitive: False
   - name: LexicalSyntacticFeaturizer
-  - name: SpacyEntityExtractor
-    dimensions: ["CARDINAL"]
+  - name: CountVectorsFeaturizer
   - name: DIETClassifier
-    intent_classification: False
+    constrain_similarities: True
+    epochs: 200
   - name: EntitySynonymMapper
-  - name: DIETClassifier
-    entity_recognition: False
 
 policies:
   - name: MemoizationPolicy
