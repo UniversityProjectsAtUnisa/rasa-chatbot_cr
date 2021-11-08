@@ -1,10 +1,10 @@
 language: en
 
 pipeline:
-  - name: components.preprocessors.ExcludePreprocessor
-    exclude: ",-."
+  # - name: components.preprocessors.ExcludePreprocessor
+  #   exclude: ",-."
   - name: components.preprocessors.W2NPreprocessor
-  - name: ConveRTTokenizer
+  - name: WhitespaceTokenizer
   - name: LanguageModelFeaturizer
   - name: RegexFeaturizer
     case_sensitive: False
