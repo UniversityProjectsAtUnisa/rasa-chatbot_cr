@@ -6,9 +6,11 @@ from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 from rasa_sdk.types import DomainDict
+from nltk.stem import PorterStemmer
+
+stemmer = PorterStemmer()
 
 DATA = defaultdict(int)
-
 
 class ActionItem(Action):
     def name(self) -> Text:
@@ -17,6 +19,7 @@ class ActionItem(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         operation = tracker.get_slot("operation")
         item = tracker.get_slot("item")
+        # TODO: Use stem as id in the final database
         quantity = tracker.get_slot("CARDINAL")
         print(f"{operation=} {item=} {quantity=}")
         if quantity is None:

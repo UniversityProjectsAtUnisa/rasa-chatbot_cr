@@ -33,9 +33,13 @@ nlu:
       - bye bye
       - see you later
   
+# FIXME: Non funziona
   - intent: stop
     examples: |
       - stop
+      - stop please
+      - I made a mistake
+      - Nothing
       - I don't want to continue
       - I can't do it anymore
   
