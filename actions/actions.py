@@ -1,11 +1,11 @@
 from typing import Any, Text, Dict, List, Union, Optional, Tuple
 from collections import defaultdict
 
+from word2number import w2n
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 from rasa_sdk.types import DomainDict
-
 
 DATA = defaultdict(int)
 
@@ -18,6 +18,7 @@ class ActionItem(Action):
         operation = tracker.get_slot("operation")
         item = tracker.get_slot("item")
         quantity = tracker.get_slot("CARDINAL")
+        print(f"{operation=} {item=} {quantity=}")
         if quantity is None:
             quantity = '1'
 
@@ -55,7 +56,7 @@ class ActionShowItems(Action):
 class ValidateItemForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_item_form"
-    
+
     def validate_item(
         self,
         slot_value: Any,
@@ -67,7 +68,7 @@ class ValidateItemForm(FormValidationAction):
         if quantity is not None and quantity in slot_value:
             slot_value = slot_value.replace(quantity, '').strip()
         return {"item": slot_value}
-    
+
     def validate_CARDINAL(
         self,
         slot_value: Any,
@@ -76,7 +77,7 @@ class ValidateItemForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         return {"CARDINAL": slot_value}
-    
+
     def validate_operation(
         self,
         slot_value: Any,

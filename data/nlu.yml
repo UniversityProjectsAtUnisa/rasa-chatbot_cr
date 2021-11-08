@@ -59,18 +59,22 @@ nlu:
       - [yogurt](item)
       - [2](CARDINAL) [herbs](item)
       - [photo](item)
-      - [flower (seeds)](item)
+      - [flower](item)
       - [butter milk](item)
       - [misc. beverages](item)
       - [make up remover](item)
       - [tidbits](item)
       - [cookware](item)
+      - [put](operation) [264457](CARDINAL) [house keeping products](item) to the shopping list
       - [put](operation) [house keeping products](item) to the shopping list
       - [buy](operation) [3](CARDINAL) [sweet spreads](item)
       - i want to [insert](operation) [UHT-milk](item)
+      - i want to [insert](operation) [2123](CARDINAL) [UHT-milk](item)
       - i would like to [remove](operation) [organic products](item)
+      - [delete](operation) [152352345](CARDINAL) [jam](item) to the shopping list
       - [delete](operation) [jam](item) to the shopping list
       - i want to [destroy](operation) [hygiene articles](item)
+      - i want to [destroy](operation) [16345](CARDINAL) [hygiene articles](item)
       - i want to [add](operation) [curd cheese](item)
       - [put](operation) [zwieback](item)
       - [put](operation) [other vegetables](item)
@@ -83,8 +87,13 @@ nlu:
       - [destroy]{"entity": "operation", "value": "remove"}
       - [remove](operation)
       - [add](operation)
+      - [add](operation) [1524](CARDINAL)
+      - [add](operation) [1525](CARDINAL)
+      - [add](operation) [1526](CARDINAL)
       - [dish ice cream](item)
       - [frozen potato products](item)
+      - i want to [buy](operation) [124265](CARDINAL) [ice cream](item)
+      - i want to [buy](operation) [756](CARDINAL) [ice cream](item)
       - i want to [buy](operation) some [ice cream](item)
       - [buy](operation) a [flower](item)
       - i would like to [remove](operation) a [bottled water](item)
@@ -111,3 +120,7 @@ nlu:
     examples: |
       - delete
       - destroy
+
+  - regex: CARDINAL
+    examples: |
+      - [1-9]\d*
