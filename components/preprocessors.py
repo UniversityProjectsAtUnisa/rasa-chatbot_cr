@@ -97,12 +97,14 @@ class W2NPreprocessor(Component):
         'point': '.'
     }
 
-    defaults = {}
+    defaults = {"exclude": ",-.", "substitute": " "}
     supported_language_list = "en"
     not_supported_language_list = None
 
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
-        super().__init__(component_config)
+        super().__init__(component_config)        
+        if "substitute" in component_config and len(component_config["substitute"]) != 1:
+            raise Exception("substitute config must be one single character")
 
     def train(
         self,
@@ -121,13 +123,23 @@ class W2NPreprocessor(Component):
             if booleans_list[idx+1] == False and booleans_list[idx+2] == False:
                 return idx
             idx += 1
-        return (idx + 1) if booleans_list[idx + 1] else idx
+        if idx + 1 >= len(booleans_list):
+            return idx
+        return (idx + 1) if booleans_list[idx+1] else idx
 
     def process(self, message: Message, **kwargs: Any) -> None:
         phrase = message.get('text')
         if phrase is None:
             return
-        number_sentence = phrase.lower()
+        phrase = phrase.lower()
+
+        excludes = self.component_config["exclude"]
+        sub = self.component_config["substitute"]
+
+        table = str.maketrans(excludes, sub * len(excludes))
+        phrase = phrase.translate(table)
+        number_sentence = re.sub(sub + r'{2,}', sub, phrase)
+
         split_words = number_sentence.strip().split()
 
         booleans_list = [
