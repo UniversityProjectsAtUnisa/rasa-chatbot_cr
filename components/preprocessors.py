@@ -131,14 +131,18 @@ class W2NPreprocessor(Component):
         phrase = message.get('text')
         if phrase is None:
             return
-        phrase = phrase.lower()
+        number_sentence = phrase.lower()
 
         excludes = self.component_config["exclude"]
         sub = self.component_config["substitute"]
 
         table = str.maketrans(excludes, sub * len(excludes))
-        phrase = phrase.translate(table)
-        number_sentence = re.sub(sub + r'{2,}', sub, phrase)
+        number_sentence = number_sentence.translate(table)
+
+        # Split su "uno o più spazi"
+        # Tupla di (parola, inizio, fine)
+        # Quando metti insieme: text [:inizio1] numero1 text[fine1:inizio2]...
+
 
         split_words = number_sentence.strip().split()
 
