@@ -6,8 +6,8 @@ rules:
     steps:
       - intent: greet
       - action: utter_greet
-  
-  - rule: Say 
+
+  - rule: Say
     conversation_start: false
     steps:
       - intent: greet
@@ -18,7 +18,7 @@ rules:
       - intent: goodbye
       - action: utter_goodbye
       - action: action_restart
-  
+
   - rule: Stop item form when user asks
     condition:
       - active_loop: item_form
@@ -26,14 +26,14 @@ rules:
       - intent: stop
       - action: utter_stop
       - action: action_restart
-  
-  - rule: Stop item form when user asks
+
+  - rule: Dont stop if not in loop
     condition:
       - active_loop: null
     steps:
       - intent: stop
       - action: utter_stop_nothing
-  
+
   - rule: Show list when user asks
     steps:
       - intent: show_items
