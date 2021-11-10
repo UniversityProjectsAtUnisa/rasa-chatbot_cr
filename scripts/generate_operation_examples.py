@@ -48,7 +48,6 @@ def main():
                  "(operation) (CARDINAL) (item)",
                  "(operation) (CARDINAL) (item) from the shopping list",
                  "(operation) (CARDINAL) (item) to the shopping list",
-                 "(operation) (CARDINAL) (item)i would like to (operation) (item)",
                  "(operation) (item)",
                  "(operation) (item) from the shopping list",
                  "(operation) (item) to the shopping list",

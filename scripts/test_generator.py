@@ -4,8 +4,6 @@ from yaml.loader import Loader
 import random
 from functools import reduce
 from pathlib import Path
-from num2words import num2words
-
 
 
 def map_idx_to_synonym(idx, n_synonyms: dict):
@@ -14,21 +12,22 @@ def map_idx_to_synonym(idx, n_synonyms: dict):
             return k, v[idx]
         idx -= len(v)
 
+
 def get_obj_from_yml(filename):
     with open(filename) as yamlfile:
         return yaml.load(yamlfile, Loader=Loader)
 
+
 def dump_obj_on_yml(filename, data):
     with open(filename, "w") as testfile:
         yaml.dump(data, testfile)
+
 
 def get_items_from_yml(filename):
     obj = get_obj_from_yml(filename)
     raw_items: str = obj['nlu'][0]['examples']
     items = [item[2:] for item in raw_items.split('\n')]
     return items
-
-
 
 
 def main():
@@ -63,12 +62,12 @@ def main():
             "steps": [
                 {"action": "action_listen"},
                 {"user": f'[{operation}]' + r'{"entity": "operation", "value": "'+synonym+'"}',
-                "intent": "operation_on_item"},
+                 "intent": "operation_on_item"},
                 {"action": "item_form"},
                 {"active_loop": "item_form"},
                 {"action": "action_listen"},
                 {"user": f"{number} [{item}](item)",
-                "intent": "operation_on_item"},
+                 "intent": "operation_on_item"},
                 {"action": "item_form"},
                 {"active_loop": None},
                 {"action": "action_item"},
@@ -78,7 +77,6 @@ def main():
 
     dump_obj_on_yml(test_file, tests)
 
-    
 
 if __name__ == "__main__":
     main()
