@@ -58,7 +58,6 @@ nlu:
       - whisky
       - prosecco
       - salad dressing
-      - misc. beverages
       - candles
       - rum
       - liqueur
@@ -66,7 +65,6 @@ nlu:
       - prunes
       - cocoa drinks
       - soda
-      - artif. sweetener
       - potato products
       - fish
       - bottled water
@@ -135,7 +133,6 @@ nlu:
       - coffee
       - kitchen utensil
       - syrup
-      - make up remover
       - bags
       - brandy
       - curd
