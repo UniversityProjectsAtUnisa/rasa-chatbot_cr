@@ -7,7 +7,7 @@ rules:
       - intent: greet
       - action: utter_greet
 
-  - rule: Say
+  - rule: Say already greeted when the user greets more than once
     conversation_start: false
     steps:
       - intent: greet
@@ -33,11 +33,13 @@ rules:
     steps:
       - intent: stop
       - action: utter_stop_nothing
+      - action: action_restart
 
   - rule: Show list when user asks
     steps:
       - intent: show_items
       - action: action_show_items
+      # - action: action_restart
 
   - rule: Activate item form
     steps:
@@ -55,3 +57,8 @@ rules:
           - requested_slot: null
       - action: action_item
       # - action: action_restart
+
+  - rule: Say utter_default when the user starts saying bullshit
+    steps:
+      - intent: out_of_scope
+      - action: utter_default

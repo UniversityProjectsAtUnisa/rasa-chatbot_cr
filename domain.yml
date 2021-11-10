@@ -6,6 +6,7 @@ intents:
   - operation_on_item
   - show_items
   - stop
+  - out_of_scope
 
 entities:
   - item
@@ -79,6 +80,10 @@ responses:
   utter_default:
     - text: Sorry I didn't get that. Can you rephrase?
     - text: Sorry I didn't understand. Can you rephrase that?
+
+  utter_out_of_scope:
+    - text: It's too much for me...
+    - text: Talk as you eat [literal translation from italian]
 
 session_config:
   session_expiration_time: 60
