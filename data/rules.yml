@@ -7,11 +7,39 @@ rules:
       - intent: greet
       - action: utter_greet
 
+  - rule: Say already greeted when the user greets more than once
+    conversation_start: false
+    steps:
+      - intent: greet
+      - action: utter_already_greet
+
   - rule: Say goodbye anytime the user says goodbye
     steps:
       - intent: goodbye
       - action: utter_goodbye
       - action: action_restart
+
+  - rule: Stop item form when user asks
+    condition:
+      - active_loop: item_form
+    steps:
+      - intent: stop
+      - action: utter_stop
+      - action: action_restart
+
+  - rule: Dont stop if not in loop
+    condition:
+      - active_loop: null
+    steps:
+      - intent: stop
+      - action: utter_stop_nothing
+      - action: action_restart
+
+  - rule: Show list when user asks
+    steps:
+      - intent: show_items
+      - action: action_show_items
+      # - action: action_restart
 
   - rule: Activate item form
     steps:
@@ -30,3 +58,7 @@ rules:
       - action: action_item
       # - action: action_restart
 
+  - rule: Say utter_default when the user starts saying bullshit
+    steps:
+      - intent: out_of_scope
+      - action: utter_default

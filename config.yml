@@ -1,36 +1,28 @@
 language: en
 
 pipeline:
-  - name: SpacyNLP
-    model: "en_core_web_lg"
-  - name: SpacyTokenizer 
-  - name: SpacyFeaturizer
+  # - name: components.preprocessors.ExcludePreprocessor
+  #   exclude: ",-."
+  - name: components.preprocessors.W2NPreprocessor
+  - name: WhitespaceTokenizer
+  - name: LanguageModelFeaturizer
+    model_name: distilbert
+    model_weights: distilbert-base-uncased
   - name: RegexFeaturizer
-  - name: CRFEntityExtractor
-  # - name: "DucklingEntityExtractor"
-  #   # url of the running duckling server
-  #   url: "http://localhost:8000"
-  #   # dimensions to extract
-  #   dimensions: ["number"]
-  #   # allows you to configure the locale, by default the language is
-  #   # used
-  #   # if not set the default timezone of Duckling is going to be used
-  #   # needed to calculate dates from relative expressions like "tomorrow"
-  #   # Timeout for receiving response from http url of the running duckling server
-  #   # if not set the default timeout of duckling http url is set to 3 seconds.
-  #   timeout: 3
-  - name: SpacyEntityExtractor
-    dimensions: ["CARDINAL"]
-  # - name: RegexEntityExtractor
-  #   case_sensitive: False
-  #   use_lookup_tables: True
-  #   use_regexes: True
+    case_sensitive: False
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: DIETClassifier
+    constrain_similarities: True
+    epochs: 200
   - name: EntitySynonymMapper
-  - name: SklearnIntentClassifier
 
 policies:
   - name: MemoizationPolicy
   - name: RulePolicy
+    core_fallback_threshold: 0.6
+    core_fallback_action_name: "action_default_fallback"
+    enable_fallback_prediction: True
   - name: TEDPolicy
     max_history: 5
     epochs: 5
