@@ -1,7 +1,6 @@
-from typing import Any, ItemsView, Text, Dict, List, Union, Optional, Tuple
-from collections import defaultdict, OrderedDict
+from typing import Any, Text, Dict, List
+from collections import OrderedDict
 
-from word2number import w2n
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
