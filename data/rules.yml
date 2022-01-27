@@ -24,8 +24,9 @@ rules:
       - active_loop: item_form
     steps:
       - intent: stop
-      - action: utter_stop
-      - action: action_restart
+      - action: action_deactivate_loop
+      - active_loop: null
+      - action: action_stop_form
 
   - rule: Dont stop if not in loop
     condition:
@@ -33,7 +34,7 @@ rules:
     steps:
       - intent: stop
       - action: utter_stop_nothing
-      - action: action_restart
+      # - action: action_restart
 
   - rule: Show list when user asks
     steps:

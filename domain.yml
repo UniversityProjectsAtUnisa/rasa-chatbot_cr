@@ -17,13 +17,16 @@ actions:
   - utter_greet
   - utter_already_greet
   - utter_goodbye
-  - action_item
-  - action_show_items
+
   - utter_ask_item
   - utter_ask_operation
+  - action_item
+  - action_show_items
+  - validate_item_form
+
   - utter_stop
   - utter_stop_nothing
-  - validate_item_form
+  - action_stop_form
 
 slots:
   item:

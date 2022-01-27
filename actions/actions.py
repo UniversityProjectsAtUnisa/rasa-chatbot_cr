@@ -63,6 +63,15 @@ class ActionShowItems(Action):
         return []
 
 
+class ActionStopForm(Action):
+    def name(self) -> Text:
+        return "action_stop_form"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any])  -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(response="utter_stop")
+        return [SlotSet("item", None), SlotSet("operation", None), SlotSet("CARDINAL", None)]
+
+
 class ValidateItemForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_item_form"
