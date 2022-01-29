@@ -5,9 +5,15 @@ nlu:
     examples: |
       - hey
       - hello
+      - hello, my name is [alessandro](user)
+      - hello my name is [marco](user)
       - hi
+      - hi, my name is [oussama](user)
+      - hi my name is [giandomenico](user)
       - hello there
       - good morning
+      - good morning, my name is [oussama](user)
+      - good morning my name is [alessandro](user)
       - good evening
       - moin
       - hey there
@@ -52,6 +58,13 @@ nlu:
       - cart
       - shopping list
       - show me
+
+  - intent: introduce_myself
+    examples: |
+      - i'm [marco](user)
+      - i'm [oussama](user)
+      - my name is [alessandro](user)
+      - [giandomenico](user)
 
   - intent: operation_on_item
     examples: |

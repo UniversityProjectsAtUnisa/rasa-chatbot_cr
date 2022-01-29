@@ -3,6 +3,7 @@ version: "2.0"
 intents:
   - greet
   - goodbye
+  - introduce_myself
   - operation_on_item
   - show_items
   - stop
@@ -11,13 +12,16 @@ intents:
 entities:
   - item
   - operation
+  - user
   - CARDINAL
 
 actions:
   - utter_greet
   - utter_already_greet
   - utter_goodbye
+  - utter_pleased
 
+  - utter_ask_user
   - utter_ask_item
   - utter_ask_operation
   - action_item
@@ -34,26 +38,52 @@ slots:
     influence_conversation: false
   operation:
     type: text
-    influence_conversation: false # TODO: Magari metti a true
+    influence_conversation: false
+  user:
+    type: text
+    influence_conversation: false
   CARDINAL:
-    type: text # TODO: Magari float
+    type: text
     influence_conversation: false
 
 forms:
+  user_form:
+    required_slots:
+      user:
+        - type: from_entity
+          entity: user
   item_form:
     required_slots:
-      item:
+      user:
         - type: from_entity
-          entity: item
+          entity: user
       operation:
         - type: from_entity
           entity: operation
+      item:
+        - type: from_entity
+          entity: item
 
 responses:
   utter_greet:
-    - text: "Hi. What are you looking for?"
-    - text: "Hi! I am at your service."
-    - text: "Hello! What can I help you with today?"
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: "Hi! Who are you?"
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: "Hello! Who am I talking to?"
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: "Hello! Who do I have the pleasure of speaking to?"
+    - text: "Hi {user}. What are you looking for?"
+    - text: "Hi {user}! I am at your service."
+    - text: "Hello {user}! What can I help you with today?"
 
   utter_goodbye:
     - text: "Bye"
@@ -61,24 +91,60 @@ responses:
     - text: "Have a good day."
     - text: "Until next time!"
 
+  utter_pleased:
+    - text: "Nice to meet you, {user}"
+    - text: "Pleased to meet you, {user}"
+
+  utter_ask_user:
+    - text: "Who are you?"
+
   utter_ask_item:
-    - text: "Which shopping item in particular?"
+    - condition:
+        - type: slot
+          name: operation
+          value: "add"
+      text: "What do you want to buy?"
+    - condition:
+        - type: slot
+          name: operation
+          value: "remove"
+      text: "What do you want to remove from your list?"
 
   utter_ask_operation:
-    - text: "Which operation do you want to do with it (add, remove)?"
-    - text: "What do you want to do with it (add, remove)?"
-  
+    - condition:
+        - type: slot
+          name: item
+          value: null
+      text: "Which operation do you want to do (add, remove)?"
+    - text: "Which operation do you want to do with {item} (add, remove)?"
+    - text: "What do you want to do with {item} (add, remove)?"
+
   utter_stop:
     - text: "Request cancelled!"
-  
+
   utter_stop_nothing:
     - text: "There is nothing to stop at the moment. If you want to terminate the interaction we can say goodbye."
     - text: "I am not asking anything at the moment. If you want to terminate the interaction we can say goodbye."
-  
+
   utter_already_greet:
-    - text: "I already greeted you."
-    - text: "Hi! (Again ?...)"
-    - text: "Hello (wtf...)"
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: "I already greeted you."
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: "Hi! (Again?)"
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: "Hello! Hello! Hello!"
+    - text: "I already greeted you, {user}"
+    - text: "Hi again {user}!"
+    - text: "Hello {user}! Hello {user}! Hello {user}!"
 
   utter_default:
     - text: Sorry I didn't get that. Can you rephrase?

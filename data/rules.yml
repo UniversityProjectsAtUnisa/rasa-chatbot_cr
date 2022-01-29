@@ -42,6 +42,11 @@ rules:
       - action: action_show_items
       # - action: action_restart
 
+  - rule: Pleased to meet the new user
+    steps:
+      - intent: introduce_myself
+      - action: utter_pleased
+
   - rule: Activate item form
     steps:
       - intent: operation_on_item

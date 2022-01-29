@@ -1,4 +1,4 @@
-version: "2.0" # TODO: Try to move file to data/lookups/item.yml
+version: "2.0"
 nlu:
   - lookup: item
     examples: |
