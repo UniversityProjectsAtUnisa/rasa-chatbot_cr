@@ -1,0 +1,185 @@
+version: "2.0"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - goodmorning
+      - goodevening
+      - good afternoon
+      - yo
+      - yo bro
+      - wassup
+
+  - intent: goodbye
+    examples: |
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
+
+  - intent: stop
+    examples: |
+      - stop
+      - stop please
+      - I made a mistake
+      - Nothing
+      - I don't want to continue
+      - I can't do it anymore
+
+  - intent: show_items
+    examples: |
+      - show list
+      - what's in my list
+      - can you tell my list
+      - what do I have to buy
+      - what should I buy
+      - cart
+      - shopping list
+      - show me
+
+  - intent: operation_on_item
+    examples: |
+      - [1056](CARDINAL) [salad dressing](item)
+      - [163](CARDINAL) [cocoa drinks](item)
+      - [1705](CARDINAL) [cat food](item)
+      - [193](CARDINAL) [soda](item)
+      - [199](CARDINAL) [dish cleaner](item)
+      - [2070](CARDINAL) [frozen meals](item)
+      - [223](CARDINAL) [domestic eggs](item)
+      - [2656](CARDINAL) [semi-finished bread](item)
+      - [268](CARDINAL) [sugar](item)
+      - [352](CARDINAL) [kitchen utensil](item)
+      - [454](CARDINAL) [sour cream](item)
+      - [520](CARDINAL) [canned vegetables](item)
+      - [53](CARDINAL) [kitchen towels](item)
+      - [581](CARDINAL) [ice cream](item)
+      - [746](CARDINAL) [baking powder](item)
+      - [UHT-milk](item)
+      - [add](operation)
+      - [add](operation) [1294](CARDINAL) [onions](item)
+      - [add](operation) [608](CARDINAL) [chewing gum](item)
+      - [add](operation) [dish cleaner](item)
+      - [add](operation) [flower](item)
+      - [add](operation) [frozen meals](item)
+      - [add](operation) a [candles](item)
+      - [add](operation) a [cleaner](item)
+      - [add](operation) a [pork](item)
+      - [buy]{"entity": "operation", "value": "add"}
+      - [buy]{"entity": "operation", "value": "add"} [1714](CARDINAL) [instant coffee](item)
+      - [buy]{"entity": "operation", "value": "add"} [cereals](item)
+      - [buy]{"entity": "operation", "value": "add"} [pudding powder](item)
+      - [buy]{"entity": "operation", "value": "add"} a [kitchen towels](item)
+      - [canned fish](item)
+      - [canned vegetables](item)
+      - [chicken](item)
+      - [cling film](item)
+      - [delete]{"entity": "operation", "value": "remove"}
+      - [delete]{"entity": "operation", "value": "remove"} [628](CARDINAL) [dental care](item)
+      - [delete]{"entity": "operation", "value": "remove"} [81](CARDINAL) [dental care](item)
+      - [delete]{"entity": "operation", "value": "remove"} [854](CARDINAL) [decalcifier](item)
+      - [delete]{"entity": "operation", "value": "remove"} [baby cosmetics](item)
+      - [delete]{"entity": "operation", "value": "remove"} [spread cheese](item)
+      - [delete]{"entity": "operation", "value": "remove"} a [organic products](item)
+      - [delete]{"entity": "operation", "value": "remove"} a [pastry](item)
+      - [destroy]{"entity": "operation", "value": "remove"} [443](CARDINAL) [butter](item)
+      - [destroy]{"entity": "operation", "value": "remove"} [83](CARDINAL) [newspapers](item)
+      - [destroy]{"entity": "operation", "value": "remove"} [891](CARDINAL) [pasta](item)
+      - [destroy]{"entity": "operation", "value": "remove"} [927](CARDINAL) [cooking chocolate](item)
+      - [destroy]{"entity": "operation", "value": "remove"} [cocoa drinks](item)
+      - [destroy]{"entity": "operation", "value": "remove"} a [citrus fruit](item)
+      - [destroy]{"entity": "operation", "value": "remove"} a [curd](item)
+      - [destroy]{"entity": "operation", "value": "remove"} a [pot plants](item)
+      - [film](item)
+      - [frozen fish](item)
+      - [frozen meals](item)
+      - [frozen vegetables](item)
+      - [hair spray](item)
+      - [hard cheese](item)
+      - [insert]{"entity": "operation", "value": "add"}
+      - [insert]{"entity": "operation", "value": "add"} [1044](CARDINAL) [rubbing alcohol](item)
+      - [insert]{"entity": "operation", "value": "add"} [1716](CARDINAL) [canned beer](item)
+      - [insert]{"entity": "operation", "value": "add"} [818](CARDINAL) [abrasive cleaner](item)
+      - [insert]{"entity": "operation", "value": "add"} [frozen meals](item)
+      - [insert]{"entity": "operation", "value": "add"} [long life bakery product](item)
+      - [insert]{"entity": "operation", "value": "add"} a [condensed milk](item)
+      - [insert]{"entity": "operation", "value": "add"} a [dental care](item)
+      - [insert]{"entity": "operation", "value": "add"} a [spread cheese](item)
+      - [nut snack](item)
+      - [put]{"entity": "operation", "value": "add"}
+      - [put]{"entity": "operation", "value": "add"} [1548](CARDINAL) [canned fruit](item)
+      - [put]{"entity": "operation", "value": "add"} [bottled beer](item)
+      - [put]{"entity": "operation", "value": "add"} [soap](item)
+      - [put]{"entity": "operation", "value": "add"} [softener](item)
+      - [remove](operation)
+      - [remove](operation) [422](CARDINAL) [fish](item)
+      - [remove](operation) [chocolate marshmallow](item)
+      - [remove](operation) [rice](item)
+      - [remove](operation) a [bottled beer](item)
+      - [remove](operation) a [oil](item)
+      - [remove](operation) a [spread cheese](item)
+      - [sugar](item)
+      - [syrup](item)
+      - [whole milk](item)
+      - some [brown bread](item)
+      - some [butter](item)
+      - some [candles](item)
+      - some [curd](item)
+      - some [liver loaf](item)
+      - some [oil](item)
+      - some [onions](item)
+      - some [preservation products](item)
+      - some [prunes](item)
+      - some [salad dressing](item)
+      - some [seasonal products](item)
+      - some [specialty chocolate](item)
+      - some [whisky](item)
+
+  - intent: out_of_scope
+    examples: |
+      - 2 + 2
+      - who's your president
+      - jkdhwjcqndjinq
+      - hjncjkdwnqkjhrew
+      - poiqkmekwqmenwq
+      - marctiell
+
+  - lookup: operation
+    examples: |
+      - add
+      - put
+      - buy
+      - insert
+      - remove
+      - delete
+      - destroy
+
+  - synonym: add
+    examples: |
+      - put
+      - buy
+      - insert
+
+  - synonym: remove
+    examples: |
+      - delete
+      - destroy
+
+  - regex: CARDINAL
+    examples: |
+      - [1-9]\d*
