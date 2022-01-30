@@ -163,15 +163,6 @@ nlu:
       - some [specialty chocolate](item)
       - some [whisky](item)
 
-  - intent: out_of_scope
-    examples: |
-      - 2 + 2
-      - who's your president
-      - jkdhwjcqndjinq
-      - hjncjkdwnqkjhrew
-      - poiqkmekwqmenwq
-      - marctiell
-
   - lookup: operation
     examples: |
       - add

@@ -63,8 +63,3 @@ rules:
           - requested_slot: null
       - action: action_item
       # - action: action_restart
-
-  - rule: Say utter_default when the user starts saying bullshit
-    steps:
-      - intent: out_of_scope
-      - action: utter_default
