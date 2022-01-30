@@ -37,7 +37,8 @@ stories:
   - story: User interrupts the form and doesn't want to continue
     steps:
       - intent: greet
-      - action: utter_greet
+      - action: action_communicate_username
+      - action: action_greet
       - intent: operation_on_item
         entities:
           - operation: add

@@ -35,7 +35,14 @@ actions:
   - utter_stop_nothing
   - action_stop_form
 
+  - action_communicate_username
+  - action_greet
+
 slots:
+  greeted:
+    type: bool
+    initial_value: false
+    influence_conversation: false
   item:
     type: text
     influence_conversation: false
@@ -64,6 +71,11 @@ forms:
 
 responses:
   utter_greet:
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: "Hi! What is your name?"
     - condition:
         - type: slot
           name: user
@@ -159,17 +171,22 @@ responses:
         - type: slot
           name: user
           value: null
-      text: "I already greeted you."
+      text: "I already greeted you. What is your name?"
     - condition:
         - type: slot
           name: user
           value: null
-      text: "Hi! (Again?)"
+      text: "I already greeted you. Who are you?"
     - condition:
         - type: slot
           name: user
           value: null
-      text: "Hello! Hello! Hello!"
+      text: "Hi! (Again?) Who am I talking to?"
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: "Hello! Hello! Hello! Who do I have the pleasure of speaking to?"
     - text: "I already greeted you, {user}"
     - text: "Hi again {user}!"
     - text: "Hello {user}! Hello {user}! Hello {user}!"

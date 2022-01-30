@@ -1,17 +1,11 @@
 version: "2.0"
 
 rules:
-  - rule: Say `hello` when the user starts a conversation with intent `greet`
-    conversation_start: true
+  - rule: utter_greet when the user greets and remember it. If already greeted utter_already_greet. Send username if username is provided during greet.
     steps:
       - intent: greet
-      - action: utter_greet
-
-  - rule: Say already greeted when the user greets more than once
-    conversation_start: false
-    steps:
-      - intent: greet
-      - action: utter_already_greet
+      - action: action_communicate_username
+      - action: action_greet
 
   - rule: Say goodbye anytime the user says goodbye
     steps:
@@ -48,8 +42,11 @@ rules:
       # - action: action_restart
 
   - rule: Pleased to meet the new user
+    condition:
+      - active_loop: null
     steps:
       - intent: introduce_myself
+      - action: action_communicate_username
       - action: utter_pleased
       - action: utter_help
 

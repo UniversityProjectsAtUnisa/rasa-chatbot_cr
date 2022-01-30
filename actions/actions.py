@@ -32,7 +32,8 @@ class ActionItem(Action):
         # concatena togli numeri togli duplicati
         itemquantity = (item + " " + quantity).split()
 
-        duplicated_list = list(filter(lambda x: not x.isnumeric(), itemquantity))
+        duplicated_list = list(
+            filter(lambda x: not x.isnumeric(), itemquantity))
 
         item = " ".join(OrderedDict.fromkeys(duplicated_list).keys())
         return item, final_quantity
@@ -41,6 +42,7 @@ class ActionItem(Action):
         operation = tracker.get_slot("operation")
         item = tracker.get_slot("item")
         quantity = tracker.get_slot("CARDINAL")
+        user = tracker.get_slot("user")
 
         item, quantity = self.sanitize_itemquantity(item, quantity)
 
@@ -49,6 +51,7 @@ class ActionItem(Action):
             quantity = '1' if operation == "add" else "all"
 
         dispatcher.utter_message(text=f"__{operation}__,{quantity},{item}")
+        ActionCommunicateUsername.communicate_username(dispatcher, user)
 
         return [SlotSet("item", None), SlotSet("operation", None), SlotSet("CARDINAL", None)]
 
@@ -65,9 +68,12 @@ class ActionShowItems(Action):
 class ActionStopForm(Action):
     def name(self) -> Text:
         return "action_stop_form"
-    
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any])  -> List[Dict[Text, Any]]:
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         dispatcher.utter_message(response="utter_stop")
+        user = tracker.get_slot("user")
+        if user:
+            ActionCommunicateUsername.communicate_username(dispatcher, user)
         return [SlotSet("item", None), SlotSet("operation", None), SlotSet("CARDINAL", None)]
 
 
@@ -108,3 +114,43 @@ class ValidateItemForm(FormValidationAction):
             return {"operation": None}
         return {"operation": slot_value}
 
+class ActionGreet(Action):
+    def name(self) -> Text:
+        return "action_greet"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        greeted = tracker.get_slot("greeted")
+        dispatcher.utter_message(
+            response="utter_greet" if not greeted else "utter_already_greet")
+        return [SlotSet("greeted", True)]
+
+
+class ActionCommunicateUsername(Action):
+    def name(self) -> Text:
+        return "action_communicate_username"
+
+    @staticmethod
+    def communicate_username(dispatcher, username):
+        dispatcher.utter_message("__setname__,{}".format(username))
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+
+        user_entities = [e for e in tracker.latest_message["entities"] if e["entity"] == "user"]
+
+        user = None
+        if len(user_entities) > 0:
+            user = user_entities[0]["value"]
+        if user is not None:
+            ActionCommunicateUsername.communicate_username(dispatcher, user)
+
+        return []
