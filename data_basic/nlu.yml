@@ -5,15 +5,9 @@ nlu:
     examples: |
       - hey
       - hello
-      - hello, my name is [alessandro](user)
-      - hello my name is [marco](user)
       - hi
-      - hi, my name is [oussama](user)
-      - hi my name is [giandomenico](user)
       - hello there
       - good morning
-      - good morning, my name is [oussama](user)
-      - good morning my name is [alessandro](user)
       - good evening
       - moin
       - hey there
@@ -25,6 +19,53 @@ nlu:
       - yo
       - yo bro
       - wassup
+      - pepper
+      - hey pepper 
+      - hello pepper
+      - hi pepper
+      - hello there pepper
+      - good morning pepper
+      - good evening pepper
+      - moin pepper
+      - hey there pepper
+      - let's go pepper
+      - hey dude pepper
+      - goodmorning pepper
+      - goodevening pepper
+      - good afternoon pepper
+      - yo pepper
+      - yo bro pepper
+      - wassup pepper
+      - hello my name is [Attilio De Stefano](user)
+      - hello my name is [Dante](user)
+      - hello my name is [Edwin](user)
+      - hello my name is [Emiliana](user)
+      - hello my name is [Katharine](user)
+      - hello my name is [Martina](user)
+      - hello my name is [Pompeo Giannattasio](user)
+      - hello my name is [Santiago](user)
+      - hello my name is [Tazio](user)
+      - hello my name is [Zinaida](user)
+      - hi my name is [Bruna](user)
+      - hi my name is [Gigi](user)
+      - hi my name is [Giulia](user)
+      - hi my name is [Guendalina Ferchichi](user)
+      - hi my name is [Joshua](user)
+      - hi my name is [Leonardo](user)
+      - hi my name is [Mirko](user)
+      - hi my name is [Rosario Della Rocca](user)
+      - hi my name is [Teo](user)
+      - hi my name is [Zefiro](user)
+      - hi pepper my name is [Amalia](user)
+      - hi pepper my name is [Bruce](user)
+      - hi pepper my name is [Ettore](user)
+      - hi pepper my name is [Gastone Femia](user)
+      - hi pepper my name is [Lia](user)
+      - hi pepper my name is [Palmira](user)
+      - hi pepper my name is [Paolo](user)
+      - hi pepper my name is [Rania](user)
+      - hi pepper my name is [Tullia Ficca](user)
+      - hi pepper my name is [Valentina](user)
 
   - intent: goodbye
     examples: |
@@ -38,6 +79,25 @@ nlu:
       - see you around
       - bye bye
       - see you later
+      - cu pepper
+      - good by pepper
+      - cee you later pepper
+      - good night pepper
+      - bye pepper
+      - goodbye pepper
+      - have a nice day pepper
+      - see you around pepper
+      - bye bye pepper
+      - see you later pepper
+
+  - intent: ask_capabilities
+    examples: |
+      - what are you able to do?
+      - what are you able to do, pepper?
+      - what can you do?
+      - what can you do, pepper?
+      - what are you capabilities?
+      - what are you capabilities, pepper?
 
   - intent: stop
     examples: |
@@ -61,13 +121,15 @@ nlu:
 
   - intent: introduce_myself
     examples: |
-      - i'm [marco](user)
-      - i'm [oussama](user)
-      - my name is [alessandro](user)
-      - [giandomenico](user)
+      - i'm [marco de stefano](user)
+      - i'm [oussama d'onofrio](user)
+      - my name is [alessandro della rocca](user)
+      - [giandomenico ferchichi](user)
 
   - intent: operation_on_item
     examples: |
+      - i want to do something 
+      - i want to do something on my list
       - [1056](CARDINAL) [salad dressing](item)
       - [163](CARDINAL) [cocoa drinks](item)
       - [1705](CARDINAL) [cat food](item)
@@ -162,6 +224,14 @@ nlu:
       - some [seasonal products](item)
       - some [specialty chocolate](item)
       - some [whisky](item)
+
+  - intent: out_of_scope
+    examples: |
+      - 2 + 2
+      - who's your president
+      - jkdhwjcqndjinq
+      - hjncjkdwnqkjhrew
+      - poiqkmekwqmenwq
 
   - lookup: operation
     examples: |
