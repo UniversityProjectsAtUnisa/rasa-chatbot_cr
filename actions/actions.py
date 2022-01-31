@@ -88,7 +88,9 @@ class ValidateItemForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        item = slot_value
+        item = slot_value if slot_value is not None else ""
+        item = item[0] if isinstance(
+            item, list) and isinstance(item[0], str) else ""
         quantity = tracker.get_slot("CARDINAL")
         quantity = "" if quantity is None else quantity
 
@@ -113,6 +115,7 @@ class ValidateItemForm(FormValidationAction):
             dispatcher.utter_message(response="utter_default")
             return {"operation": None}
         return {"operation": slot_value}
+
 
 class ActionGreet(Action):
     def name(self) -> Text:
@@ -145,7 +148,8 @@ class ActionCommunicateUsername(Action):
         domain: Dict[Text, Any]
     ) -> List[Dict[Text, Any]]:
 
-        user_entities = [e for e in tracker.latest_message["entities"] if e["entity"] == "user"]
+        user_entities = [
+            e for e in tracker.latest_message["entities"] if e["entity"] == "user"]
 
         user = None
         if len(user_entities) > 0:
