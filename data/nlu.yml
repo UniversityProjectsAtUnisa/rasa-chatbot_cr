@@ -20,7 +20,7 @@ nlu:
       - yo bro
       - wassup
       - pepper
-      - hey pepper 
+      - hey pepper
       - hello pepper
       - hi pepper
       - hello there pepper
@@ -845,7 +845,7 @@ nlu:
 
   - intent: operation_on_item
     examples: |
-      - i want to do something 
+      - i want to do something
       - i want to do something on my list
       - [1001](CARDINAL) [dental care](item)
       - [1014](CARDINAL) [flower](item)
@@ -3871,6 +3871,77 @@ nlu:
       - some [white bread](item)
       - some [white wine](item)
 
+  - intent: affirm
+    examples: |
+      - yes
+      - yeah
+      - yes i do
+      - yeah i do
+      - yes you do
+      - yeah you do
+      - yes it is
+      - yeah it is
+      - yes we do
+      - yeah we do
+      - yes i think so
+      - yeah i think so
+      - yes i think you do
+      - yeah i think you do
+      - i think you do yes
+      - i think you do yeah
+
+  - intent: deny
+    examples: |
+      - no
+      - no i don't
+      - i don't
+      - no i do not
+      - i do not
+      - no it's not
+      - it's not
+      - no it is not
+      - it is not
+      - no i don't think so
+      - i don't think so
+      - no i do not think so
+      - i do not think so
+      - no i don't believe
+      - i don't believe
+      - no i do not believe
+      - i do not believe
+      - no i don't think that's the case
+      - i don't think that's the case
+      - no i don't think that is the case
+      - i don't think that is the case
+      - no i do not think that's the case
+      - i do not think that's the case
+      - no i do not think that is the case
+      - i do not think that is the case
+      - no you don't
+      - you don't
+      - no you do not
+      - you do not
+      - no you don't think so
+      - you don't think so
+      - no you do not think so
+      - you do not think so
+      - no you don't believe
+      - you don't believe
+      - no you do not believe
+      - you do not believe
+      - no you don't think that's the case
+      - you don't think that's the case
+      - no you don't think that is the case
+      - you don't think that is the case
+      - no you do not think that's the case
+      - you do not think that's the case
+      - no you do not think that is the case
+      - you do not think that is the case
+      - no we don't know each other
+      - we don't know each other
+      - no we do not know each other
+      - we do not know each other
+
   - intent: out_of_scope
     examples: |
       - 2 + 2
@@ -3878,6 +3949,21 @@ nlu:
       - jkdhwjcqndjinq
       - hjncjkdwnqkjhrew
       - poiqkmekwqmenwq
+
+  - synonym: add
+    examples: |
+      - buy
+      - insert
+      - put
+
+  - synonym: remove
+    examples: |
+      - delete
+      - destroy
+
+  - regex: CARDINAL
+    examples: |
+      - [1-9]\d*
 
   - lookup: operation
     examples: |
@@ -3888,18 +3974,3 @@ nlu:
       - remove
       - delete
       - destroy
-
-  - synonym: add
-    examples: |
-      - put
-      - buy
-      - insert
-
-  - synonym: remove
-    examples: |
-      - delete
-      - destroy
-
-  - regex: CARDINAL
-    examples: |
-      - [1-9]\d*

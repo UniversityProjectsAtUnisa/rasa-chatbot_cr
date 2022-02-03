@@ -1,5 +1,9 @@
 version: "2.0"
 
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
 intents:
   - greet
   - goodbye
@@ -14,32 +18,10 @@ intents:
   - activate
 
 entities:
+  - CARDINAL
   - item
   - operation
   - user
-  - CARDINAL
-
-actions:
-  - utter_greet
-  - utter_already_greet
-  - utter_goodbye
-  - utter_pleased
-  - utter_help
-  - utter_capabilities
-
-  - utter_ask_user
-  - utter_ask_item
-  - utter_ask_operation
-  - action_item
-  - action_identification
-  - action_show_items
-  - validate_item_form
-
-  - utter_stop
-  - utter_stop_nothing
-  - action_stop_form
-
-  - action_greet
 
 slots:
   greeted:
@@ -62,6 +44,148 @@ slots:
     type: text
     influence_conversation: false
 
+responses:
+  utter_greet:
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: Hi!
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: Hello!
+    - text: Hi {user}. What are you looking for?
+    - text: Hi {user}! I am at your service.
+    - text: Hello {user}! What can I help you with today?
+
+  utter_goodbye:
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: Bye
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: Talk to you later!
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: Have a good day.
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: Until next time!
+    - text: Bye {user}
+    - text: Talk to you later {user}!
+    - text: Have a good day {user}.
+    - text: Until next time {user}!
+
+  utter_pleased:
+    - text: Nice to meet you, {user}
+    - text: Pleased to meet you, {user}
+
+  utter_capabilities:
+    - text: I can manage a shopping list for every user who talks to me. You can ask me to add or remove something from your list or just show your current list.
+    - text: I'm your shopping list assistant. I can add and remove items from your list or just show your current list.
+
+  utter_ask_user:
+    - text: Who are you?
+    - text: What's your name?
+    - text: What is your name?
+    - text: Who am I talking to?
+    - text: Who do I have the pleasure of speaking to?
+
+  utter_ask_item:
+    - condition:
+        - type: slot
+          name: operation
+          value: add
+      text: What do you want to buy?
+    - condition:
+        - type: slot
+          name: operation
+          value: remove
+      text: What do you want to remove from your list?
+
+  utter_ask_operation:
+    - condition:
+        - type: slot
+          name: item
+          value: null
+      text: Which operation do you want to do (add, remove)?
+    - text: Which operation do you want to do with {item} (add, remove)?
+    - text: What do you want to do with {item} (add, remove)?
+
+  utter_ask_should_know_user:
+    - text: Do I know you?
+    - text: Have we met before?
+    - text: Do we know each other?
+
+  utter_stop:
+    - text: Request cancelled!
+
+  utter_help:
+    - text: How can I help you?
+    - text: How can I help?
+
+  utter_stop_nothing:
+    - text: There is nothing to stop at the moment. If you want to terminate the interaction we can say goodbye.
+    - text: I am not asking anything at the moment. If you want to terminate the interaction we can say goodbye.
+
+  utter_already_greet:
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: I already greeted you.
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: I already greeted you.
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: Hi! (Again?)
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: Hello! Hello! Hello!
+    - text: I already greeted you, {user}
+    - text: Hi again {user}!
+    - text: Hello {user}! Hello {user}! Hello {user}!
+
+  utter_default:
+    - text: Sorry I didn't get that. Can you rephrase?
+    - text: Sorry I didn't understand. Can you rephrase that?
+
+actions:
+  - action_greet
+  - action_identification
+  - action_item
+  - action_show_items
+  - action_stop_form
+  - utter_already_greet
+  - utter_ask_item
+  - utter_ask_operation
+  - utter_ask_user
+  - utter_capabilities
+  - utter_goodbye
+  - utter_greet
+  - utter_help
+  - utter_pleased
+  - utter_stop
+  - utter_stop_nothing
+  - validate_item_form
+
 forms:
   item_form:
     required_slots:
@@ -83,130 +207,3 @@ forms:
       user:
         - type: from_entity
           entity: user
-
-responses:
-  utter_greet:
-    - condition:
-        - type: slot
-          name: user
-          value: null
-      text: "Hi!"
-    - condition:
-        - type: slot
-          name: user
-          value: null
-      text: "Hello!"
-    - text: "Hi {user}. What are you looking for?"
-    - text: "Hi {user}! I am at your service."
-    - text: "Hello {user}! What can I help you with today?"
-
-  utter_goodbye:
-    - condition:
-        - type: slot
-          name: user
-          value: null
-      text: "Bye"
-    - condition:
-        - type: slot
-          name: user
-          value: null
-      text: "Talk to you later!"
-    - condition:
-        - type: slot
-          name: user
-          value: null
-      text: "Have a good day."
-    - condition:
-        - type: slot
-          name: user
-          value: null
-      text: "Until next time!"
-    - text: "Bye {user}"
-    - text: "Talk to you later {user}!"
-    - text: "Have a good day {user}."
-    - text: "Until next time {user}!"
-
-  utter_pleased:
-    - text: "Nice to meet you, {user}"
-    - text: "Pleased to meet you, {user}"
-
-  utter_capabilities:
-    - text: "I can manage a shopping list for every user who talks to me. You can ask me to add or remove something from your list or just show your current list."
-    - text: "I'm your shopping list assistant. I can add and remove items from your list or just show your current list."
-
-  utter_ask_user:
-    - text: "Who are you?"
-    - text: "What's your name?"
-    - text: "What is your name?"
-    - text: "Who am I talking to?"
-    - text: "Who do I have the pleasure of speaking to?"
-
-  utter_ask_item:
-    - condition:
-        - type: slot
-          name: operation
-          value: "add"
-      text: "What do you want to buy?"
-    - condition:
-        - type: slot
-          name: operation
-          value: "remove"
-      text: "What do you want to remove from your list?"
-
-  utter_ask_operation:
-    - condition:
-        - type: slot
-          name: item
-          value: null
-      text: "Which operation do you want to do (add, remove)?"
-    - text: "Which operation do you want to do with {item} (add, remove)?"
-    - text: "What do you want to do with {item} (add, remove)?"
-
-  utter_ask_should_know_user:
-    - text: "Do I know you?"
-    - text: "Have we met before?"
-    - text: "Do we know each other?"
-
-  utter_stop:
-    - text: "Request cancelled!"
-
-  utter_help:
-    - text: "How can I help you?"
-    - text: "How can I help?"
-
-  utter_stop_nothing:
-    - text: "There is nothing to stop at the moment. If you want to terminate the interaction we can say goodbye."
-    - text: "I am not asking anything at the moment. If you want to terminate the interaction we can say goodbye."
-
-  utter_already_greet:
-    - condition:
-        - type: slot
-          name: user
-          value: null
-      text: "I already greeted you."
-    - condition:
-        - type: slot
-          name: user
-          value: null
-      text: "I already greeted you."
-    - condition:
-        - type: slot
-          name: user
-          value: null
-      text: "Hi! (Again?)"
-    - condition:
-        - type: slot
-          name: user
-          value: null
-      text: "Hello! Hello! Hello!"
-    - text: "I already greeted you, {user}"
-    - text: "Hi again {user}!"
-    - text: "Hello {user}! Hello {user}! Hello {user}!"
-
-  utter_default:
-    - text: Sorry I didn't get that. Can you rephrase?
-    - text: Sorry I didn't understand. Can you rephrase that?
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true

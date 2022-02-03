@@ -4,7 +4,8 @@ rules:
   - rule: utter_greet when the user greets and remember it. If already greeted utter_already_greet. Send username if username is provided during greet.
     steps:
       - intent: greet
-      - action: action_communicate_username
+      - slot_was_set:
+          - user: "anything"
       - action: action_greet
 
   - rule: Say goodbye anytime the user says goodbye
@@ -13,7 +14,7 @@ rules:
       - action: utter_goodbye
       - action: action_restart
 
-  - rule: Say capabilities wwhen the user asks for them
+  - rule: Say capabilities when the user asks for them
     steps:
       - intent: ask_capabilities
       - action: utter_capabilities
@@ -27,7 +28,7 @@ rules:
       - active_loop: null
       - action: action_stop_form
 
-  - rule: Dont stop if not in loop
+  - rule: Don't stop if not in loop
     condition:
       - active_loop: null
     steps:
@@ -46,11 +47,12 @@ rules:
       - active_loop: null
     steps:
       - intent: introduce_myself
-      - action: action_communicate_username
       - action: utter_pleased
       - action: utter_help
 
   - rule: Activate item form
+    condition:
+      - active_loop: null
     steps:
       - intent: operation_on_item
       - action: item_form
@@ -65,6 +67,28 @@ rules:
       - slot_was_set:
           - requested_slot: null
       - action: action_item
+      # - action: action_restart
+
+  - rule: Activate identification form
+    condition:
+      - active_loop: null
+    steps:
+      - intent: greet
+      - action: action_greet
+      - slot_was_set:
+          - user: null
+      - action: identification_form
+      - active_loop: identification_form
+
+  - rule: Submit identification form
+    condition:
+      - active_loop: identification_form
+    steps:
+      - action: identification_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_identification
       # - action: action_restart
 
   - rule: utter_default when user says non-sense statements

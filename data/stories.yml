@@ -34,11 +34,25 @@ stories:
   #    - slot_was_set:
   #        - CARDINAL: null
 
+  # - story: Known user initiates conversation
+  #   steps:
+  #     - intent: greet
+  #     - action: action_greet
+  #     - slot_was_set:
+  #         - user: "anything"
+  #     - action: action_listen
+
+  # - story: Unknown user initiates conversation
+  #   steps:
+  #     - intent: greet
+  #     - action: action_greet
+  #     - slot_was_set:
+  #         - user: null
+  #     - action: identification_form
+  #     - active_loop: identification_form
+
   - story: User interrupts the form and doesn't want to continue
     steps:
-      - intent: greet
-      - action: action_communicate_username
-      - action: action_greet
       - intent: operation_on_item
         entities:
           - operation: add
@@ -56,3 +70,30 @@ stories:
           - operation: null
       - slot_was_set:
           - CARDINAL: null
+      - slot_was_set:
+          - user: null
+
+  - story: Unrecognized user initiates conversation
+    steps:
+      - intent: greet
+      - action: action_greet
+      - slot_was_set:
+          - greeted: true
+      - action: identification_form
+      - active_loop: identification_form
+      - slot_was_set:
+          - requested_slot: should_know_user
+      - slot_was_set:
+          - should_know_user: true
+      - slot_was_set:
+          - requested_slot: user
+      - slot_was_set:
+          - user: marco
+      - slot_was_set:
+          - user: marco
+      - slot_was_set:
+          - requested_slot: null
+      - active_loop: null
+      - action: action_identification
+      - slot_was_set:
+          - should_know_user: null

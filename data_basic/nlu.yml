@@ -126,70 +126,31 @@ nlu:
       - [kevin impellizzeri](user)
       - [luca carollo](user)
       - [martina](user)
-      - [mauro wisoky](user)
-      - [miriam mante](user)
       - [pietro franchini](user)
       - [rosa](user)
       - [virginia carvelli](user)
       - i am [aaron](user)
       - i am [caterina botta](user)
       - i am [diana acquadro](user)
-      - i am [elizabeth montagna](user)
-      - i am [george](user)
-      - i am [heather](user)
-      - i am [jacob fay](user)
-      - i am [melissa moffa](user)
-      - i am [michele](user)
-      - i am [vincenzo lucia](user)
       - i'm [anita](user)
       - i'm [francesca alaimo](user)
       - i'm [isabella littel](user)
-      - i'm [kathleen smitham](user)
-      - i'm [letizia fabiano](user)
-      - i'm [michael](user)
-      - i'm [nicholas cipriano](user)
-      - i'm [saverio cantoni](user)
-      - i'm [sonia](user)
       - i'm [teresa d'errico](user)
       - it is me [beatrice](user)
       - it is me [carmela nava](user)
       - it is me [davide carter](user)
-      - it is me [elia](user)
-      - it is me [jeffrey oberbrunner](user)
-      - it is me [laura nienow](user)
-      - it is me [marie ascione](user)
-      - it is me [robert pfeffer](user)
-      - it is me [terry caretti](user)
-      - it is me [valerio](user)
       - it's me [amanda cangiano](user)
       - it's me [benedetta koch](user)
       - it's me [erika koss](user)
       - it's me [franca](user)
-      - it's me [luigi corwin](user)
-      - it's me [margaret](user)
-      - it's me [margherita ferrini](user)
-      - it's me [russell maggio](user)
-      - it's me [valentina huels](user)
       - it's me [valeria colombo](user)
       - my name is [aldo lind](user)
-      - my name is [anthony zambon](user)
-      - my name is [carmela nava](user)
-      - my name is [elisabetta pintus](user)
-      - my name is [gerald](user)
-      - my name is [giovanna](user)
       - my name is [keith daniel](user)
       - my name is [richard redaelli](user)
       - my name is [sonia](user)
       - my name's [austin](user)
       - my name's [edward fumarola](user)
       - my name's [giovanni greenfelder](user)
-      - my name's [joe](user)
-      - my name's [jonathan](user)
-      - my name's [lisa virgilio](user)
-      - my name's [patricia polito](user)
-      - my name's [sarah](user)
-      - my name's [thomas](user)
-      - my name's [walter](user)
 
   - intent: operation_on_item
     examples: |
@@ -289,6 +250,77 @@ nlu:
       - some [seasonal products](item)
       - some [specialty chocolate](item)
       - some [whisky](item)
+
+  - intent: affirm
+    examples: |
+      - yes
+      - yeah
+      - yes i do
+      - yeah i do
+      - yes you do
+      - yeah you do
+      - yes it is
+      - yeah it is
+      - yes we do
+      - yeah we do
+      - yes i think so
+      - yeah i think so
+      - yes i think you do
+      - yeah i think you do
+      - i think you do yes
+      - i think you do yeah
+
+  - intent: deny
+    examples: |
+      - no
+      - no i don't
+      - i don't
+      - no i do not
+      - i do not
+      - no it's not
+      - it's not
+      - no it is not
+      - it is not
+      - no i don't think so
+      - i don't think so
+      - no i do not think so
+      - i do not think so
+      - no i don't believe
+      - i don't believe
+      - no i do not believe
+      - i do not believe
+      - no i don't think that's the case
+      - i don't think that's the case
+      - no i don't think that is the case
+      - i don't think that is the case
+      - no i do not think that's the case
+      - i do not think that's the case
+      - no i do not think that is the case
+      - i do not think that is the case
+      - no you don't
+      - you don't
+      - no you do not
+      - you do not
+      - no you don't think so
+      - you don't think so
+      - no you do not think so
+      - you do not think so
+      - no you don't believe
+      - you don't believe
+      - no you do not believe
+      - you do not believe
+      - no you don't think that's the case
+      - you don't think that's the case
+      - no you don't think that is the case
+      - you don't think that is the case
+      - no you do not think that's the case
+      - you do not think that's the case
+      - no you do not think that is the case
+      - you do not think that is the case
+      - no we don't know each other
+      - we don't know each other
+      - no we do not know each other
+      - we do not know each other
 
   - intent: out_of_scope
     examples: |

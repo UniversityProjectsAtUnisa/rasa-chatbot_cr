@@ -51,9 +51,23 @@ class ActionItem(Action):
             quantity = '1' if operation == "add" else "all"
 
         dispatcher.utter_message(text=f"__{operation}__,{quantity},{item}")
-        ActionCommunicateUsername.communicate_username(dispatcher, user)
 
         return [SlotSet("item", None), SlotSet("operation", None), SlotSet("CARDINAL", None)]
+
+
+class ActionIdentification(Action):
+    commands = ["configure", "localsearch"]
+
+    def name(self) -> Text:
+        return "action_identification"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        username = tracker.get_slot("user")
+        should_know_user = tracker.get_slot("should_know_user")
+
+        dispatcher.utter_message(text=f"__{self.commands[int(should_know_user)]}__,{username}")
+
+        return [SlotSet("should_know_user", None)]
 
 
 class ActionShowItems(Action):
@@ -71,15 +85,15 @@ class ActionStopForm(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         dispatcher.utter_message(response="utter_stop")
-        user = tracker.get_slot("user")
-        if user:
-            ActionCommunicateUsername.communicate_username(dispatcher, user)
         return [SlotSet("item", None), SlotSet("operation", None), SlotSet("CARDINAL", None)]
 
 
 class ValidateItemForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_item_form"
+
+    def remove_numbers(self, string: str):
+        return " ".join([s for s in string.split() if not s.isnumeric()])
 
     def validate_item(
         self,
@@ -88,18 +102,16 @@ class ValidateItemForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        item = slot_value if slot_value is not None else ""
-        item = item[0] if isinstance(
-            item, list) and isinstance(item[0], str) else ""
         quantity = tracker.get_slot("CARDINAL")
         quantity = "" if quantity is None else quantity
 
-        nonnumeric_amount = len(list(filter(lambda x: not x.isnumeric(), quantity.split(
-        )))) + len(list(filter(lambda x: not x.isnumeric(), item.split())))
+        item = slot_value
+        if isinstance(item, list):
+            item = " ".join(slot_value)
+        item = self.remove_numbers(item)
 
-        if nonnumeric_amount > 0:
-            # azione
-            return {"item": item if item is not None else ""}
+        if len(item) > 0:
+            return {"item": item}
 
         dispatcher.utter_message(response="utter_default")
         return {"item": None}
@@ -128,33 +140,7 @@ class ActionGreet(Action):
         domain: Dict[Text, Any]
     ) -> List[Dict[Text, Any]]:
         greeted = tracker.get_slot("greeted")
-        dispatcher.utter_message(
-            response="utter_greet" if not greeted else "utter_already_greet")
+
+        dispatcher.utter_message(response="utter_greet" if not greeted else "utter_already_greet")
+
         return [SlotSet("greeted", True)]
-
-
-class ActionCommunicateUsername(Action):
-    def name(self) -> Text:
-        return "action_communicate_username"
-
-    @staticmethod
-    def communicate_username(dispatcher, username):
-        dispatcher.utter_message("__setname__,{}".format(username))
-
-    def run(
-        self,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any]
-    ) -> List[Dict[Text, Any]]:
-
-        user_entities = [
-            e for e in tracker.latest_message["entities"] if e["entity"] == "user"]
-
-        user = None
-        if len(user_entities) > 0:
-            user = user_entities[0]["value"]
-        if user is not None:
-            ActionCommunicateUsername.communicate_username(dispatcher, user)
-
-        return []
