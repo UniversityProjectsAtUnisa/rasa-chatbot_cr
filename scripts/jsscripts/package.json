@@ -1,0 +1,16 @@
+{
+  "name": "cr",
+  "version": "1.0.0",
+  "description": "generate names",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node generate_names.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.5",
+    "argparse": "^2.0.1"
+  }
+}

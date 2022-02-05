@@ -1,0 +1,40 @@
+{
+    "basic": [
+        "(CARDINAL) (item)",
+        "(item)",
+        "(operation)",
+        "(operation) (CARDINAL) (item)",
+        "(operation) (item)",
+        "(operation) a (item)",
+        "some (item)"
+    ],
+    "full": [
+        "(operation) (CARDINAL) (item) from the shopping list",
+        "(operation) (CARDINAL) (item) to the shopping list",
+        "(operation) (item) from the shopping list",
+        "(operation) (item) to the shopping list",
+        "can i (operation) some (item)",
+        "i want to (operation)",
+        "i want to (operation) (CARDINAL) (item)",
+        "i want to (operation) (CARDINAL) (item) from my list",
+        "i want to (operation) (CARDINAL) (item) from my shopping list",
+        "i want to (operation) (CARDINAL) (item) to my list",
+        "i want to (operation) (CARDINAL) (item) to my shopping list",
+        "i want to (operation) (item)",
+        "i want to (operation) some (item)",
+        "i want to (operation) something",
+        "i would like to (operation) (CARDINAL) (item)",
+        "i would like to (operation) (item)",
+        "i would like to (operation) a (item)",
+        "i'd like to (operation) (CARDINAL) (item)",
+        "i'd like to (operation) (CARDINAL) (item) from my list",
+        "i'd like to (operation) (CARDINAL) (item) from my shopping list",
+        "i'd like to (operation) (CARDINAL) (item) to my list",
+        "i'd like to (operation) (CARDINAL) (item) to my shopping list",
+        "i'd like to (operation) (item)",
+        "i'd like to (operation) (item) from my list",
+        "i'd like to (operation) (item) from my shopping list",
+        "i'd like to (operation) (item) to my list",
+        "i'd like to (operation) (item) to my shopping list"
+    ]
+}

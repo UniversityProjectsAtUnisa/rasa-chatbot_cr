@@ -23,7 +23,7 @@ def dump_obj_on_yml(filename, data):
         yaml.dump(data, testfile)
 
 
-def get_items_from_yml(filename):
+def get_examples_from_yml(filename):
     obj = get_obj_from_yml(filename)
     raw_items: str = obj['nlu'][0]['examples']
     items = [item[2:] for item in raw_items.split('\n')]
@@ -38,7 +38,7 @@ def main():
     test_file = "tests/test_stories_python.yml"
     Path(test_file).parent.mkdir(parents=True, exist_ok=True)
 
-    items = get_items_from_yml(item_lut)
+    items = get_examples_from_yml(item_lut)
 
     tests = {"stories": []}
 

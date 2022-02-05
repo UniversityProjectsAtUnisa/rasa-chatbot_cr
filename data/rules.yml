@@ -1,39 +1,41 @@
 version: "2.0"
 
 rules:
-  - rule: Say `hello` when the user starts a conversation with intent `greet`
-    conversation_start: true
+  - rule: utter_greet when the user greets and remember it. If already greeted utter_already_greet. Send username if username is provided during greet.
     steps:
       - intent: greet
-      - action: utter_greet
-
-  - rule: Say already greeted when the user greets more than once
-    conversation_start: false
-    steps:
-      - intent: greet
-      - action: utter_already_greet
+      - slot_was_set:
+          - user: "anything"
+      - action: action_greet
 
   - rule: Say goodbye anytime the user says goodbye
     steps:
       - intent: goodbye
       - action: utter_goodbye
+      - action: utter_endconversation_command
       - action: action_restart
+
+  - rule: Say capabilities when the user asks for them
+    steps:
+      - intent: ask_capabilities
+      - action: utter_capabilities
 
   - rule: Stop item form when user asks
     condition:
       - active_loop: item_form
     steps:
       - intent: stop
-      - action: utter_stop
-      - action: action_restart
+      - action: action_deactivate_loop
+      - active_loop: null
+      - action: action_stop_form
 
-  - rule: Dont stop if not in loop
+  - rule: Don't stop if not in loop
     condition:
       - active_loop: null
     steps:
       - intent: stop
       - action: utter_stop_nothing
-      - action: action_restart
+      # - action: action_restart
 
   - rule: Show list when user asks
     steps:
@@ -41,7 +43,17 @@ rules:
       - action: action_show_items
       # - action: action_restart
 
+  - rule: Pleased to meet the new user
+    condition:
+      - active_loop: null
+    steps:
+      - intent: introduce_myself
+      - action: utter_pleased
+      - action: utter_help
+
   - rule: Activate item form
+    condition:
+      - active_loop: null
     steps:
       - intent: operation_on_item
       - action: item_form
@@ -58,7 +70,29 @@ rules:
       - action: action_item
       # - action: action_restart
 
-  - rule: Say utter_default when the user starts saying bullshit
+  - rule: Activate identification form
+    condition:
+      - active_loop: null
+    steps:
+      - intent: greet
+      - action: action_greet
+      - slot_was_set:
+          - user: null
+      - action: identification_form
+      - active_loop: identification_form
+
+  - rule: Submit identification form
+    condition:
+      - active_loop: identification_form
+    steps:
+      - action: identification_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_identification
+      # - action: action_restart
+
+  - rule: utter_default when user says non-sense statements
     steps:
       - intent: out_of_scope
       - action: utter_default
