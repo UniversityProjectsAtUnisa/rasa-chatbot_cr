@@ -166,6 +166,9 @@ responses:
   utter_default:
     - text: Sorry I didn't get that. Can you rephrase?
     - text: Sorry I didn't understand. Can you rephrase that?
+  
+  utter_endconversation_command:
+    - text: __endconversation__
 
 actions:
   - action_greet
@@ -185,6 +188,7 @@ actions:
   - utter_stop
   - utter_stop_nothing
   - validate_item_form
+  - utter_endconversation_command
 
 forms:
   item_form:

@@ -12,6 +12,7 @@ rules:
     steps:
       - intent: goodbye
       - action: utter_goodbye
+      - action: utter_endconversation_command
       - action: action_restart
 
   - rule: Say capabilities when the user asks for them
