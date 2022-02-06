@@ -1,0 +1,422 @@
+version: "2.0"
+
+nlu:
+  - intent: greet
+    examples: |
+      - buon pomeriggio il mio nome è [elizabeth montagna](user)
+      - buon pomeriggio il mio nome è [martina](user)
+      - buon pomeriggio il mio nome è [russell maggio](user)
+      - buon pomeriggio mi chiamo [beatrice](user)
+      - buon pomeriggio mi chiamo [giovanni greenfelder](user)
+      - buon pomeriggio mi chiamo [luca carollo](user)
+      - buon pomeriggio sono [francesca alaimo](user)
+      - buon pomeriggio sono [jonathan](user)
+      - buon pomeriggio sono [keith daniel](user)
+      - buongiorno il mio nome è [caterina botta](user)
+      - buongiorno il mio nome è [franca](user)
+      - buongiorno il mio nome è [keith daniel](user)
+      - buongiorno mi chiamo [margherita ferrini](user)
+      - buongiorno mi chiamo [mauro wisoky](user)
+      - buongiorno mi chiamo [valerio](user)
+      - buongiorno sono [davide carter](user)
+      - buongiorno sono [sonia](user)
+      - buongiorno sono [thomas](user)
+      - ciao
+      - ciao amico il mio nome è [carmela nava](user)
+      - ciao amico il mio nome è [margaret](user)
+      - ciao amico il mio nome è [pietro franchini](user)
+      - ciao amico mi chiamo [letizia fabiano](user)
+      - ciao amico mi chiamo [terry caretti](user)
+      - ciao amico mi chiamo [walter](user)
+      - ciao amico sono [anita](user)
+      - ciao amico sono [anthony zambon](user)
+      - ciao amico sono [diana acquadro](user)
+      - ciao il mio nome è [erika koss](user)
+      - ciao il mio nome è [george](user)
+      - ciao il mio nome è [virginia carvelli](user)
+      - ciao mi chiamo [marie ascione](user)
+      - ciao mi chiamo [sarah](user)
+      - ciao mi chiamo [saverio cantoni](user)
+      - ciao robot il mio nome è [elisabetta pintus](user)
+      - ciao robot il mio nome è [joe](user)
+      - ciao robot il mio nome è [teresa d'errico](user)
+      - ciao robot mi chiamo [amanda cangiano](user)
+      - ciao robot mi chiamo [giovanna](user)
+      - ciao robot mi chiamo [michele](user)
+      - ciao robot sono [barbara](user)
+      - ciao robot sono [benedetta koch](user)
+      - ciao robot sono [jeffrey oberbrunner](user)
+      - ciao sono [carmela nava](user)
+      - ciao sono [heather](user)
+      - ciao sono [kathleen smitham](user)
+      - hello there i'm [jacob fay](user)
+      - hello there i'm [nicholas cipriano](user)
+      - hello there i'm [richard redaelli](user)
+      - hey il mio nome è [kevin impellizzeri](user)
+      - hey il mio nome è [luigi corwin](user)
+      - hey il mio nome è [melissa moffa](user)
+      - hey sono [elia](user)
+      - hey sono [frank](user)
+      - hey sono [lisa virgilio](user)
+
+  - intent: goodbye
+    examples: |
+      - addio
+      - a più tardi
+      - buonanotte
+      - bye bye
+      - ci vediamo più tardi
+      - addio robot
+      - buona giornata
+
+  - intent: ask_capabilities
+    examples: |
+      - cosa sai fare?
+      - cosa sai fare robot?
+      - quali sono le tua capacità?
+      - quali sono le tue capacità robot?
+
+  - intent: stop
+    examples: |
+      - stop
+      - fermati
+      - ho fatto un errore
+      - niente
+      - non voglio continuare
+      - fermare
+      - annulla
+
+  - intent: show_items
+    examples: |
+      - mostra la lista
+      - mostrami la lista
+      - cosa c'è nella mia lista
+      - carrello
+      - lista della spesa
+      - mostra
+
+  - intent: introduce_myself
+    examples: |
+      - [aldo lind](user)
+      - [antonio lakin](user)
+      - [elia](user)
+      - [erika koss](user)
+      - [francesca alaimo](user)
+      - [frank](user)
+      - [george](user)
+      - [jonathan](user)
+      - [keith daniel](user)
+      - [laura nienow](user)
+      - [lisa virgilio](user)
+      - [riccardo zumbo](user)
+      - [teresa reilly](user)
+      - [valentina huels](user)
+      - [virginia carvelli](user)
+      - il mio nome è [aaron](user)
+      - il mio nome è [amanda cangiano](user)
+      - il mio nome è [bianca ward](user)
+      - il mio nome è [diane](user)
+      - il mio nome è [giovanna](user)
+      - il mio nome è [isabella littel](user)
+      - il mio nome è [joseph walker](user)
+      - il mio nome è [letizia fabiano](user)
+      - il mio nome è [margherita ferrini](user)
+      - il mio nome è [mauro wisoky](user)
+      - il mio nome è [michele](user)
+      - il mio nome è [russell maggio](user)
+      - il mio nome è [terry caretti](user)
+      - il mio nome è [valerio](user)
+      - il mio nome è [walter](user)
+      - io sono [daniel ottonello](user)
+      - io sono [elizabeth montagna](user)
+      - io sono [gerald](user)
+      - io sono [jacob fay](user)
+      - io sono [linda fiorini](user)
+      - io sono [marie ascione](user)
+      - io sono [martina](user)
+      - io sono [nicholas cipriano](user)
+      - io sono [patricia polito](user)
+      - io sono [richard redaelli](user)
+      - io sono [rosa](user)
+      - io sono [russell maggio](user)
+      - io sono [sarah](user)
+      - io sono [saverio cantoni](user)
+      - io sono [teresa reilly](user)
+      - mi chiamo [aurora](user)
+      - mi chiamo [carmela nava](user)
+      - mi chiamo [caterina botta](user)
+      - mi chiamo [dylan cartwright](user)
+      - mi chiamo [elisabetta pintus](user)
+      - mi chiamo [flavio marrazzo](user)
+      - mi chiamo [franca](user)
+      - mi chiamo [gaia rowe](user)
+      - mi chiamo [joe](user)
+      - mi chiamo [keith daniel](user)
+      - mi chiamo [margaret](user)
+      - mi chiamo [michael](user)
+      - mi chiamo [pietro franchini](user)
+      - mi chiamo [robert pfeffer](user)
+      - mi chiamo [teresa d'errico](user)
+      - sono [ann cummings](user)
+      - sono [austin](user)
+      - sono [beatrice](user)
+      - sono [carmela nava](user)
+      - sono [carmine urbano](user)
+      - sono [gabriel lang](user)
+      - sono [giovanni greenfelder](user)
+      - sono [heather](user)
+      - sono [kathleen smitham](user)
+      - sono [kevin impellizzeri](user)
+      - sono [luca carollo](user)
+      - sono [luigi corwin](user)
+      - sono [melissa moffa](user)
+      - sono [sonia](user)
+      - sono [valeria colombo](user)
+      - sono io [anita](user)
+      - sono io [anthony zambon](user)
+      - sono io [barbara](user)
+      - sono io [benedetta koch](user)
+      - sono io [davide carter](user)
+      - sono io [diana acquadro](user)
+      - sono io [edward fumarola](user)
+      - sono io [jeffrey oberbrunner](user)
+      - sono io [kyle bisio](user)
+      - sono io [marco andrisani](user)
+      - sono io [mario gallo](user)
+      - sono io [miriam mante](user)
+      - sono io [sonia](user)
+      - sono io [thomas](user)
+      - sono io [vincenzo lucia](user)
+
+  - intent: operation_on_item
+    examples: |
+      - aggiungi
+      - aggiungere
+      - rimuovi
+      - rimuovere
+      - sottrai
+      - sottrarre
+      - inserisci
+      - inserire
+      - cancella
+      - cancellare
+      - compra
+      - comprare
+      - [104](CARDINAL) [lenticchie](item)
+      - [10](CARDINAL) [pancetta](item)
+      - [1180](CARDINAL) [prugna](item)
+      - [1284](CARDINAL) [olio](item)
+      - [146](CARDINAL) [piselli](item)
+      - [147](CARDINAL) [salsa](item)
+      - [1599](CARDINAL) [pasta](item)
+      - [175](CARDINAL) [legumi secchi](item)
+      - [186](CARDINAL) [pera](item)
+      - [2067](CARDINAL) [merluzzo](item)
+      - [305](CARDINAL) [patate](item)
+      - [412](CARDINAL) [hamburger](item)
+      - [525](CARDINAL) [pomodoro](item)
+      - [53](CARDINAL) [patate](item)
+      - [870](CARDINAL) [prugna](item)
+      - [aggiungere]{"entity": "operation", "value": "add"} [1229](CARDINAL) [pomodoro](item) alla lista
+      - [aggiungere]{"entity": "operation", "value": "add"} [2038](CARDINAL) [caffè](item) alla mia lista
+      - [aggiungere]{"entity": "operation", "value": "add"} [329](CARDINAL) [prugna](item) alla mia lista
+      - [aggiungere]{"entity": "operation", "value": "add"} [422](CARDINAL) [uova](item)
+      - [aggiungere]{"entity": "operation", "value": "add"} [48](CARDINAL) [pancetta](item) alla mia lista della spesa
+      - [aggiungere]{"entity": "operation", "value": "add"} [680](CARDINAL) [olive](item)
+      - [aggiungere]{"entity": "operation", "value": "add"} [799](CARDINAL) [caffè](item) alla mia lista della spesa
+      - [aggiungere]{"entity": "operation", "value": "add"} [87](CARDINAL) [fragola](item) alla mia lista della spesa
+      - [aggiungere]{"entity": "operation", "value": "add"} [albicocca](item)
+      - [aggiungere]{"entity": "operation", "value": "add"} [hamburger](item)
+      - [aggiungere]{"entity": "operation", "value": "add"} [piselli](item)
+      - [aggiungi]{"entity": "operation", "value": "add" [1229](CARDINAL) [merluzzo](item) alla lista
+      - [aggiungi]{"entity": "operation", "value": "add" [211](CARDINAL) [zucchina](item) alla mia lista della spesa
+      - [aggiungi]{"entity": "operation", "value": "add" [2450](CARDINAL) [mela](item) alla mia lista
+      - [aggiungi]{"entity": "operation", "value": "add" [634](CARDINAL) [pomodoro](item) alla mia lista della spesa
+      - [biscotti](item)
+      - [caffè](item)
+      - [compra]{"entity": "operation", "value": "add"}
+      - [compra]{"entity": "operation", "value": "add"} [1045](CARDINAL) [pasta](item) alla mia lista della spesa
+      - [compra]{"entity": "operation", "value": "add"} [1284](CARDINAL) [spinaci](item) alla lista
+      - [compra]{"entity": "operation", "value": "add"} [132](CARDINAL) [fagioli](item) alla lista
+      - [compra]{"entity": "operation", "value": "add"} [1340](CARDINAL) [tonno](item) alla lista
+      - [compra]{"entity": "operation", "value": "add"} [291](CARDINAL) [fagioli](item)
+      - [compra]{"entity": "operation", "value": "add"} [340](CARDINAL) [frutta](item) alla lista
+      - [compra]{"entity": "operation", "value": "add"} [434](CARDINAL) [spinaci](item) alla mia lista della spesa
+      - [compra]{"entity": "operation", "value": "add"} [457](CARDINAL) [prugna](item)
+      - [compra]{"entity": "operation", "value": "add"} [546](CARDINAL) [tonno](item) alla mia lista
+      - [compra]{"entity": "operation", "value": "add"} [733](CARDINAL) [caffè](item)
+      - [compra]{"entity": "operation", "value": "add"} [8](CARDINAL) [lenticchie](item)
+      - [compra]{"entity": "operation", "value": "add"} [99](CARDINAL) [mozzarella](item) alla mia lista
+      - [compra]{"entity": "operation", "value": "add"} [lenticchie](item)
+      - [comprare]{"entity": "operation", "value": "add"} [271](CARDINAL) [ceci](item) alla mia lista della spesa
+      - [comprare]{"entity": "operation", "value": "add"} [332](CARDINAL) [prosciutto](item) alla lista
+      - [comprare]{"entity": "operation", "value": "add"} [514](CARDINAL) [banana](item) alla lista
+      - [comprare]{"entity": "operation", "value": "add"} [845](CARDINAL) [caffè](item) alla lista
+      - [comprare]{"entity": "operation", "value": "add"} [942](CARDINAL) [sapone](item) alla mia lista
+      - [elimina]{"entity": "operation", "value": "remove"}
+      - [elimina]{"entity": "operation", "value": "remove"} [1504](CARDINAL) [merluzzo](item) dalla lista
+      - [elimina]{"entity": "operation", "value": "remove"} [589](CARDINAL) [arancia](item) dalla mia lista della spesa
+      - [elimina]{"entity": "operation", "value": "remove"} [789](CARDINAL) [sapone](item) dalla mia lista della spesa
+      - [elimina]{"entity": "operation", "value": "remove"} [799](CARDINAL) [acqua](item) dalla lista
+      - [elimina]{"entity": "operation", "value": "remove"} [868](CARDINAL) [uova](item)
+      - [elimina]{"entity": "operation", "value": "remove"} [927](CARDINAL) [panna](item) dalla lista
+      - [elimina]{"entity": "operation", "value": "remove"} [acqua](item)
+      - [elimina]{"entity": "operation", "value": "remove"} [farina](item)
+      - [elimina]{"entity": "operation", "value": "remove"} [hamburger](item)
+      - [elimina]{"entity": "operation", "value": "remove"} [salame](item)
+      - [eliminare]{"entity": "operation", "value": "remove"} [1264](CARDINAL) [fagioli](item) dalla lista
+      - [eliminare]{"entity": "operation", "value": "remove"} [2099](CARDINAL) [zucchina](item) dalla mia lista
+      - [eliminare]{"entity": "operation", "value": "remove"} [585](CARDINAL) [formaggio](item) dalla lista
+      - [farina](item)
+      - [inserire]{"entity": "operation", "value": "add"} [1368](CARDINAL) [pane](item) alla mia lista
+      - [inserire]{"entity": "operation", "value": "add"} [153](CARDINAL) [legumi secchi](item) alla lista
+      - [inserire]{"entity": "operation", "value": "add"} [502](CARDINAL) [tonno](item) alla lista
+      - [inserire]{"entity": "operation", "value": "add"} [506](CARDINAL) [melenzana](item) alla lista
+      - [inserire]{"entity": "operation", "value": "add"} [611](CARDINAL) [cacao](item) alla mia lista
+      - [inserire]{"entity": "operation", "value": "add"} [692](CARDINAL) [pasta](item) alla mia lista della spesa
+      - [inserisci]{"entity": "operation", "value": "add"}
+      - [inserisci]{"entity": "operation", "value": "add"} [1003](CARDINAL) [fagioli](item) alla mia lista della spesa
+      - [inserisci]{"entity": "operation", "value": "add"} [1044](CARDINAL) [fragola](item)
+      - [inserisci]{"entity": "operation", "value": "add"} [1308](CARDINAL) [banana](item)
+      - [inserisci]{"entity": "operation", "value": "add"} [1358](CARDINAL) [zucchero](item) alla lista
+      - [inserisci]{"entity": "operation", "value": "add"} [1460](CARDINAL) [zucchero](item) alla mia lista
+      - [inserisci]{"entity": "operation", "value": "add"} [1484](CARDINAL) [pomodoro](item) alla lista
+      - [inserisci]{"entity": "operation", "value": "add"} [1606](CARDINAL) [salame](item) alla mia lista
+      - [inserisci]{"entity": "operation", "value": "add"} [1904](CARDINAL) [merluzzo](item)
+      - [inserisci]{"entity": "operation", "value": "add"} [2428](CARDINAL) [ceci](item) alla mia lista della spesa
+      - [inserisci]{"entity": "operation", "value": "add"} [343](CARDINAL) [zucchina](item)
+      - [inserisci]{"entity": "operation", "value": "add"} [346](CARDINAL) [latte](item)
+      - [inserisci]{"entity": "operation", "value": "add"} [356](CARDINAL) [banana](item) alla mia lista
+      - [inserisci]{"entity": "operation", "value": "add"} [430](CARDINAL) [frutta](item) alla mia lista della spesa
+      - [inserisci]{"entity": "operation", "value": "add"} [442](CARDINAL) [pomodoro](item) alla mia lista della spesa
+      - [inserisci]{"entity": "operation", "value": "add"} [45](CARDINAL) [cacao](item) alla mia lista
+      - [inserisci]{"entity": "operation", "value": "add"} [554](CARDINAL) [spinaci](item) alla mia lista
+      - [inserisci]{"entity": "operation", "value": "add"} [646](CARDINAL) [panna](item) alla mia lista
+      - [inserisci]{"entity": "operation", "value": "add"} [706](CARDINAL) [melenzana](item) alla mia lista della spesa
+      - [inserisci]{"entity": "operation", "value": "add"} [772](CARDINAL) [caffè](item) alla mia lista della spesa
+      - [inserisci]{"entity": "operation", "value": "add"} [885](CARDINAL) [pollo](item) alla lista
+      - [inserisci]{"entity": "operation", "value": "add"} [892](CARDINAL) [latte](item) alla mia lista
+      - [inserisci]{"entity": "operation", "value": "add"} [banana](item)
+      - [inserisci]{"entity": "operation", "value": "add"} [fagioli](item)
+      - [inserisci]{"entity": "operation", "value": "add"} [legumi secchi](item)
+      - [inserisci]{"entity": "operation", "value": "add"} [mozzarella](item)
+      - [inserisci]{"entity": "operation", "value": "add"} [pancetta](item)
+      - [inserisci]{"entity": "operation", "value": "add"} [spinaci](item)
+      - [lenticchie](item)
+      - [limone](item)
+      - [melenzana](item)
+      - [olive](item)
+      - [pancetta](item)
+      - [pane](item)
+      - [panna](item)
+      - [prosciutto](item)
+      - [rimuovere]{"entity": "operation", "value": "add"} [1007](CARDINAL) [fagioli](item) dalla mia lista della spesa
+      - [rimuovere]{"entity": "operation", "value": "add"} [1313](CARDINAL) [pasta](item) dalla lista
+      - [rimuovere]{"entity": "operation", "value": "add"} [187](CARDINAL) [latte](item) dalla lista
+      - [rimuovere]{"entity": "operation", "value": "add"} [465](CARDINAL) [hamburger](item) dalla mia lista
+      - [rimuovere]{"entity": "operation", "value": "add"} [472](CARDINAL) [pane](item) dalla mia lista
+      - [rimuovere]{"entity": "operation", "value": "add"} [597](CARDINAL) [pollo](item) dalla mia lista della spesa
+      - [rimuovere]{"entity": "operation", "value": "add"} [725](CARDINAL) [zucchero](item) dalla mia lista
+      - [rimuovi]{"entity": "operation", "value": "add"}
+      - [rimuovi]{"entity": "operation", "value": "add"} [15](CARDINAL) [biscotti](item) dalla mia lista della spesa
+      - [rimuovi]{"entity": "operation", "value": "add"} [210](CARDINAL) [sale](item)
+      - [rimuovi]{"entity": "operation", "value": "add"} [236](CARDINAL) [caffè](item) dalla mia lista della spesa
+      - [rimuovi]{"entity": "operation", "value": "add"} [237](CARDINAL) [pane](item)
+      - [rimuovi]{"entity": "operation", "value": "add"} [268](CARDINAL) [legumi secchi](item) dalla mia lista della spesa
+      - [rimuovi]{"entity": "operation", "value": "add"} [34](CARDINAL) [banana](item) dalla mia lista della spesa
+      - [rimuovi]{"entity": "operation", "value": "add"} [360](CARDINAL) [latte](item) dalla mia lista
+      - [rimuovi]{"entity": "operation", "value": "add"} [458](CARDINAL) [limone](item) dalla mia lista
+      - [rimuovi]{"entity": "operation", "value": "add"} [59](CARDINAL) [zucchero](item)
+      - [rimuovi]{"entity": "operation", "value": "add"} [622](CARDINAL) [uova](item) dalla lista
+      - [rimuovi]{"entity": "operation", "value": "add"} [670](CARDINAL) [melenzana](item) dalla lista
+      - [rimuovi]{"entity": "operation", "value": "add"} [872](CARDINAL) [lenticchie](item) dalla mia lista
+      - [rimuovi]{"entity": "operation", "value": "add"} [874](CARDINAL) [ceci](item) dalla lista
+      - [rimuovi]{"entity": "operation", "value": "add"} [pera](item)
+      - [salame](item)
+      - [salsa](item)
+      - [sottrai]{"entity": "operation", "value": "remove"} [1006](CARDINAL) [mozzarella](item) dalla mia lista
+      - [sottrai]{"entity": "operation", "value": "remove"} [1201](CARDINAL) [frutta](item) dalla mia lista della spesa
+      - [sottrai]{"entity": "operation", "value": "remove"} [1329](CARDINAL) [acqua](item) dalla mia lista
+      - [sottrai]{"entity": "operation", "value": "remove"} [346](CARDINAL) [olive](item) dalla lista
+      - [sottrai]{"entity": "operation", "value": "remove"} [50](CARDINAL) [tonno](item) dalla lista
+      - [sottrai]{"entity": "operation", "value": "remove"} [559](CARDINAL) [sale](item) dalla mia lista
+      - [sottrai]{"entity": "operation", "value": "remove"} [666](CARDINAL) [cacao](item) dalla mia lista della spesa
+      - [sottrai]{"entity": "operation", "value": "remove"} [679](CARDINAL) [patate](item) dalla mia lista
+      - [sottrai]{"entity": "operation", "value": "remove"} [749](CARDINAL) [mozzarella](item) dalla mia lista
+      - [sottrai]{"entity": "operation", "value": "remove"} [82](CARDINAL) [latte](item) dalla lista
+      - [sottrarre]{"entity": "operation", "value": "remove"} [1006](CARDINAL) [mela](item) dalla mia lista
+      - [sottrarre]{"entity": "operation", "value": "remove"} [1072](CARDINAL) [zucchero](item) dalla mia lista
+      - [sottrarre]{"entity": "operation", "value": "remove"} [2010](CARDINAL) [olio](item) dalla mia lista della spesa
+      - [sottrarre]{"entity": "operation", "value": "remove"} [241](CARDINAL) [caffè](item) dalla lista
+      - [sottrarre]{"entity": "operation", "value": "remove"} [2525](CARDINAL) [zucchero](item) dalla mia lista della spesa
+      - [sottrarre]{"entity": "operation", "value": "remove"} [423](CARDINAL) [limone](item) dalla mia lista della spesa
+      - [sottrarre]{"entity": "operation", "value": "remove"} [500](CARDINAL) [piselli](item) dalla mia lista
+      - [sottrarre]{"entity": "operation", "value": "remove"} [591](CARDINAL) [melenzana](item) dalla mia lista della spesa
+      - [sottrarre]{"entity": "operation", "value": "remove"} [68](CARDINAL) [merluzzo](item) dalla lista
+      - [sottrarre]{"entity": "operation", "value": "remove"} [788](CARDINAL) [biscotti](item) dalla mia lista della spesa
+      - [zucchero](item)
+
+  - intent: affirm
+    examples: |
+      - si
+      - si lo voglio
+      - si va bene
+      - accetto
+      - continua
+      - penso di si
+      - si penso di si
+
+  - intent: deny
+    examples: |
+      - no
+      - no non voglio
+      - no non va bene
+      - penso di no
+      - non la penso così
+
+  - intent: out_of_scope
+    examples: |
+      - 2 + 2
+      - who's your president
+      - jkdhwjcqndjinq
+      - hjncjkdwnqkjhrew
+      - poiqkmekwqmenwq
+
+  - synonym: aggiungere
+    examples: |
+      - inserire
+      - inserisci
+      - comprare
+      - compra
+
+  - synonym: remove
+    examples: |
+      - cancellare
+      - cancella
+      - distruggere
+      - distruggi
+      - sottrarre
+      - sottrai
+
+  - regex: CARDINAL
+    examples: |
+      - [1-9]\d*
+
+  - lookup: operation
+    examples: |
+      - aggiungere
+      - aggiungi
+      - inserire
+      - inserisci
+      - comprare
+      - compra
+      - rimuovere
+      - rimuovi
+      - eliminare
+      - elimina
+      - distruggere
+      - distruggi
+      - cancellare
+      - cancella
+      - sottrarre
+      - sottrai

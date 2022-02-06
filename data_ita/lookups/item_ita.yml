@@ -1,0 +1,50 @@
+version: "2.0"
+nlu:
+  - lookup: item
+    examples: |
+      - olio
+      - sale
+      - zucchero
+      - farina
+      - lievito
+      - caffè
+      - cacao
+      - pasta
+      - pomodoro
+      - salsa
+      - panna
+      - olive
+      - capperi
+      - biscotti
+      - uova
+      - latte
+      - pane
+      - legumi secchi
+      - ceci
+      - fagioli
+      - lenticchie
+      - piselli
+      - tonno
+      - limone
+      - patate
+      - frutta
+      - mela
+      - pera
+      - banana
+      - albicocca
+      - prugna
+      - fragola
+      - arancia
+      - formaggio
+      - mozzarella
+      - pancetta
+      - salame
+      - prosciutto
+      - pollo
+      - hamburger
+      - zucchina
+      - melenzana
+      - acqua
+      - merluzzo
+      - spinaci
+      - sapone

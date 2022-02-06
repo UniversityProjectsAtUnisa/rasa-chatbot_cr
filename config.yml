@@ -1,4 +1,4 @@
-language: en
+language: it
 
 pipeline:
   # - name: components.preprocessors.ExcludePreprocessor
@@ -6,8 +6,8 @@ pipeline:
   - name: components.preprocessors.W2NPreprocessor
   - name: WhitespaceTokenizer
   - name: LanguageModelFeaturizer
-    model_name: distilbert
-    model_weights: distilbert-base-uncased
+    model_name: bert
+    model_weights: dbmdz/bert-base-italian-uncased
   - name: RegexFeaturizer
     case_sensitive: False
   - name: LexicalSyntacticFeaturizer

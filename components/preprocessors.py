@@ -61,6 +61,43 @@ class W2NPreprocessor(Component):
     def required_components(cls) -> List[Type[Component]]:
         return []
 
+    italian_number_system = {
+        'zero': 0,
+        'uno': 1,
+        'due': 2,
+        'tre': 3,
+        'quattro': 4,
+        'cinque': 5,
+        'sei': 6,
+        'sette': 7,
+        'otto': 8,
+        'nove': 9,
+        'dieci': 10,
+        'undici': 11,
+        'dodici': 12,
+        'tredici': 13,
+        'quattordici': 14,
+        'quindici': 15,
+        'sediic': 16,
+        'diciassette': 17,
+        'diciotto': 18,
+        'diciannove': 19,
+        'venti': 20,
+        'trenta': 30,
+        'quaranta': 40,
+        'cinquanta': 50,
+        'sessanta': 60,
+        'settanta': 70,
+        'ottanta': 80,
+        'novanta': 90,
+        'cento': 100,
+        'mille': 1000,
+        'milione': 1000000,
+        'miliardo': 1000000000,
+        'punto': '.',
+        'virgola': ','
+    }
+
     american_number_system = {
         'zero': 0,
         'one': 1,
@@ -98,7 +135,7 @@ class W2NPreprocessor(Component):
     }
 
     defaults = {"exclude": ",-.", "substitute": " "}
-    supported_language_list = "en"
+    supported_language_list = ["en", "it"]
     not_supported_language_list = None
 
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:

@@ -55,10 +55,10 @@ responses:
         - type: slot
           name: user
           value: null
-      text: Ciao!
-    - text: Ciao {user}. Cosa stai cercando?
-    - text: Ciao {user}! Sono al tuo servizio.
-    - text: Ciao {user}! Come posso aiutarti?
+      text: Hello!
+    - text: Hi {user}. What are you looking for?
+    - text: Hi {user}! I am at your service.
+    - text: Hello {user}! What can I help you with today?
 
   utter_goodbye:
     - condition:
@@ -70,78 +70,75 @@ responses:
         - type: slot
           name: user
           value: null
-      text: Ci sentiamo più tardi!
+      text: Talk to you later!
     - condition:
         - type: slot
           name: user
           value: null
-      text: Buona giornata.
+      text: Have a good day.
     - condition:
         - type: slot
           name: user
           value: null
-      text: Alla prossima!
-    - text: Ciao {user}
-    - text: Ci vediamo più tardi {user}!
-    - text: Buona giornata {user}.
-    - text: Alla prossima {user}!
+      text: Until next time!
+    - text: Bye {user}
+    - text: Talk to you later {user}!
+    - text: Have a good day {user}.
+    - text: Until next time {user}!
 
   utter_pleased:
-    - text: Piacere di conoscerti, {user}
-    - text: È un piacere incontrarti, {user}
+    - text: Nice to meet you, {user}
+    - text: Pleased to meet you, {user}
 
   utter_capabilities:
-    - text: Posso aiutarti a gestire una lista della spesa per tutte le persone che parlano con me. Puoi chiederermi di aggiungere o rimuovere qualcosa dalla tua lista oppure di vederla.
-    - text: Sono un assistente per le liste della spesa. Posson aggiungere o rimuovere elementi dalla tua lista o posso mostratela.
+    - text: I can manage a shopping list for every user who talks to me. You can ask me to add or remove something from your list or just show your current list.
+    - text: I'm your shopping list assistant. I can add and remove items from your list or just show your current list.
 
   utter_ask_user:
-    - text: Chi sei?
-    - text: Qual è il tuo nome?
-    - text: Come ti chiami?
-    - text: Con chi sto parlando?
-    - text: Con chi ho il piacere di parlare?
+    - text: Who are you?
+    - text: What's your name?
+    - text: What is your name?
+    - text: Who am I talking to?
+    - text: Who do I have the pleasure of speaking to?
 
   utter_ask_item:
     - condition:
         - type: slot
           name: operation
           value: add
-      text: Cosa vuoi comprare?
+      text: What do you want to buy?
     - condition:
         - type: slot
           name: operation
           value: remove
-      text: Cosa vuoi rimuovere dalla lista?
+      text: What do you want to remove from your list?
 
   utter_ask_operation:
     - condition:
         - type: slot
           name: item
           value: null
-      text: Quale operazione vuoi fare, aggiungere o rimuovere?
-    - text: Quale operazione vuoi fare con {item}, aggiungere o rimuovere?
-    - text: Cosa desideri fare con {item}, aggiungere o rimuovere?
+      text: Which operation do you want to do (add, remove)?
+    - text: Which operation do you want to do with {item} (add, remove)?
+    - text: What do you want to do with {item} (add, remove)?
 
   utter_ask_should_know_user:
-    - text: Ci conosciamo?
-    - text: Ci siamo già incontrati?
-    - text: Ci siamo mai visti?
+    - text: Do I know you?
+    - text: Have we met before?
+    - text: Do we know each other?
 
   utter_stop:
-    - text: richiesta cancellata!
+    - text: Request cancelled!
 
   utter_help:
-    - text: Come posso aiutarti?
+    - text: How can I help you?
+    - text: How can I help?
 
   utter_stop_nothing:
-    - text: Non c'è nulla da fermare al momento. Se vuoi terminare la conversazione dici addio.
+    - text: There is nothing to stop at the moment. If you want to terminate the interaction we can say goodbye.
+    - text: I am not asking anything at the moment. If you want to terminate the interaction we can say goodbye.
 
   utter_already_greet:
-    - condition:
-        - type: slot
-          name: user
-          value: null
-      text: Ci siamo già visti.
     - condition:
         - type: slot
           name: user
@@ -151,13 +148,24 @@ responses:
         - type: slot
           name: user
           value: null
-      text: Ciao di nuovo!
-    - text: Ci siamo già visti, {user}
-    - text: Ciao di nuovo {user}!
+      text: I already greeted you.
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: Hi! (Again?)
+    - condition:
+        - type: slot
+          name: user
+          value: null
+      text: Hello! Hello! Hello!
+    - text: I already greeted you, {user}
+    - text: Hi again {user}!
+    - text: Hello {user}! Hello {user}! Hello {user}!
 
   utter_default:
-    - text: Scusa non ho capito. Puoi ripetere, perfavore?
-    - text: Credo di non aver capito. Puoi riformulare la frase?
+    - text: Sorry I didn't get that. Can you rephrase?
+    - text: Sorry I didn't understand. Can you rephrase that?
   
   utter_endconversation_command:
     - text: __endconversation__

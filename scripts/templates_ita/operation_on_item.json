@@ -1,0 +1,18 @@
+{
+    "basic": [
+        "(CARDINAL) (item)",
+        "(item)",
+        "(operation)",
+        "(operation) (CARDINAL) (item)",
+        "(operation) (item)"
+    ],
+    "full": [
+        "(operation) (CARDINAL) (item) alla mia lista",
+        "(operation) (CARDINAL) (item) alla mia lista della spesa",
+        "(operation) (CARDINAL) (item) alla lista",
+        
+        "(operation) (CARDINAL) (item) dalla mia lista",
+        "(operation) (CARDINAL) (item) dalla mia lista della spesa",
+        "(operation) (CARDINAL) (item) dalla lista"
+    ]
+}
