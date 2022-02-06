@@ -61,48 +61,46 @@ class W2NPreprocessor(Component):
     def required_components(cls) -> List[Type[Component]]:
         return []
 
-    american_number_system = {
-        'zero': 0,
-        'one': 1,
-        'two': 2,
-        'three': 3,
-        'four': 4,
-        'five': 5,
-        'six': 6,
-        'seven': 7,
-        'eight': 8,
-        'nine': 9,
-        'ten': 10,
-        'eleven': 11,
-        'twelve': 12,
-        'thirteen': 13,
-        'fourteen': 14,
-        'fifteen': 15,
-        'sixteen': 16,
-        'seventeen': 17,
-        'eighteen': 18,
-        'nineteen': 19,
-        'twenty': 20,
-        'thirty': 30,
-        'forty': 40,
-        'fifty': 50,
-        'sixty': 60,
-        'seventy': 70,
-        'eighty': 80,
-        'ninety': 90,
-        'hundred': 100,
-        'thousand': 1000,
-        'million': 1000000,
-        'billion': 1000000000,
-        'point': '.'
-    }
+    _italian_number_system = (
+        ('dieci', '10'),
+        ('undici', '11'),
+        ('dodici', '12'),
+        ('tredici', '13'),
+        ('quattordici', '14'),
+        ('quindici', '15'),
+        ('sedici', '16'),
+        ('diciasette', '17'),
+        ('diciotto', '18'),
+        ('diciannove', '19'),
+        ('venti', '20'), ('vent', '20'),
+        ('trenta', '30'), ('trent', '30'),
+        ('quaranta', '40'), ('quarant', '40'),
+        ('cinquanta', '50'), ('cinquant', '50'),
+        ('sessanta', '60'), ('sessant', '60'),
+        ('settanta', '70'), ('settant', '70'),
+        ('ottanta', '80'), ('ottant', '80'),
+        ('novanta', '90'), ('novant', '90'),
+        ('cento', '100'),
+        ('mille', '1000'), ('mila', '1000'),
+        ('milione', '1000000'), ('milioni', '1000000'),
+        ('miliardo', '1000000000'), ('miliardi', '1000000000'),
+        ('uno', '1'), ('un', '1'),
+        ('due', '2'),
+        ('tre', '3'),
+        ('quattro', '4'),
+        ('cinque', '5'),
+        ('sei', '6'),
+        ('sette', '7'),
+        ('otto', '8'),
+        ('nove', '9'),
+    )
 
     defaults = {"exclude": ",-.", "substitute": " "}
     supported_language_list = "en"
     not_supported_language_list = None
 
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
-        super().__init__(component_config)        
+        super().__init__(component_config)
         if "substitute" in component_config and len(component_config["substitute"]) != 1:
             raise Exception("substitute config must be one single character")
 
@@ -114,21 +112,71 @@ class W2NPreprocessor(Component):
     ) -> None:
         pass
 
-    @classmethod
-    def _find_end_of_number(cls, booleans_list: List[bool], left: int) -> int:
+    _NUMBERS = dict(_italian_number_system)
+
+    _TOKEN_REGEX = re.compile('|'.join(f'({num})' for num, val in _italian_number_system))
+
+    @staticmethod
+    def normalize_text(num_repr):
+        '''Return a normalized version of *num_repr* that can be passed to w2n.'''
+        return "".join(num_repr.lower().split())
+
+    def w2n(self, num_repr):
+        '''Yield the numeric representation of *num_repr*.'''
+
+        result = ''
+
+        for token in (tok for tok in self._TOKEN_REGEX.split(num_repr) if tok):
+            try:
+                value = self._NUMBERS[token]
+            except KeyError:
+                if token not in ('di', 'e'):
+                    raise ValueError(f'Invalid number representation: {num_repr}')
+                continue
+
+            if token == 'miliardi':
+                result += '0'*9
+            elif token in ('mila', 'milioni'):
+                zeros = '0' * value.count('0')
+                piece = result[-3:].lstrip('0')
+                result = (result[:-len(piece)-len(zeros)] + piece + zeros)
+            elif not result:
+                result = value
+            else:
+                length = len(value)
+                non_zero_values = len(value.strip('0'))
+                if token in ('cento', 'milione', 'miliardo'):
+                    if result[-1] != '0':
+                        result = (result[:-length] + result[-1] + '0' * value.count('0'))
+                        continue
+                result = (result[:-length] +
+                          value.rstrip('0') +
+                          result[len(result) - length + non_zero_values:])
+        return result
+
+    @staticmethod
+    def _is_valid_word(word):
+        try:
+            w2n(word)
+            return True
+        except:
+            return False
+
+    @staticmethod
+    def _find_end_of_number(booleans_list: List[bool], left: int) -> int:
         idx = left
         if not booleans_list[idx]:
             return -1
-        while idx + 2 < len(booleans_list):
-            if booleans_list[idx+1] == False and booleans_list[idx+2] == False:
+        while idx + 1 < len(booleans_list):
+            if booleans_list[idx+1] == False:
                 return idx
             idx += 1
         if idx + 1 >= len(booleans_list):
             return idx
         return (idx + 1) if booleans_list[idx+1] else idx
-    
+
     @staticmethod
-    def _split_with_indices(text: Text) -> List[Tuple[Text, int, int]]:
+    def _split_with_indices(text: str) -> List[Tuple[str, int, int]]:
         res = []
 
         idx = 0
@@ -140,10 +188,10 @@ class W2NPreprocessor(Component):
                 res.append((text[start:idx], start, idx))
             else:
                 idx += 1
-        
+
         return res
 
-    def process(self, message: Message, **kwargs: Any) -> None:
+    def process(self, message, **kwargs: Any) -> None:
         phrase = message.get('text')
         if phrase is None:
             return
@@ -162,8 +210,7 @@ class W2NPreprocessor(Component):
 
         split_words = [word[0] for word in split_data]
 
-        booleans_list = [
-            word in self.american_number_system for word in split_words]
+        booleans_list = [self._is_valid_word(word) for word in split_words]
 
         numbers_boundaries = list()
         left, right = 0, 0
@@ -182,7 +229,7 @@ class W2NPreprocessor(Component):
             origin_right = split_data[right][2]
 
             newtext += phrase[idx:origin_left]
-            number = w2n.word_to_num(" ".join(split_words[left:right + 1]))
+            number = w2n(self.normalize_text(" ".join(split_words[left:right + 1])))
             newtext += str(number)
 
             idx = origin_right
