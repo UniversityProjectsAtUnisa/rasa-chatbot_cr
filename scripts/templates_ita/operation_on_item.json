@@ -1,24 +1,64 @@
-{
-    "basic": [
-        "(CARDINAL) (item)",
-        "(item)",
-        "(operation)",
-        "(operation) (CARDINAL) (item)",
-        "(operation) (item)"
-    ],
-    "full": [
-        "(operation) (CARDINAL) (item) alla mia lista",
-        "(operation) (CARDINAL) (item) alla mia lista della spesa",
-        "(operation) (CARDINAL) (item) alla lista",
-        "(operation) (CARDINAL) (item) dalla mia lista",
-        "(operation) (CARDINAL) (item) dalla mia lista della spesa",
-        "(operation) (CARDINAL) (item) dalla lista",
-        "voglio (operation) (CARDINAL) (item) dalla lista",
-        "voglio (operation) (CARDINAL) (item) alla lista",
-        "voglio (CARDINAL) (item) dalla lista",
-        "voglio (CARDINAL) (item) alla lista",
-        "vorrei (operation) (CARDINAL) (item) dalla lista",
-        "vorrei (operation) (CARDINAL) (item) alla lista",
-        "vorrei (CARDINAL) (item)"
-    ]
-}
+[
+    {
+        "example": "(item)",
+        "prefixes": ["", "delle", "dei", "del", "dell'"]
+    },
+    "(CARDINAL) (item)",
+    {
+        "example": "(operation)",
+        "prefixes": [
+            "",
+            "voglio",
+            "vorrei",
+            "potresti",
+            "per favore"
+        ],
+        "suffixes": [
+            "",
+            "alla lista",
+            "alla mia lista",
+            "alla mia lista della spesa",
+            "dalla lista",
+            "dalla mia lista",
+            "dalla mia lista della spesa"
+        ]
+    },
+    {
+        "example": "(operation) (item)",
+        "prefixes": [
+            "",
+            "voglio",
+            "vorrei",
+            "potresti",
+            "per favore"
+        ],
+        "suffixes": [
+            "",
+            "alla lista",
+            "alla mia lista",
+            "alla mia lista della spesa",
+            "dalla lista",
+            "dalla mia lista",
+            "dalla mia lista della spesa"
+        ]
+    },
+    {
+        "example": "(operation) (CARDINAL) (item)",
+        "prefixes": [
+            "",
+            "voglio",
+            "vorrei",
+            "potresti",
+            "per favore"
+        ],
+        "suffixes": [
+            "",
+            "alla lista",
+            "alla mia lista",
+            "alla mia lista della spesa",
+            "dalla lista",
+            "dalla mia lista",
+            "dalla mia lista della spesa"
+        ]
+    }
+]

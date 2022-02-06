@@ -22,41 +22,41 @@ def item_generator():
 
 def operation_generator():
     all_operations = [
-        '[aggiungere]{"entity": "operation", "value": "aggiungere"}',
-        '[inserisci]{"entity": "operation", "value": "aggiungere"}',
-        '[compra]{"entity": "operation", "value": "aggiungere"}',
-        '[inserisci]{"entity": "operation", "value": "aggiungere"}',
-        '[rimuovi]{"entity": "operation", "value": "rimuovere"}',
-        '[rimuovere]{"entity": "operation", "value": "rimuovere"}',
-        '[elimina]{"entity": "operation", "value": "rimuovere"}',
-        '[eliminare]{"entity": "operation", "value": "rimuovere"}',
-        '[sottrarre]{"entity": "operation", "value": "rimuovere"}',
-        '[sottrai]{"entity": "operation", "value": "rimuovere"}',
+        '[aggiungere]{"entity": "operation", "value": "add"}',
+        '[inserisci]{"entity": "operation", "value": "add"}',
+        '[compra]{"entity": "operation", "value": "add"}',
+        '[inserisci]{"entity": "operation", "value": "add"}',
+        '[rimuovi]{"entity": "operation", "value": "remove"}',
+        '[rimuovere]{"entity": "operation", "value": "remove"}',
+        '[elimina]{"entity": "operation", "value": "remove"}',
+        '[eliminare]{"entity": "operation", "value": "remove"}',
+        '[sottrarre]{"entity": "operation", "value": "remove"}',
+        '[sottrai]{"entity": "operation", "value": "remove"}',
         ]
     while True:
         yield random.choice(all_operations)
 
 def add_operation_generator():
     add_operations = [
-        '[aggiungere]{"entity": "operation", "value": "aggiungere"}',
-        '[aggiungi]{"entity": "operation", "value": "aggiungere"',
-        '[inserisci]{"entity": "operation", "value": "aggiungere"}',
-        '[inserire]{"entity": "operation", "value": "aggiungere"}',
-        '[compra]{"entity": "operation", "value": "aggiungere"}',
-        '[comprare]{"entity": "operation", "value": "aggiungere"}',
-        '[inserisci]{"entity": "operation", "value": "aggiungere"}'
+        '[aggiungere]{"entity": "operation", "value": "add"}',
+        '[aggiungi]{"entity": "operation", "value": "add"',
+        '[inserisci]{"entity": "operation", "value": "add"}',
+        '[inserire]{"entity": "operation", "value": "add"}',
+        '[compra]{"entity": "operation", "value": "add"}',
+        '[comprare]{"entity": "operation", "value": "add"}',
+        '[inserisci]{"entity": "operation", "value": "add"}'
         ]
     while True:
         yield random.choice(add_operations)
 
 def remove_operation_generator():
     remove_operations = [
-        '[rimuovi]{"entity": "operation", "value": "rimuovere"}',
-        '[rimuovere]{"entity": "operation", "value": "rimuovere"}',
-        '[elimina]{"entity": "operation", "value": "rimuovere"}',
-        '[eliminare]{"entity": "operation", "value": "rimuovere"}',
-        '[sottrarre]{"entity": "operation", "value": "rimuovere"}',
-        '[sottrai]{"entity": "operation", "value": "rimuovere"}',
+        '[rimuovi]{"entity": "operation", "value": "remove"}',
+        '[rimuovere]{"entity": "operation", "value": "remove"}',
+        '[elimina]{"entity": "operation", "value": "remove"}',
+        '[eliminare]{"entity": "operation", "value": "remove"}',
+        '[sottrarre]{"entity": "operation", "value": "remove"}',
+        '[sottrai]{"entity": "operation", "value": "remove"}',
         ]
     while True:
         yield random.choice(remove_operations)
@@ -81,6 +81,17 @@ def user_generator():
     while True:
         yield random.choice(users)
 
+def get_example_from_template(template):
+    if isinstance(template, dict):
+        example = template['example']
+        pre = random.choice(template.get('prefixes', ['']))
+        suff = random.choice(template.get('suffixes', ['']))
+        if pre:
+            example = f'{pre} {example}'
+        if suff:
+            example = f'{example} {suff}'
+        return example
+    return template
 
 def main(seed: int, template_amt: int, intent: str, basic_only: bool):
     random.seed(seed)
@@ -91,10 +102,11 @@ def main(seed: int, template_amt: int, intent: str, basic_only: bool):
     with open(TEMPLATE_FILE) as f:
         data = json.load(f)
 
-    templates = data["basic"]
-
-    if not basic_only:
-        templates += data["full"]
+    templates = data
+    if isinstance(templates, dict):
+        templates = data["basic"]
+        if not basic_only:
+            templates += data["full"]
 
     entity_mapper = {
         "(item)": item_generator(),
@@ -113,7 +125,7 @@ def main(seed: int, template_amt: int, intent: str, basic_only: bool):
 
     for _ in range(AMOUNT_PER_TEMPLATE):
         for t in templates:
-            example = t
+            example = get_example_from_template(t)
 
             op_generator = operation_generators["all"]
             if "alla" in example:

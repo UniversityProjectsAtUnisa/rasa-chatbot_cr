@@ -45,7 +45,7 @@ class ActionItem(Action):
         user = tracker.get_slot("user")
 
         item, quantity = self.sanitize_itemquantity(item, quantity)
-
+        
         if quantity == "":
             # when I say "remove item" I want to remove all of them
             quantity = '1' if operation == "add" else "all"
@@ -106,9 +106,11 @@ class ValidateItemForm(FormValidationAction):
         quantity = "" if quantity is None else quantity
 
         item = slot_value
+        print(f"validate item: '{item}'")
         if isinstance(item, list):
             item = " ".join(slot_value)
         item = self.remove_numbers(item)
+        print(f"validate item: '{item}'")
 
         if len(item) > 0:
             return {"item": item}
@@ -123,7 +125,8 @@ class ValidateItemForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        if slot_value not in ["aggiungere", "rimuovere"]:
+        print("validate operation:", slot_value)
+        if slot_value not in ["add", "remove"]:
             dispatcher.utter_message(response="utter_default")
             return {"operation": None}
         return {"operation": slot_value}

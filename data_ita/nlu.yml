@@ -106,8 +106,6 @@ nlu:
       - [laura nienow](user)
       - [lisa virgilio](user)
       - [riccardo zumbo](user)
-      - [teresa reilly](user)
-      - [valentina huels](user)
       - [virginia carvelli](user)
       - il mio nome è [aaron](user)
       - il mio nome è [amanda cangiano](user)
@@ -118,11 +116,6 @@ nlu:
       - il mio nome è [joseph walker](user)
       - il mio nome è [letizia fabiano](user)
       - il mio nome è [margherita ferrini](user)
-      - il mio nome è [mauro wisoky](user)
-      - il mio nome è [michele](user)
-      - il mio nome è [russell maggio](user)
-      - il mio nome è [terry caretti](user)
-      - il mio nome è [valerio](user)
       - il mio nome è [walter](user)
       - io sono [daniel ottonello](user)
       - io sono [elizabeth montagna](user)
@@ -132,11 +125,6 @@ nlu:
       - io sono [marie ascione](user)
       - io sono [martina](user)
       - io sono [nicholas cipriano](user)
-      - io sono [patricia polito](user)
-      - io sono [richard redaelli](user)
-      - io sono [rosa](user)
-      - io sono [russell maggio](user)
-      - io sono [sarah](user)
       - io sono [saverio cantoni](user)
       - io sono [teresa reilly](user)
       - mi chiamo [aurora](user)
@@ -148,12 +136,6 @@ nlu:
       - mi chiamo [franca](user)
       - mi chiamo [gaia rowe](user)
       - mi chiamo [joe](user)
-      - mi chiamo [keith daniel](user)
-      - mi chiamo [margaret](user)
-      - mi chiamo [michael](user)
-      - mi chiamo [pietro franchini](user)
-      - mi chiamo [robert pfeffer](user)
-      - mi chiamo [teresa d'errico](user)
       - sono [ann cummings](user)
       - sono [austin](user)
       - sono [beatrice](user)
@@ -174,532 +156,132 @@ nlu:
       - sono io [barbara](user)
       - sono io [benedetta koch](user)
       - sono io [davide carter](user)
-      - sono io [diana acquadro](user)
-      - sono io [edward fumarola](user)
-      - sono io [jeffrey oberbrunner](user)
-      - sono io [kyle bisio](user)
-      - sono io [marco andrisani](user)
-      - sono io [mario gallo](user)
-      - sono io [miriam mante](user)
-      - sono io [sonia](user)
-      - sono io [thomas](user)
-      - sono io [vincenzo lucia](user)
 
   - intent: operation_on_item
     examples: |
-      - [105](CARDINAL) [lievito](item)
-      - [1080](CARDINAL) [hamburger](item)
-      - [113](CARDINAL) [pera](item)
-      - [115](CARDINAL) [cicoria](item)
-      - [1174](CARDINAL) [melone](item)
-      - [1268](CARDINAL) [bietole](item)
-      - [141](CARDINAL) [finocchi](item)
-      - [1579](CARDINAL) [cannella](item)
-      - [1621](CARDINAL) [uova](item)
-      - [184](CARDINAL) [caffè](item)
-      - [204](CARDINAL) [melanzane](item)
-      - [207](CARDINAL) [melenzana](item)
-      - [207](CARDINAL) [more](item)
-      - [366](CARDINAL) [cannella](item)
-      - [399](CARDINAL) [salsa](item)
-      - [45](CARDINAL) [alloro](item)
-      - [47](CARDINAL) [fragola](item)
-      - [52](CARDINAL) [kiwi](item)
-      - [561](CARDINAL) [fragola](item)
-      - [565](CARDINAL) [acciughe,alici](item)
-      - [574](CARDINAL) [caffè](item)
-      - [578](CARDINAL) [frutta](item)
-      - [648](CARDINAL) [melograno](item)
-      - [78](CARDINAL) [pancetta](item)
-      - [811](CARDINAL) [melenzana](item)
-      - [855](CARDINAL) [albicocche](item)
-      - [870](CARDINAL) [pere](item)
-      - [918](CARDINAL) [cernia](item)
-      - [931](CARDINAL) [fragola](item)
-      - [98](CARDINAL) [verza](item)
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"}
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [1185](CARDINAL) [zucchero](item) alla mia lista
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [1426](CARDINAL) [pollo](item) alla mia lista della spesa
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [1538](CARDINAL) [salame](item)
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [163](CARDINAL) [cachi, loti](item)
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [1782](CARDINAL) [capretto](item) alla mia lista
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [231](CARDINAL) [pane](item) alla mia lista
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [2913](CARDINAL) [caffè](item) alla mia lista
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [354](CARDINAL) [salmone](item)
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [356](CARDINAL) [sale](item) alla lista
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [424](CARDINAL) [sogliola](item) alla lista
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [438](CARDINAL) [anguria](item) alla mia lista
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [581](CARDINAL) [fragola](item) alla mia lista della spesa
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [61](CARDINAL) [acqua](item) alla mia lista della spesa
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [734](CARDINAL) [cernia](item) alla mia lista
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [793](CARDINAL) [zucchero](item) alla mia lista della spesa
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [830](CARDINAL) [pomodoro](item)
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [862](CARDINAL) [arancia](item) alla mia lista della spesa
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [cipolla](item)
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [frutta](item)
-      - [aggiungere]{"entity": "operation", "value": "aggiungere"} [peperoncino](item)
-      - [aggiungi]{"entity": "operation", "value": "aggiungere" [1090](CARDINAL) [curry](item) alla lista
-      - [aggiungi]{"entity": "operation", "value": "aggiungere" [1094](CARDINAL) [arance  ](item) alla mia lista della spesa
-      - [aggiungi]{"entity": "operation", "value": "aggiungere" [113](CARDINAL) [aglio](item) alla mia lista della spesa
-      - [aggiungi]{"entity": "operation", "value": "aggiungere" [124](CARDINAL) [panna](item) alla lista
-      - [aggiungi]{"entity": "operation", "value": "aggiungere" [1313](CARDINAL) [ananas](item) alla lista
-      - [aggiungi]{"entity": "operation", "value": "aggiungere" [1703](CARDINAL) [pepe](item) alla mia lista
-      - [aggiungi]{"entity": "operation", "value": "aggiungere" [1705](CARDINAL) [noce moscata](item) alla mia lista
-      - [aggiungi]{"entity": "operation", "value": "aggiungere" [1](CARDINAL) [panna](item) alla mia lista della spesa
-      - [aggiungi]{"entity": "operation", "value": "aggiungere" [26](CARDINAL) [mozzarella](item) alla lista
-      - [aggiungi]{"entity": "operation", "value": "aggiungere" [353](CARDINAL) [petto di pollo](item) alla lista
-      - [aggiungi]{"entity": "operation", "value": "aggiungere" [411](CARDINAL) [insalata](item) alla lista
-      - [aggiungi]{"entity": "operation", "value": "aggiungere" [51](CARDINAL) [zucchina](item) alla lista
-      - [aggiungi]{"entity": "operation", "value": "aggiungere" [614](CARDINAL) [pomodoro](item) alla mia lista della spesa
-      - [aggiungi]{"entity": "operation", "value": "aggiungere" [822](CARDINAL) [piselli](item) alla lista
-      - [aggiungi]{"entity": "operation", "value": "aggiungere" [873](CARDINAL) [timo](item) alla lista
-      - [banane](item)
-      - [biscotti](item)
-      - [cachi, loti](item)
-      - [caffè](item)
-      - [capperi](item)
-      - [capretto](item)
-      - [cernia](item)
-      - [ciliege](item)
-      - [compra]{"entity": "operation", "value": "aggiungere"}
-      - [compra]{"entity": "operation", "value": "aggiungere"} [10](CARDINAL) [rosmarino](item) alla mia lista
-      - [compra]{"entity": "operation", "value": "aggiungere"} [1229](CARDINAL) [carote](item)
-      - [compra]{"entity": "operation", "value": "aggiungere"} [1294](CARDINAL) [zenzero](item) alla lista
-      - [compra]{"entity": "operation", "value": "aggiungere"} [1431](CARDINAL) [biscotti](item) alla mia lista della spesa
-      - [compra]{"entity": "operation", "value": "aggiungere"} [1990](CARDINAL) [sardine](item)
-      - [compra]{"entity": "operation", "value": "aggiungere"} [2408](CARDINAL) [aglio](item) alla mia lista della spesa
-      - [compra]{"entity": "operation", "value": "aggiungere"} [283](CARDINAL) [pompelmo](item)
-      - [compra]{"entity": "operation", "value": "aggiungere"} [404](CARDINAL) [cetrioli](item) alla mia lista della spesa
-      - [compra]{"entity": "operation", "value": "aggiungere"} [466](CARDINAL) [limone](item)
-      - [compra]{"entity": "operation", "value": "aggiungere"} [536](CARDINAL) [salsa](item) alla mia lista della spesa
-      - [compra]{"entity": "operation", "value": "aggiungere"} [605](CARDINAL) [asparagi](item) alla mia lista della spesa
-      - [compra]{"entity": "operation", "value": "aggiungere"} [612](CARDINAL) [lenticchie](item) alla lista
-      - [compra]{"entity": "operation", "value": "aggiungere"} [731](CARDINAL) [patate](item) alla lista
-      - [compra]{"entity": "operation", "value": "aggiungere"} [912](CARDINAL) [cetrioli](item)
-      - [compra]{"entity": "operation", "value": "aggiungere"} [capperi](item)
-      - [compra]{"entity": "operation", "value": "aggiungere"} [olive](item)
-      - [compra]{"entity": "operation", "value": "aggiungere"} [pollo](item)
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [1043](CARDINAL) [patate](item) alla mia lista della spesa
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [1181](CARDINAL) [mirtilli](item) alla mia lista
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [126](CARDINAL) [pesche](item) alla lista
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [1455](CARDINAL) [coniglio](item) alla lista
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [1598](CARDINAL) [curcuma](item) alla mia lista
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [166](CARDINAL) [arancia](item) alla mia lista
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [1853](CARDINAL) [ciliege](item) alla mia lista
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [259](CARDINAL) [finocchi](item) alla mia lista della spesa
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [264](CARDINAL) [tonno](item) alla lista
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [2766](CARDINAL) [chiodi di garofano](item) alla mia lista della spesa
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [316](CARDINAL) [ribes](item) alla lista
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [424](CARDINAL) [albicocca](item) alla lista
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [546](CARDINAL) [capretto](item) alla lista
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [746](CARDINAL) [prosciutto](item) alla lista
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [804](CARDINAL) [spinaci](item) alla mia lista della spesa
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [891](CARDINAL) [pepe](item) alla mia lista della spesa
-      - [comprare]{"entity": "operation", "value": "aggiungere"} [955](CARDINAL) [more](item) alla lista
-      - [curry](item)
-      - [elimina]{"entity": "operation", "value": "rimuovere"} [1216](CARDINAL) [pane](item) dalla mia lista della spesa
-      - [elimina]{"entity": "operation", "value": "rimuovere"} [147](CARDINAL) [curcuma](item)
-      - [elimina]{"entity": "operation", "value": "rimuovere"} [194](CARDINAL) [olio](item) dalla mia lista della spesa
-      - [elimina]{"entity": "operation", "value": "rimuovere"} [279](CARDINAL) [spigola](item) dalla lista
-      - [elimina]{"entity": "operation", "value": "rimuovere"} [297](CARDINAL) [uva](item) dalla mia lista della spesa
-      - [elimina]{"entity": "operation", "value": "rimuovere"} [377](CARDINAL) [lievito](item) dalla mia lista della spesa
-      - [elimina]{"entity": "operation", "value": "rimuovere"} [435](CARDINAL) [banane](item) dalla mia lista
-      - [elimina]{"entity": "operation", "value": "rimuovere"} [512](CARDINAL) [spinaci](item) dalla lista
-      - [elimina]{"entity": "operation", "value": "rimuovere"} [566](CARDINAL) [verza](item) dalla lista
-      - [elimina]{"entity": "operation", "value": "rimuovere"} [63](CARDINAL) [tonno](item)
-      - [elimina]{"entity": "operation", "value": "rimuovere"} [706](CARDINAL) [broccoli](item)
-      - [elimina]{"entity": "operation", "value": "rimuovere"} [849](CARDINAL) [spinaci](item) dalla lista
-      - [elimina]{"entity": "operation", "value": "rimuovere"} [piselli](item)
-      - [eliminare]{"entity": "operation", "value": "rimuovere"}
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [108](CARDINAL) [ceci](item) dalla lista
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [1302](CARDINAL) [merluzzo](item)
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [1388](CARDINAL) [avocado](item)
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [1558](CARDINAL) [pesce spada](item) dalla mia lista della spesa
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [1737](CARDINAL) [maiale](item) dalla mia lista della spesa
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [190](CARDINAL) [latte](item) dalla lista
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [1945](CARDINAL) [salsa](item) dalla lista
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [204](CARDINAL) [tacchino](item)
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [2288](CARDINAL) [acciughe,alici](item) dalla mia lista della spesa
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [2410](CARDINAL) [fragole](item) dalla mia lista della spesa
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [2527](CARDINAL) [cavoli](item) dalla lista
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [273](CARDINAL) [hamburger](item) dalla mia lista
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [396](CARDINAL) [lievito](item) dalla lista
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [414](CARDINAL) [sedano](item) dalla mia lista
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [425](CARDINAL) [pesche](item)
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [440](CARDINAL) [anguria](item) dalla lista
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [461](CARDINAL) [cicoria](item) dalla mia lista
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [637](CARDINAL) [orata](item) dalla mia lista della spesa
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [684](CARDINAL) [carote](item) dalla lista
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [760](CARDINAL) [orata](item) dalla mia lista
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [981](CARDINAL) [zenzero](item) dalla lista
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [paprika dolce](item)
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [rosmarino](item)
-      - [eliminare]{"entity": "operation", "value": "rimuovere"} [sgombro](item)
-      - [fichi](item)
-      - [formaggio](item)
-      - [inserire]{"entity": "operation", "value": "aggiungere"} [1124](CARDINAL) [agnello](item) alla mia lista
-      - [inserire]{"entity": "operation", "value": "aggiungere"} [1209](CARDINAL) [spinaci](item) alla mia lista
-      - [inserire]{"entity": "operation", "value": "aggiungere"} [1222](CARDINAL) [sedano](item) alla mia lista
-      - [inserire]{"entity": "operation", "value": "aggiungere"} [448](CARDINAL) [arance  ](item) alla mia lista
-      - [inserire]{"entity": "operation", "value": "aggiungere"} [487](CARDINAL) [fagiolini](item) alla mia lista della spesa
-      - [inserire]{"entity": "operation", "value": "aggiungere"} [755](CARDINAL) [melenzana](item) alla mia lista
-      - [inserire]{"entity": "operation", "value": "aggiungere"} [8](CARDINAL) [lievito](item) alla mia lista della spesa
-      - [inserisci]{"entity": "operation", "value": "aggiungere"}
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [1013](CARDINAL) [salame](item) alla mia lista della spesa
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [103](CARDINAL) [sogliola](item) alla lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [1053](CARDINAL) [maiale](item) alla lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [1138](CARDINAL) [melanzane](item) alla mia lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [1152](CARDINAL) [albicocche](item) alla mia lista della spesa
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [1172](CARDINAL) [lamponi](item) alla mia lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [1184](CARDINAL) [caffè](item) alla mia lista della spesa
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [1202](CARDINAL) [kiwi](item)
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [1339](CARDINAL) [acciughe,alici](item) alla lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [133](CARDINAL) [panna](item) alla mia lista della spesa
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [1527](CARDINAL) [acqua](item) alla lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [152](CARDINAL) [petto di pollo](item) alla mia lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [158](CARDINAL) [spinaci](item)
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [168](CARDINAL) [bietole](item) alla lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [1707](CARDINAL) [peperoni](item)
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [17](CARDINAL) [zucchero](item) alla mia lista della spesa
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [1892](CARDINAL) [albicocche](item) alla mia lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [2061](CARDINAL) [maiale](item) alla mia lista della spesa
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [2212](CARDINAL) [pomodoro](item)
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [234](CARDINAL) [zucchine](item)
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [263](CARDINAL) [formaggio](item) alla mia lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [274](CARDINAL) [peperoni](item)
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [337](CARDINAL) [pera](item) alla lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [479](CARDINAL) [pesce spada](item) alla mia lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [489](CARDINAL) [cacao](item) alla mia lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [517](CARDINAL) [coniglio](item) alla mia lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [550](CARDINAL) [ceci](item) alla mia lista della spesa
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [580](CARDINAL) [mele](item) alla mia lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [60](CARDINAL) [uova](item) alla mia lista della spesa
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [679](CARDINAL) [pomodoro](item) alla mia lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [688](CARDINAL) [farina](item) alla mia lista della spesa
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [776](CARDINAL) [cipolla](item) alla mia lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [795](CARDINAL) [pesce spada](item) alla mia lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [930](CARDINAL) [salame](item) alla lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [965](CARDINAL) [zafferano](item) alla lista
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [alloro](item)
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [biscotti](item)
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [broccoli](item)
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [cicoria](item)
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [legumi secchi](item)
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [limone](item)
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [manzo](item)
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [pomodoro](item)
-      - [inserisci]{"entity": "operation", "value": "aggiungere"} [prosciutto](item)
-      - [latte](item)
-      - [lenticchie](item)
-      - [lievito](item)
-      - [melone](item)
-      - [nespole](item)
-      - [noce moscata](item)
-      - [olio](item)
-      - [peperoncino](item)
-      - [pesce spada](item)
-      - [petto di pollo](item)
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"}
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [1057](CARDINAL) [patate](item) dalla mia lista
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [113](CARDINAL) [banane](item) dalla mia lista della spesa
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [165](CARDINAL) [salsa](item) dalla mia lista
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [1924](CARDINAL) [capperi](item) dalla mia lista
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [70](CARDINAL) [carote](item)
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [755](CARDINAL) [petto di pollo](item) dalla mia lista
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [760](CARDINAL) [pasta](item) dalla mia lista
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [805](CARDINAL) [caffè](item) dalla mia lista della spesa
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [817](CARDINAL) [tonno](item) dalla mia lista della spesa
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [877](CARDINAL) [zucchina](item) dalla mia lista della spesa
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [962](CARDINAL) [patate](item) dalla mia lista della spesa
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [996](CARDINAL) [pane](item)
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [996](CARDINAL) [pasta](item) dalla mia lista
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [acciughe,alici](item)
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [bietole](item)
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [capretto](item)
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [finocchi](item)
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [lamponi](item)
-      - [rimuovere]{"entity": "operation", "value": "rimuovere"} [olio](item)
-      - [rimuovi]{"entity": "operation", "value": "rimuovere"}
-      - [rimuovi]{"entity": "operation", "value": "rimuovere"} [1071](CARDINAL) [zenzero](item) dalla lista
-      - [rimuovi]{"entity": "operation", "value": "rimuovere"} [1184](CARDINAL) [ribes](item)
-      - [rimuovi]{"entity": "operation", "value": "rimuovere"} [1614](CARDINAL) [carote](item) dalla lista
-      - [rimuovi]{"entity": "operation", "value": "rimuovere"} [2018](CARDINAL) [fichi](item) dalla mia lista
-      - [rimuovi]{"entity": "operation", "value": "rimuovere"} [213](CARDINAL) [caffè](item) dalla lista
-      - [rimuovi]{"entity": "operation", "value": "rimuovere"} [246](CARDINAL) [paprika dolce](item) dalla mia lista della spesa
-      - [rimuovi]{"entity": "operation", "value": "rimuovere"} [2882](CARDINAL) [mirtilli](item)
-      - [rimuovi]{"entity": "operation", "value": "rimuovere"} [384](CARDINAL) [ananas](item)
-      - [rimuovi]{"entity": "operation", "value": "rimuovere"} [384](CARDINAL) [cannella](item) dalla mia lista della spesa
-      - [rimuovi]{"entity": "operation", "value": "rimuovere"} [497](CARDINAL) [acciughe,alici](item) dalla lista
-      - [rimuovi]{"entity": "operation", "value": "rimuovere"} [595](CARDINAL) [sogliola](item) dalla lista
-      - [rimuovi]{"entity": "operation", "value": "rimuovere"} [finocchi](item)
-      - [salmone](item)
-      - [sogliola](item)
-      - [sottrai]{"entity": "operation", "value": "rimuovere"}
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [1021](CARDINAL) [verza](item) dalla lista
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [1175](CARDINAL) [alloro](item) dalla lista
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [1218](CARDINAL) [limone](item) dalla mia lista della spesa
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [1347](CARDINAL) [cetrioli](item) dalla lista
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [135](CARDINAL) [mirtilli](item) dalla mia lista
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [1551](CARDINAL) [kiwi](item) dalla lista
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [1803](CARDINAL) [pepe](item) dalla lista
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [2305](CARDINAL) [pasta](item) dalla lista
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [457](CARDINAL) [tacchino](item) dalla mia lista
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [461](CARDINAL) [pere](item) dalla mia lista
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [475](CARDINAL) [merluzzo](item) dalla mia lista
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [671](CARDINAL) [latte](item) dalla mia lista della spesa
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [6](CARDINAL) [panna](item) dalla lista
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [719](CARDINAL) [mele](item) dalla lista
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [766](CARDINAL) [anguria](item) dalla mia lista della spesa
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [830](CARDINAL) [insalata](item) dalla mia lista
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [86](CARDINAL) [cernia](item) dalla lista
-      - [sottrai]{"entity": "operation", "value": "rimuovere"} [932](CARDINAL) [arance  ](item) dalla mia lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"}
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [1084](CARDINAL) [aglio](item) dalla mia lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [1154](CARDINAL) [peperoni](item) dalla mia lista della spesa
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [1307](CARDINAL) [cicoria](item) dalla lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [130](CARDINAL) [ananas](item) dalla mia lista della spesa
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [132](CARDINAL) [asparagi](item) dalla mia lista della spesa
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [1388](CARDINAL) [pancetta](item) dalla mia lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [1417](CARDINAL) [pera](item) dalla mia lista della spesa
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [195](CARDINAL) [fragole](item) dalla mia lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [1971](CARDINAL) [sardine](item) dalla mia lista della spesa
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [2162](CARDINAL) [orata](item)
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [232](CARDINAL) [pera](item) dalla mia lista della spesa
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [252](CARDINAL) [pesce spada](item) dalla mia lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [262](CARDINAL) [biscotti](item) dalla mia lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [314](CARDINAL) [sedano](item)
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [320](CARDINAL) [alloro](item) dalla lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [388](CARDINAL) [petto di pollo](item) dalla mia lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [558](CARDINAL) [melanzane](item) dalla mia lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [559](CARDINAL) [cernia](item) dalla lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [581](CARDINAL) [curcuma](item) dalla mia lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [612](CARDINAL) [zucca](item) dalla mia lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [638](CARDINAL) [peperoncino](item) dalla mia lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [690](CARDINAL) [salame](item) dalla mia lista della spesa
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [704](CARDINAL) [pesce spada](item) dalla mia lista della spesa
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [710](CARDINAL) [spigola](item) dalla mia lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [735](CARDINAL) [pollo](item) dalla mia lista della spesa
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [817](CARDINAL) [cetrioli](item) dalla mia lista della spesa
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [883](CARDINAL) [pesce spada](item) dalla mia lista della spesa
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [94](CARDINAL) [aglio](item) dalla mia lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [983](CARDINAL) [manzo](item) dalla lista
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [999](CARDINAL) [sapone](item)
-      - [sottrarre]{"entity": "operation", "value": "rimuovere"} [acqua](item)
-      - [tacchino](item)
-      - [zucca](item)
-      - [zucchero](item)
-      - [zucchina](item)
-      - [zucchine](item)
-      - voglio [1006](CARDINAL) [fagiolini](item) alla lista
-      - voglio [1007](CARDINAL) [acciughe,alici](item) alla lista
-      - voglio [1013](CARDINAL) [tonno](item) dalla lista
-      - voglio [1065](CARDINAL) [prugne](item) dalla lista
-      - voglio [1075](CARDINAL) [pesce spada](item) dalla lista
-      - voglio [1146](CARDINAL) [petto di pollo](item) dalla lista
-      - voglio [1231](CARDINAL) [zucchina](item) alla lista
-      - voglio [1232](CARDINAL) [latte](item) alla lista
-      - voglio [1257](CARDINAL) [more](item) dalla lista
-      - voglio [1303](CARDINAL) [arance  ](item) alla lista
-      - voglio [1322](CARDINAL) [pasta](item) dalla lista
-      - voglio [1350](CARDINAL) [cernia](item) dalla lista
-      - voglio [1368](CARDINAL) [mozzarella](item) alla lista
-      - voglio [1377](CARDINAL) [sale](item) dalla lista
-      - voglio [1399](CARDINAL) [cachi, loti](item) dalla lista
-      - voglio [1400](CARDINAL) [pomodoro](item) dalla lista
-      - voglio [1419](CARDINAL) [mandarini](item) alla lista
-      - voglio [1425](CARDINAL) [cavoli](item) alla lista
-      - voglio [1434](CARDINAL) [tacchino](item) alla lista
-      - voglio [151](CARDINAL) [hamburger](item) alla lista
-      - voglio [1540](CARDINAL) [sogliola](item) dalla lista
-      - voglio [1670](CARDINAL) [prugna](item) dalla lista
-      - voglio [1695](CARDINAL) [asparagi](item) dalla lista
-      - voglio [2109](CARDINAL) [mandarini](item) alla lista
-      - voglio [2163](CARDINAL) [peperoncino](item) alla lista
-      - voglio [231](CARDINAL) [asparagi](item) alla lista
-      - voglio [263](CARDINAL) [merluzzo](item) dalla lista
-      - voglio [318](CARDINAL) [piselli](item) dalla lista
-      - voglio [338](CARDINAL) [spigola](item) alla lista
-      - voglio [33](CARDINAL) [chiodi di garofano](item) dalla lista
-      - voglio [346](CARDINAL) [frutta](item) dalla lista
-      - voglio [361](CARDINAL) [zafferano](item) dalla lista
-      - voglio [389](CARDINAL) [anguria](item) alla lista
-      - voglio [434](CARDINAL) [sogliola](item) dalla lista
-      - voglio [438](CARDINAL) [alloro](item) alla lista
-      - voglio [490](CARDINAL) [cernia](item) alla lista
-      - voglio [491](CARDINAL) [alloro](item) dalla lista
-      - voglio [513](CARDINAL) [peperoni](item) alla lista
-      - voglio [514](CARDINAL) [uva](item) dalla lista
-      - voglio [516](CARDINAL) [sedano](item) dalla lista
-      - voglio [539](CARDINAL) [olio](item) dalla lista
-      - voglio [566](CARDINAL) [uova](item) dalla lista
-      - voglio [597](CARDINAL) [salame](item) dalla lista
-      - voglio [638](CARDINAL) [chiodi di garofano](item) dalla lista
-      - voglio [669](CARDINAL) [panna](item) alla lista
-      - voglio [673](CARDINAL) [pane](item) alla lista
-      - voglio [71](CARDINAL) [olio](item) dalla lista
-      - voglio [760](CARDINAL) [tacchino](item) alla lista
-      - voglio [788](CARDINAL) [pere](item) alla lista
-      - voglio [805](CARDINAL) [pollo](item) alla lista
-      - voglio [856](CARDINAL) [pomodoro](item) alla lista
-      - voglio [876](CARDINAL) [verza](item) dalla lista
-      - voglio [884](CARDINAL) [lamponi](item) alla lista
-      - voglio [885](CARDINAL) [pere](item) alla lista
-      - voglio [886](CARDINAL) [panna](item) alla lista
-      - voglio [912](CARDINAL) [capperi](item) alla lista
-      - voglio [939](CARDINAL) [noce moscata](item) alla lista
-      - voglio [97](CARDINAL) [capretto](item) dalla lista
-      - voglio [99](CARDINAL) [banana](item) alla lista
-      - voglio [99](CARDINAL) [peperoncino](item) dalla lista
-      - voglio [aggiungere]{"entity": "operation", "value": "aggiungere"} [672](CARDINAL) [ribes](item) alla lista
-      - voglio [aggiungere]{"entity": "operation", "value": "aggiungere"} [730](CARDINAL) [lievito](item) alla lista
-      - voglio [aggiungere]{"entity": "operation", "value": "aggiungere"} [819](CARDINAL) [albicocca](item) alla lista
-      - voglio [aggiungere]{"entity": "operation", "value": "aggiungere"} [837](CARDINAL) [mele](item) alla lista
-      - voglio [aggiungere]{"entity": "operation", "value": "aggiungere"} [872](CARDINAL) [asparagi](item) alla lista
-      - voglio [aggiungi]{"entity": "operation", "value": "aggiungere" [1008](CARDINAL) [pomodori](item) alla lista
-      - voglio [aggiungi]{"entity": "operation", "value": "aggiungere" [1107](CARDINAL) [verza](item) alla lista
-      - voglio [aggiungi]{"entity": "operation", "value": "aggiungere" [184](CARDINAL) [piselli](item) alla lista
-      - voglio [aggiungi]{"entity": "operation", "value": "aggiungere" [523](CARDINAL) [frutta](item) alla lista
-      - voglio [aggiungi]{"entity": "operation", "value": "aggiungere" [887](CARDINAL) [zenzero](item) alla lista
-      - voglio [aggiungi]{"entity": "operation", "value": "aggiungere" [90](CARDINAL) [panna](item) alla lista
-      - voglio [aggiungi]{"entity": "operation", "value": "aggiungere" [989](CARDINAL) [zafferano](item) alla lista
-      - voglio [compra]{"entity": "operation", "value": "aggiungere"} [1655](CARDINAL) [manzo](item) alla lista
-      - voglio [compra]{"entity": "operation", "value": "aggiungere"} [2525](CARDINAL) [lievito](item) alla lista
-      - voglio [compra]{"entity": "operation", "value": "aggiungere"} [552](CARDINAL) [formaggio](item) alla lista
-      - voglio [compra]{"entity": "operation", "value": "aggiungere"} [575](CARDINAL) [curry](item) alla lista
-      - voglio [compra]{"entity": "operation", "value": "aggiungere"} [605](CARDINAL) [salmone](item) alla lista
-      - voglio [comprare]{"entity": "operation", "value": "aggiungere"} [486](CARDINAL) [cacao](item) alla lista
-      - voglio [comprare]{"entity": "operation", "value": "aggiungere"} [526](CARDINAL) [fichi](item) alla lista
-      - voglio [comprare]{"entity": "operation", "value": "aggiungere"} [604](CARDINAL) [broccoli](item) alla lista
-      - voglio [elimina]{"entity": "operation", "value": "rimuovere"} [101](CARDINAL) [alloro](item) dalla lista
-      - voglio [elimina]{"entity": "operation", "value": "rimuovere"} [1205](CARDINAL) [banane](item) dalla lista
-      - voglio [elimina]{"entity": "operation", "value": "rimuovere"} [152](CARDINAL) [olive](item) dalla lista
-      - voglio [elimina]{"entity": "operation", "value": "rimuovere"} [1881](CARDINAL) [limone](item) dalla lista
-      - voglio [elimina]{"entity": "operation", "value": "rimuovere"} [410](CARDINAL) [fragola](item) dalla lista
-      - voglio [elimina]{"entity": "operation", "value": "rimuovere"} [653](CARDINAL) [sogliola](item) dalla lista
-      - voglio [elimina]{"entity": "operation", "value": "rimuovere"} [746](CARDINAL) [asparagi](item) dalla lista
-      - voglio [eliminare]{"entity": "operation", "value": "rimuovere"} [1013](CARDINAL) [lievito](item) dalla lista
-      - voglio [eliminare]{"entity": "operation", "value": "rimuovere"} [178](CARDINAL) [albicocche](item) dalla lista
-      - voglio [eliminare]{"entity": "operation", "value": "rimuovere"} [1863](CARDINAL) [rosmarino](item) dalla lista
-      - voglio [eliminare]{"entity": "operation", "value": "rimuovere"} [2053](CARDINAL) [fagiolini](item) dalla lista
-      - voglio [eliminare]{"entity": "operation", "value": "rimuovere"} [318](CARDINAL) [pane](item) dalla lista
-      - voglio [eliminare]{"entity": "operation", "value": "rimuovere"} [961](CARDINAL) [more](item) dalla lista
-      - voglio [inserire]{"entity": "operation", "value": "aggiungere"} [1122](CARDINAL) [verza](item) alla lista
-      - voglio [inserire]{"entity": "operation", "value": "aggiungere"} [1264](CARDINAL) [acqua](item) alla lista
-      - voglio [inserire]{"entity": "operation", "value": "aggiungere"} [198](CARDINAL) [biscotti](item) alla lista
-      - voglio [inserire]{"entity": "operation", "value": "aggiungere"} [636](CARDINAL) [nespole](item) alla lista
-      - voglio [inserire]{"entity": "operation", "value": "aggiungere"} [700](CARDINAL) [frutta](item) alla lista
-      - voglio [inserire]{"entity": "operation", "value": "aggiungere"} [810](CARDINAL) [manzo](item) alla lista
-      - voglio [inserisci]{"entity": "operation", "value": "aggiungere"} [1606](CARDINAL) [mele](item) alla lista
-      - voglio [inserisci]{"entity": "operation", "value": "aggiungere"} [1760](CARDINAL) [petto di pollo](item) alla lista
-      - voglio [inserisci]{"entity": "operation", "value": "aggiungere"} [327](CARDINAL) [mirtilli](item) alla lista
-      - voglio [inserisci]{"entity": "operation", "value": "aggiungere"} [492](CARDINAL) [mandarini](item) alla lista
-      - voglio [rimuovere]{"entity": "operation", "value": "rimuovere"} [1007](CARDINAL) [sapone](item) dalla lista
-      - voglio [rimuovere]{"entity": "operation", "value": "rimuovere"} [141](CARDINAL) [pane](item) dalla lista
-      - voglio [rimuovere]{"entity": "operation", "value": "rimuovere"} [211](CARDINAL) [curcuma](item) dalla lista
-      - voglio [rimuovere]{"entity": "operation", "value": "rimuovere"} [417](CARDINAL) [piselli](item) dalla lista
-      - voglio [rimuovi]{"entity": "operation", "value": "rimuovere"} [1229](CARDINAL) [pane](item) dalla lista
-      - voglio [rimuovi]{"entity": "operation", "value": "rimuovere"} [190](CARDINAL) [manzo](item) dalla lista
-      - voglio [rimuovi]{"entity": "operation", "value": "rimuovere"} [300](CARDINAL) [alloro](item) dalla lista
-      - voglio [rimuovi]{"entity": "operation", "value": "rimuovere"} [644](CARDINAL) [pancetta](item) dalla lista
-      - voglio [rimuovi]{"entity": "operation", "value": "rimuovere"} [757](CARDINAL) [aglio](item) dalla lista
-      - voglio [rimuovi]{"entity": "operation", "value": "rimuovere"} [802](CARDINAL) [pesce spada](item) dalla lista
-      - voglio [sottrai]{"entity": "operation", "value": "rimuovere"} [1131](CARDINAL) [chiodi di garofano](item) dalla lista
-      - voglio [sottrai]{"entity": "operation", "value": "rimuovere"} [214](CARDINAL) [zucca](item) dalla lista
-      - voglio [sottrai]{"entity": "operation", "value": "rimuovere"} [385](CARDINAL) [uva](item) dalla lista
-      - voglio [sottrai]{"entity": "operation", "value": "rimuovere"} [619](CARDINAL) [peperoncino](item) dalla lista
-      - voglio [sottrai]{"entity": "operation", "value": "rimuovere"} [884](CARDINAL) [ribes](item) dalla lista
-      - voglio [sottrarre]{"entity": "operation", "value": "rimuovere"} [20](CARDINAL) [merluzzo](item) dalla lista
-      - voglio [sottrarre]{"entity": "operation", "value": "rimuovere"} [370](CARDINAL) [pepe](item) dalla lista
-      - vorrei [1126](CARDINAL) [cernia](item)
-      - vorrei [1399](CARDINAL) [lamponi](item)
-      - vorrei [151](CARDINAL) [capperi](item)
-      - vorrei [1538](CARDINAL) [latte](item)
-      - vorrei [1589](CARDINAL) [timo](item)
-      - vorrei [2210](CARDINAL) [pere](item)
-      - vorrei [262](CARDINAL) [mandarini](item)
-      - vorrei [27](CARDINAL) [cipolla](item)
-      - vorrei [299](CARDINAL) [curry](item)
-      - vorrei [300](CARDINAL) [pasta](item)
-      - vorrei [348](CARDINAL) [melanzane](item)
-      - vorrei [354](CARDINAL) [alloro](item)
-      - vorrei [398](CARDINAL) [cipolla](item)
-      - vorrei [452](CARDINAL) [aglio](item)
-      - vorrei [452](CARDINAL) [merluzzo](item)
-      - vorrei [530](CARDINAL) [orata](item)
-      - vorrei [545](CARDINAL) [agnello](item)
-      - vorrei [564](CARDINAL) [capperi](item)
-      - vorrei [569](CARDINAL) [banana](item)
-      - vorrei [574](CARDINAL) [spinaci](item)
-      - vorrei [668](CARDINAL) [prosciutto](item)
-      - vorrei [680](CARDINAL) [frutta](item)
-      - vorrei [708](CARDINAL) [pesce spada](item)
-      - vorrei [70](CARDINAL) [bietole](item)
-      - vorrei [71](CARDINAL) [pera](item)
-      - vorrei [786](CARDINAL) [sale](item)
-      - vorrei [856](CARDINAL) [sale](item)
-      - vorrei [873](CARDINAL) [cicoria](item)
-      - vorrei [893](CARDINAL) [albicocca](item)
-      - vorrei [970](CARDINAL) [ribes](item)
-      - vorrei [aggiungere]{"entity": "operation", "value": "aggiungere"} [1055](CARDINAL) [fragole](item) alla lista
-      - vorrei [aggiungere]{"entity": "operation", "value": "aggiungere"} [165](CARDINAL) [acqua](item) alla lista
-      - vorrei [aggiungere]{"entity": "operation", "value": "aggiungere"} [246](CARDINAL) [spinaci](item) alla lista
-      - vorrei [aggiungere]{"entity": "operation", "value": "aggiungere"} [613](CARDINAL) [prugna](item) alla lista
-      - vorrei [aggiungi]{"entity": "operation", "value": "aggiungere" [646](CARDINAL) [sogliola](item) alla lista
-      - vorrei [compra]{"entity": "operation", "value": "aggiungere"} [126](CARDINAL) [pancetta](item) alla lista
-      - vorrei [compra]{"entity": "operation", "value": "aggiungere"} [582](CARDINAL) [tacchino](item) alla lista
-      - vorrei [compra]{"entity": "operation", "value": "aggiungere"} [696](CARDINAL) [fragole](item) alla lista
-      - vorrei [comprare]{"entity": "operation", "value": "aggiungere"} [1043](CARDINAL) [zenzero](item) alla lista
-      - vorrei [comprare]{"entity": "operation", "value": "aggiungere"} [1568](CARDINAL) [chiodi di garofano](item) alla lista
-      - vorrei [comprare]{"entity": "operation", "value": "aggiungere"} [421](CARDINAL) [pere](item) alla lista
-      - vorrei [comprare]{"entity": "operation", "value": "aggiungere"} [683](CARDINAL) [ananas](item) alla lista
-      - vorrei [elimina]{"entity": "operation", "value": "rimuovere"} [553](CARDINAL) [asparagi](item) dalla lista
-      - vorrei [elimina]{"entity": "operation", "value": "rimuovere"} [823](CARDINAL) [tonno](item) dalla lista
-      - vorrei [eliminare]{"entity": "operation", "value": "rimuovere"} [1094](CARDINAL) [verza](item) dalla lista
-      - vorrei [eliminare]{"entity": "operation", "value": "rimuovere"} [1192](CARDINAL) [nespole](item) dalla lista
-      - vorrei [eliminare]{"entity": "operation", "value": "rimuovere"} [120](CARDINAL) [carote](item) dalla lista
-      - vorrei [eliminare]{"entity": "operation", "value": "rimuovere"} [1308](CARDINAL) [peperoncino](item) dalla lista
-      - vorrei [eliminare]{"entity": "operation", "value": "rimuovere"} [163](CARDINAL) [prosciutto](item) dalla lista
-      - vorrei [eliminare]{"entity": "operation", "value": "rimuovere"} [1809](CARDINAL) [lievito](item) dalla lista
-      - vorrei [eliminare]{"entity": "operation", "value": "rimuovere"} [1892](CARDINAL) [melograno](item) dalla lista
-      - vorrei [eliminare]{"entity": "operation", "value": "rimuovere"} [515](CARDINAL) [albicocche](item) dalla lista
-      - vorrei [eliminare]{"entity": "operation", "value": "rimuovere"} [943](CARDINAL) [farina](item) dalla lista
-      - vorrei [eliminare]{"entity": "operation", "value": "rimuovere"} [957](CARDINAL) [mozzarella](item) dalla lista
-      - vorrei [eliminare]{"entity": "operation", "value": "rimuovere"} [997](CARDINAL) [mirtilli](item) dalla lista
-      - vorrei [inserire]{"entity": "operation", "value": "aggiungere"} [1075](CARDINAL) [pomodoro](item) alla lista
-      - vorrei [inserire]{"entity": "operation", "value": "aggiungere"} [1512](CARDINAL) [hamburger](item) alla lista
-      - vorrei [inserire]{"entity": "operation", "value": "aggiungere"} [1581](CARDINAL) [agnello](item) alla lista
-      - vorrei [inserire]{"entity": "operation", "value": "aggiungere"} [305](CARDINAL) [petto di pollo](item) alla lista
-      - vorrei [inserire]{"entity": "operation", "value": "aggiungere"} [579](CARDINAL) [capretto](item) alla lista
-      - vorrei [inserire]{"entity": "operation", "value": "aggiungere"} [865](CARDINAL) [ribes](item) alla lista
-      - vorrei [inserisci]{"entity": "operation", "value": "aggiungere"} [1359](CARDINAL) [melograno](item) alla lista
-      - vorrei [inserisci]{"entity": "operation", "value": "aggiungere"} [1582](CARDINAL) [cachi, loti](item) alla lista
-      - vorrei [inserisci]{"entity": "operation", "value": "aggiungere"} [199](CARDINAL) [ananas](item) alla lista
-      - vorrei [inserisci]{"entity": "operation", "value": "aggiungere"} [224](CARDINAL) [sedano](item) alla lista
-      - vorrei [inserisci]{"entity": "operation", "value": "aggiungere"} [2326](CARDINAL) [melenzana](item) alla lista
-      - vorrei [inserisci]{"entity": "operation", "value": "aggiungere"} [312](CARDINAL) [tacchino](item) alla lista
-      - vorrei [inserisci]{"entity": "operation", "value": "aggiungere"} [436](CARDINAL) [anguria](item) alla lista
-      - vorrei [inserisci]{"entity": "operation", "value": "aggiungere"} [60](CARDINAL) [fragole](item) alla lista
-      - vorrei [inserisci]{"entity": "operation", "value": "aggiungere"} [646](CARDINAL) [ciliege](item) alla lista
-      - vorrei [inserisci]{"entity": "operation", "value": "aggiungere"} [724](CARDINAL) [piselli](item) alla lista
-      - vorrei [inserisci]{"entity": "operation", "value": "aggiungere"} [840](CARDINAL) [ciliege](item) alla lista
-      - vorrei [inserisci]{"entity": "operation", "value": "aggiungere"} [882](CARDINAL) [carote](item) alla lista
-      - vorrei [rimuovere]{"entity": "operation", "value": "rimuovere"} [1311](CARDINAL) [fragole](item) dalla lista
-      - vorrei [rimuovere]{"entity": "operation", "value": "rimuovere"} [1318](CARDINAL) [olio](item) dalla lista
-      - vorrei [rimuovere]{"entity": "operation", "value": "rimuovere"} [917](CARDINAL) [pane](item) dalla lista
-      - vorrei [rimuovi]{"entity": "operation", "value": "rimuovere"} [1373](CARDINAL) [pera](item) dalla lista
-      - vorrei [rimuovi]{"entity": "operation", "value": "rimuovere"} [280](CARDINAL) [alloro](item) dalla lista
-      - vorrei [rimuovi]{"entity": "operation", "value": "rimuovere"} [352](CARDINAL) [pomodori](item) dalla lista
-      - vorrei [rimuovi]{"entity": "operation", "value": "rimuovere"} [483](CARDINAL) [petto di pollo](item) dalla lista
-      - vorrei [sottrai]{"entity": "operation", "value": "rimuovere"} [112](CARDINAL) [pancetta](item) dalla lista
-      - vorrei [sottrai]{"entity": "operation", "value": "rimuovere"} [1539](CARDINAL) [avocado](item) dalla lista
-      - vorrei [sottrai]{"entity": "operation", "value": "rimuovere"} [365](CARDINAL) [fragola](item) dalla lista
-      - vorrei [sottrai]{"entity": "operation", "value": "rimuovere"} [638](CARDINAL) [pasta](item) dalla lista
-      - vorrei [sottrarre]{"entity": "operation", "value": "rimuovere"} [1573](CARDINAL) [cacao](item) dalla lista
-      - vorrei [sottrarre]{"entity": "operation", "value": "rimuovere"} [1578](CARDINAL) [peperoncino](item) dalla lista
-      - vorrei [sottrarre]{"entity": "operation", "value": "rimuovere"} [1761](CARDINAL) [farina](item) dalla lista
-      - vorrei [sottrarre]{"entity": "operation", "value": "rimuovere"} [241](CARDINAL) [olive](item) dalla lista
-      - vorrei [sottrarre]{"entity": "operation", "value": "rimuovere"} [496](CARDINAL) [merluzzo](item) dalla lista
-      - vorrei [sottrarre]{"entity": "operation", "value": "rimuovere"} [996](CARDINAL) [bietole](item) dalla lista
+      - [1127](CARDINAL) [salame](item)
+      - [1171](CARDINAL) [banane](item)
+      - [1201](CARDINAL) [pesce spada](item)
+      - [1382](CARDINAL) [melanzane](item)
+      - [1486](CARDINAL) [acqua](item)
+      - [15](CARDINAL) [sale](item)
+      - [1617](CARDINAL) [tacchino](item)
+      - [1641](CARDINAL) [salmone](item)
+      - [1671](CARDINAL) [pancetta](item)
+      - [1813](CARDINAL) [kiwi](item)
+      - [1923](CARDINAL) [mele](item)
+      - [1923](CARDINAL) [olive](item)
+      - [2228](CARDINAL) [ribes](item)
+      - [285](CARDINAL) [albicocche](item)
+      - [295](CARDINAL) [aglio](item)
+      - [298](CARDINAL) [agnello](item)
+      - [329](CARDINAL) [timo](item)
+      - [32](CARDINAL) [melone](item)
+      - [35](CARDINAL) [lenticchie](item)
+      - [789](CARDINAL) [sapone](item)
+      - [808](CARDINAL) [curry](item)
+      - [865](CARDINAL) [lievito](item)
+      - [897](CARDINAL) [finocchi](item)
+      - [952](CARDINAL) [melograno](item)
+      - [996](CARDINAL) [pesche](item)
+      - [aggiungere]{"entity": "operation", "value": "add"} alla lista
+      - [aggiungi]{"entity": "operation", "value": "add" [sogliola](item) alla mia lista
+      - [alloro](item)
+      - [asparagi](item)
+      - [cannella](item)
+      - [compra]{"entity": "operation", "value": "add"} alla lista
+      - [comprare]{"entity": "operation", "value": "add"} [616](CARDINAL) [carote](item) alla mia lista
+      - [comprare]{"entity": "operation", "value": "add"} alla lista
+      - [coniglio](item)
+      - [elimina]{"entity": "operation", "value": "remove"} [882](CARDINAL) [fragola](item) dalla mia lista
+      - [elimina]{"entity": "operation", "value": "remove"} [tonno](item) dalla mia lista della spesa
+      - [eliminare]{"entity": "operation", "value": "remove"} [anguria](item) dalla mia lista
+      - [inserire]{"entity": "operation", "value": "add"} alla lista
+      - [inserisci]{"entity": "operation", "value": "add"}
+      - [inserisci]{"entity": "operation", "value": "add"} [666](CARDINAL) [ribes](item)
+      - [lamponi](item)
+      - [rimuovere]{"entity": "operation", "value": "remove"} [896](CARDINAL) [merluzzo](item) dalla mia lista della spesa
+      - [rimuovere]{"entity": "operation", "value": "remove"} [pancetta](item) dalla mia lista della spesa
+      - [rimuovi]{"entity": "operation", "value": "remove"} [1307](CARDINAL) [zucca](item) dalla lista
+      - [rimuovi]{"entity": "operation", "value": "remove"} dalla lista
+      - [sottrai]{"entity": "operation", "value": "remove"}
+      - dei [bietole](item)
+      - dei [biscotti](item)
+      - dei [cavoli](item)
+      - dei [cernia](item)
+      - dei [curry](item)
+      - dei [melograno](item)
+      - dei [prugna](item)
+      - del [caffè](item)
+      - del [capperi](item)
+      - del [lievito](item)
+      - del [pesche](item)
+      - dell' [aglio](item)
+      - dell' [cernia](item)
+      - dell' [noce moscata](item)
+      - dell' [peperoncino](item)
+      - dell' [sogliola](item)
+      - delle [fragole](item)
+      - delle [melanzane](item)
+      - delle [prugne](item)
+      - delle [uova](item)
+      - per favore [aggiungere]{"entity": "operation", "value": "add"}
+      - per favore [aggiungere]{"entity": "operation", "value": "add"} [1403](CARDINAL) [olive](item) alla mia lista della spesa
+      - per favore [aggiungi]{"entity": "operation", "value": "add" [arance](item) alla lista
+      - per favore [aggiungi]{"entity": "operation", "value": "add" [legumi secchi](item) alla mia lista
+      - per favore [compra]{"entity": "operation", "value": "add"} [capretto](item) alla lista
+      - per favore [elimina]{"entity": "operation", "value": "remove"} [1356](CARDINAL) [olive](item)
+      - per favore [elimina]{"entity": "operation", "value": "remove"} [salsa](item) dalla mia lista
+      - per favore [eliminare]{"entity": "operation", "value": "remove"} [496](CARDINAL) [zucchina](item) dalla lista
+      - per favore [inserisci]{"entity": "operation", "value": "add"} [pasta](item) alla mia lista
+      - per favore [inserisci]{"entity": "operation", "value": "add"} alla mia lista
+      - per favore [rimuovi]{"entity": "operation", "value": "remove"} [tonno](item) dalla lista
+      - per favore [rimuovi]{"entity": "operation", "value": "remove"} dalla lista
+      - per favore [sottrai]{"entity": "operation", "value": "remove"} [191](CARDINAL) [caffè](item) dalla mia lista della spesa
+      - per favore [sottrai]{"entity": "operation", "value": "remove"} [249](CARDINAL) [cachi](item) dalla mia lista della spesa
+      - per favore [sottrarre]{"entity": "operation", "value": "remove"} [insalata](item) dalla mia lista della spesa
+      - potresti [elimina]{"entity": "operation", "value": "remove"}
+      - potresti [elimina]{"entity": "operation", "value": "remove"} [1910](CARDINAL) [capperi](item)
+      - potresti [elimina]{"entity": "operation", "value": "remove"} [197](CARDINAL) [capperi](item) dalla lista
+      - potresti [elimina]{"entity": "operation", "value": "remove"} [2313](CARDINAL) [carote](item) dalla mia lista della spesa
+      - potresti [eliminare]{"entity": "operation", "value": "remove"} [935](CARDINAL) [noce moscata](item) dalla lista
+      - potresti [inserisci]{"entity": "operation", "value": "add"} [129](CARDINAL) [pesche](item) alla mia lista
+      - potresti [inserisci]{"entity": "operation", "value": "add"} [2045](CARDINAL) [acciughe](item) alla lista
+      - potresti [inserisci]{"entity": "operation", "value": "add"} alla mia lista della spesa
+      - potresti [sottrarre]{"entity": "operation", "value": "remove"} [curry](item) dalla lista
+      - potresti [sottrarre]{"entity": "operation", "value": "remove"} dalla mia lista della spesa
+      - voglio [aggiungere]{"entity": "operation", "value": "add"} [637](CARDINAL) [timo](item) alla lista
+      - voglio [aggiungere]{"entity": "operation", "value": "add"} [cernia](item) alla lista
+      - voglio [aggiungere]{"entity": "operation", "value": "add"} alla mia lista
+      - voglio [aggiungi]{"entity": "operation", "value": "add" [capretto](item) alla lista
+      - voglio [compra]{"entity": "operation", "value": "add"} [cicoria](item) alla lista
+      - voglio [elimina]{"entity": "operation", "value": "remove"} [30](CARDINAL) [finocchi](item)
+      - voglio [eliminare]{"entity": "operation", "value": "remove"}
+      - voglio [inserire]{"entity": "operation", "value": "add"} [670](CARDINAL) [ribes](item) alla lista
+      - voglio [inserisci]{"entity": "operation", "value": "add"} [pere](item)
+      - voglio [rimuovere]{"entity": "operation", "value": "remove"} [carote](item) dalla mia lista
+      - voglio [rimuovere]{"entity": "operation", "value": "remove"} [merluzzo](item) dalla mia lista
+      - voglio [rimuovere]{"entity": "operation", "value": "remove"} dalla mia lista della spesa
+      - voglio [rimuovi]{"entity": "operation", "value": "remove"} [acciughe](item)
+      - voglio [rimuovi]{"entity": "operation", "value": "remove"} [fragola](item) dalla mia lista
+      - voglio [rimuovi]{"entity": "operation", "value": "remove"} [ribes](item) dalla lista
+      - voglio [sottrai]{"entity": "operation", "value": "remove"}
+      - vorrei [aggiungere]{"entity": "operation", "value": "add"} [249](CARDINAL) [orata](item) alla lista
+      - vorrei [aggiungere]{"entity": "operation", "value": "add"} [pomodoro](item) alla mia lista della spesa
+      - vorrei [aggiungi]{"entity": "operation", "value": "add" [68](CARDINAL) [salmone](item) alla mia lista
+      - vorrei [aggiungi]{"entity": "operation", "value": "add" [pomodori](item) alla mia lista
+      - vorrei [compra]{"entity": "operation", "value": "add"} [329](CARDINAL) [aglio](item) alla mia lista
+      - vorrei [compra]{"entity": "operation", "value": "add"} [821](CARDINAL) [legumi secchi](item)
+      - vorrei [compra]{"entity": "operation", "value": "add"} [lenticchie](item) alla lista
+      - vorrei [comprare]{"entity": "operation", "value": "add"} [187](CARDINAL) [anguria](item) alla mia lista della spesa
+      - vorrei [elimina]{"entity": "operation", "value": "remove"} [asparagi](item) dalla lista
+      - vorrei [eliminare]{"entity": "operation", "value": "remove"}
+      - vorrei [eliminare]{"entity": "operation", "value": "remove"} [1515](CARDINAL) [verza](item) dalla mia lista
+      - vorrei [inserisci]{"entity": "operation", "value": "add"} alla lista
+      - vorrei [inserisci]{"entity": "operation", "value": "add"} alla mia lista della spesa
+      - vorrei [rimuovere]{"entity": "operation", "value": "remove"} dalla mia lista della spesa
+      - vorrei [rimuovi]{"entity": "operation", "value": "remove"} dalla mia lista
+      - vorrei [sottrarre]{"entity": "operation", "value": "remove"} dalla mia lista della spesa
 
   - intent: affirm
     examples: |
@@ -727,16 +309,18 @@ nlu:
       - hjncjkdwnqkjhrew
       - poiqkmekwqmenwq
 
-  - synonym: aggiungere
+  - synonym: add
     examples: |
+      - aggiungere
       - inserire
       - inserisci
       - aggiungi
       - comprare
       - compra
 
-  - synonym: rimuovere
+  - synonym: remove
     examples: |
+      - rimuovere
       - cancellare
       - rimuovi
       - cancella
@@ -744,26 +328,26 @@ nlu:
       - distruggi
       - sottrarre
       - sottrai
-
-  - regex: CARDINAL
-    examples: |
-      - [1-9]\d*
 
   - lookup: operation
     examples: |
+      - add
       - aggiungere
-      - aggiungi
       - inserire
       - inserisci
+      - aggiungi
       - comprare
       - compra
+      - remove
       - rimuovere
+      - cancellare
       - rimuovi
-      - eliminare
-      - elimina
+      - cancella
       - distruggere
       - distruggi
-      - cancellare
-      - cancella
       - sottrarre
       - sottrai
+  
+  - regex: CARDINAL
+    examples: |
+      - [1-9]\d*

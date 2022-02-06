@@ -66,7 +66,7 @@ nlu:
       - albicocche
       - ananas
       - anguria
-      - arance  
+      - arance
       - avocado
       - ciliege
       - fragole
@@ -85,7 +85,7 @@ nlu:
       - prugne
       - ribes
       - banane
-      - cachi, loti
+      - cachi
       - fichi
       - uva
       - merluzzo
@@ -95,7 +95,8 @@ nlu:
       - pesce spada
       - cernia
       - sgombro
-      - acciughe,alici
+      - acciughe
+      - alici
       - sardine
       - orata
       - spigola
