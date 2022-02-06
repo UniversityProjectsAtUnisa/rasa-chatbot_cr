@@ -92,7 +92,7 @@ responses:
 
   utter_capabilities:
     - text: Posso aiutarti a gestire una lista della spesa per tutte le persone che parlano con me. Puoi chiederermi di aggiungere o rimuovere qualcosa dalla tua lista oppure di vederla.
-    - text: Sono un assistente per le liste della spesa. Posson aggiungere o rimuovere elementi dalla tua lista o posso mostratela.
+    - text: Sono un assistente per le liste della spesa. Posso aggiungere o rimuovere elementi dalla tua lista o posso mostratela.
 
   utter_ask_user:
     - text: Chi sei?

@@ -22,37 +22,41 @@ def item_generator():
 
 def operation_generator():
     all_operations = [
-        '[aggiungere]{"entity": "operation", "value": "add"}',
-        '[inserisci]{"entity": "operation", "value": "add"}',
-        '[compra]{"entity": "operation", "value": "add"}',
-        '[inserisci]{"entity": "operation", "value": "add"}',
-        '[rimuovi]{"entity": "operation", "value": "add"}',
-        '[elimina]{"entity": "operation", "value": "remove"}'
+        '[aggiungere]{"entity": "operation", "value": "aggiungere"}',
+        '[inserisci]{"entity": "operation", "value": "aggiungere"}',
+        '[compra]{"entity": "operation", "value": "aggiungere"}',
+        '[inserisci]{"entity": "operation", "value": "aggiungere"}',
+        '[rimuovi]{"entity": "operation", "value": "rimuovere"}',
+        '[rimuovere]{"entity": "operation", "value": "rimuovere"}',
+        '[elimina]{"entity": "operation", "value": "rimuovere"}',
+        '[eliminare]{"entity": "operation", "value": "rimuovere"}',
+        '[sottrarre]{"entity": "operation", "value": "rimuovere"}',
+        '[sottrai]{"entity": "operation", "value": "rimuovere"}',
         ]
     while True:
         yield random.choice(all_operations)
 
 def add_operation_generator():
     add_operations = [
-        '[aggiungere]{"entity": "operation", "value": "add"}',
-        '[aggiungi]{"entity": "operation", "value": "add"',
-        '[inserisci]{"entity": "operation", "value": "add"}',
-        '[inserire]{"entity": "operation", "value": "add"}',
-        '[compra]{"entity": "operation", "value": "add"}',
-        '[comprare]{"entity": "operation", "value": "add"}',
-        '[inserisci]{"entity": "operation", "value": "add"}'
-                  ]
+        '[aggiungere]{"entity": "operation", "value": "aggiungere"}',
+        '[aggiungi]{"entity": "operation", "value": "aggiungere"',
+        '[inserisci]{"entity": "operation", "value": "aggiungere"}',
+        '[inserire]{"entity": "operation", "value": "aggiungere"}',
+        '[compra]{"entity": "operation", "value": "aggiungere"}',
+        '[comprare]{"entity": "operation", "value": "aggiungere"}',
+        '[inserisci]{"entity": "operation", "value": "aggiungere"}'
+        ]
     while True:
         yield random.choice(add_operations)
 
 def remove_operation_generator():
     remove_operations = [
-        '[rimuovi]{"entity": "operation", "value": "add"}',
-        '[rimuovere]{"entity": "operation", "value": "add"}',
-        '[elimina]{"entity": "operation", "value": "remove"}',
-        '[eliminare]{"entity": "operation", "value": "remove"}',
-        '[sottrarre]{"entity": "operation", "value": "remove"}',
-        '[sottrai]{"entity": "operation", "value": "remove"}',
+        '[rimuovi]{"entity": "operation", "value": "rimuovere"}',
+        '[rimuovere]{"entity": "operation", "value": "rimuovere"}',
+        '[elimina]{"entity": "operation", "value": "rimuovere"}',
+        '[eliminare]{"entity": "operation", "value": "rimuovere"}',
+        '[sottrarre]{"entity": "operation", "value": "rimuovere"}',
+        '[sottrai]{"entity": "operation", "value": "rimuovere"}',
         ]
     while True:
         yield random.choice(remove_operations)

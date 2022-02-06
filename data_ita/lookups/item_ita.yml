@@ -21,14 +21,11 @@ nlu:
       - pane
       - legumi secchi
       - ceci
-      - fagioli
       - lenticchie
       - piselli
-      - tonno
       - limone
       - patate
       - frutta
-      - mela
       - pera
       - banana
       - albicocca
@@ -41,10 +38,87 @@ nlu:
       - salame
       - prosciutto
       - pollo
-      - hamburger
       - zucchina
       - melenzana
       - acqua
-      - merluzzo
-      - spinaci
       - sapone
+      - asparagi
+      - bietole
+      - carote
+      - cavoli
+      - broccoli
+      - verza
+      - carciofi
+      - cetrioli
+      - cicoria
+      - cipolla
+      - aglio
+      - finocchi
+      - fagiolini
+      - insalata
+      - melanzane
+      - pomodori
+      - peperoni
+      - sedano
+      - spinaci
+      - zucca
+      - zucchine
+      - albicocche
+      - ananas
+      - anguria
+      - arance  
+      - avocado
+      - ciliege
+      - fragole
+      - kiwi
+      - lamponi
+      - mandarini
+      - melograno
+      - mele
+      - melone
+      - mirtilli
+      - more
+      - nespole
+      - pere
+      - pesche
+      - pompelmo
+      - prugne
+      - ribes
+      - banane
+      - cachi, loti
+      - fichi
+      - uva
+      - merluzzo
+      - tonno
+      - salmone
+      - sogliola
+      - pesce spada
+      - cernia
+      - sgombro
+      - acciughe,alici
+      - sardine
+      - orata
+      - spigola
+      - manzo
+      - vitello
+      - maiale
+      - agnello
+      - capretto
+      - petto di pollo
+      - tacchino
+      - coniglio
+      - hamburger
+      - alloro
+      - basilico
+      - cannella
+      - curcuma
+      - curry
+      - chiodi di garofano
+      - noce moscata
+      - paprika dolce
+      - pepe
+      - peperoncino
+      - rosmarino
+      - timo
+      - zafferano
+      - zenzero

@@ -123,7 +123,7 @@ class ValidateItemForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        if slot_value not in ["add", "remove"]:
+        if slot_value not in ["aggiungere", "rimuovere"]:
             dispatcher.utter_message(response="utter_default")
             return {"operation": None}
         return {"operation": slot_value}
