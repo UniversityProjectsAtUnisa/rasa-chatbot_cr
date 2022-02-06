@@ -7,7 +7,6 @@ from rasa.nlu.components import Component
 from rasa.nlu.config import RasaNLUModelConfig
 from rasa.shared.nlu.training_data.training_data import TrainingData
 from rasa.shared.nlu.training_data.message import Message
-from word2number import w2n
 
 if typing.TYPE_CHECKING:
     from rasa.nlu.model import Metadata
@@ -154,10 +153,9 @@ class W2NPreprocessor(Component):
                           result[len(result) - length + non_zero_values:])
         return result
 
-    @staticmethod
-    def _is_valid_word(word):
+    def _is_valid_word(self, word):
         try:
-            w2n(word)
+            self.w2n(word)
             return True
         except:
             return False
@@ -229,7 +227,7 @@ class W2NPreprocessor(Component):
             origin_right = split_data[right][2]
 
             newtext += phrase[idx:origin_left]
-            number = w2n(self.normalize_text(" ".join(split_words[left:right + 1])))
+            number = self.w2n(self.normalize_text(" ".join(split_words[left:right + 1])))
             newtext += str(number)
 
             idx = origin_right
