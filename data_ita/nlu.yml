@@ -22,6 +22,7 @@ nlu:
       - buongiorno sono [sonia](user)
       - buongiorno sono [thomas](user)
       - ciao
+      - hi
       - ciao amico il mio nome è [carmela nava](user)
       - ciao amico il mio nome è [margaret](user)
       - ciao amico il mio nome è [pietro franchini](user)
@@ -59,6 +60,7 @@ nlu:
   - intent: goodbye
     examples: |
       - addio
+      - grazie
       - a più tardi
       - buonanotte
       - bye bye
@@ -286,20 +288,29 @@ nlu:
   - intent: affirm
     examples: |
       - si
-      - si lo voglio
-      - si va bene
-      - accetto
-      - continua
+      - ti conosco
+      - credo di si
+      - mi conosci
+      - certo
+      - sì ci conosciamo
+      - ci siamo già incontrati
+      - sì
+      - yes
+      - penso di sì
       - penso di si
-      - si penso di si
 
   - intent: deny
     examples: |
       - no
-      - no non voglio
-      - no non va bene
+      - non ti conosco
+      - non credo
+      - non penso
+      - non ci conosciamo
+      - non mi conosci
+      - no non mi conosci
+      - non ci siamo mai incontrati
+      - immagino di no
       - penso di no
-      - non la penso così
 
   - intent: out_of_scope
     examples: |
@@ -308,6 +319,8 @@ nlu:
       - jkdhwjcqndjinq
       - hjncjkdwnqkjhrew
       - poiqkmekwqmenwq
+      - l'uva passa ma non saluta
+      - ti piacciono gli anime
 
   - synonym: add
     examples: |

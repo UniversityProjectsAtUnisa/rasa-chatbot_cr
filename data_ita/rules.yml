@@ -48,6 +48,8 @@ rules:
       - active_loop: null
     steps:
       - intent: introduce_myself
+      - slot_was_set:
+        - user: "anything"
       - action: utter_pleased
       - action: utter_help
 
@@ -74,10 +76,12 @@ rules:
     condition:
       - active_loop: null
     steps:
-      - intent: greet
-      - action: action_greet
+      - or:
+        - intent: greet
+        - intent: introduce_myself
       - slot_was_set:
           - user: null
+      - action: action_greet
       - action: identification_form
       - active_loop: identification_form
 

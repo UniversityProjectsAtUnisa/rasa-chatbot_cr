@@ -106,11 +106,9 @@ class ValidateItemForm(FormValidationAction):
         quantity = "" if quantity is None else quantity
 
         item = slot_value
-        print(f"validate item: '{item}'")
         if isinstance(item, list):
             item = " ".join(slot_value)
         item = self.remove_numbers(item)
-        print(f"validate item: '{item}'")
 
         if len(item) > 0:
             return {"item": item}
@@ -125,7 +123,6 @@ class ValidateItemForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        print("validate operation:", slot_value)
         if slot_value not in ["add", "remove"]:
             dispatcher.utter_message(response="utter_default")
             return {"operation": None}

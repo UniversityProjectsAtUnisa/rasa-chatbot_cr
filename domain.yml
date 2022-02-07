@@ -50,7 +50,7 @@ responses:
         - type: slot
           name: user
           value: null
-      text: Hi!
+      text: Salve!
     - condition:
         - type: slot
           name: user
