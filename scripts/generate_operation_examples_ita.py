@@ -32,22 +32,24 @@ def operation_generator():
         '[eliminare]{"entity": "operation", "value": "remove"}',
         '[sottrarre]{"entity": "operation", "value": "remove"}',
         '[sottrai]{"entity": "operation", "value": "remove"}',
-        ]
+    ]
     while True:
         yield random.choice(all_operations)
+
 
 def add_operation_generator():
     add_operations = [
         '[aggiungere]{"entity": "operation", "value": "add"}',
-        '[aggiungi]{"entity": "operation", "value": "add"',
+        '[aggiungi]{"entity": "operation", "value": "add"}',
         '[inserisci]{"entity": "operation", "value": "add"}',
         '[inserire]{"entity": "operation", "value": "add"}',
         '[compra]{"entity": "operation", "value": "add"}',
         '[comprare]{"entity": "operation", "value": "add"}',
         '[inserisci]{"entity": "operation", "value": "add"}'
-        ]
+    ]
     while True:
         yield random.choice(add_operations)
+
 
 def remove_operation_generator():
     remove_operations = [
@@ -57,7 +59,7 @@ def remove_operation_generator():
         '[eliminare]{"entity": "operation", "value": "remove"}',
         '[sottrarre]{"entity": "operation", "value": "remove"}',
         '[sottrai]{"entity": "operation", "value": "remove"}',
-        ]
+    ]
     while True:
         yield random.choice(remove_operations)
 
@@ -81,6 +83,7 @@ def user_generator():
     while True:
         yield random.choice(users)
 
+
 def get_example_from_template(template):
     if isinstance(template, dict):
         example = template['example']
@@ -92,6 +95,7 @@ def get_example_from_template(template):
             example = f'{example} {suff}'
         return example
     return template
+
 
 def main(seed: int, template_amt: int, intent: str, basic_only: bool):
     random.seed(seed)
@@ -139,9 +143,8 @@ def main(seed: int, template_amt: int, intent: str, basic_only: bool):
                         example = example.replace(k, next(op_generator))
                     else:
                         example = example.replace(k, f"[{next(v)}]{k}")
-            
+
             examples.add(example)
-            
 
     result = "- "+"\n- ".join(sorted(examples))
     print(f"generated {len(examples)} examples")
