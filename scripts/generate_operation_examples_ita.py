@@ -22,16 +22,22 @@ def item_generator():
 
 def operation_generator():
     all_operations = [
-        '[aggiungere]{"entity": "operation", "value": "add"}',
-        '[inserisci]{"entity": "operation", "value": "add"}',
-        '[compra]{"entity": "operation", "value": "add"}',
-        '[inserisci]{"entity": "operation", "value": "add"}',
-        '[rimuovi]{"entity": "operation", "value": "remove"}',
-        '[rimuovere]{"entity": "operation", "value": "remove"}',
-        '[elimina]{"entity": "operation", "value": "remove"}',
-        '[eliminare]{"entity": "operation", "value": "remove"}',
-        '[sottrarre]{"entity": "operation", "value": "remove"}',
-        '[sottrai]{"entity": "operation", "value": "remove"}',
+        '[aggiungere]{"entity":"operation", "value": "add"}',
+        '[aggiungi]{"entity":"operation", "value": "add"}',
+        '[inserire]{"entity":"operation", "value": "add"}',
+        '[inserisci]{"entity":"operation", "value": "add"}',
+        '[comprare]{"entity":"operation", "value": "add"}',
+        '[compra]{"entity":"operation", "value": "add"}',
+        '[rimuovere]{"entity":"operation", "value": "remove"}',
+        '[rimuovi]{"entity":"operation", "value": "remove"}',
+        '[cancellare]{"entity":"operation", "value": "remove"}',
+        '[cancella]{"entity":"operation", "value": "remove"}',
+        '[distruggere]{"entity":"operation", "value": "remove"}',
+        '[distruggi]{"entity":"operation", "value": "remove"}',
+        '[sottrarre]{"entity":"operation", "value": "remove"}',
+        '[sottrai]{"entity":"operation", "value": "remove"}',
+        '[togliere]{"entity":"operation", "value": "remove"}',
+        '[togli]{"entity":"operation", "value": "remove"}',
     ]
     while True:
         yield random.choice(all_operations)
@@ -39,13 +45,12 @@ def operation_generator():
 
 def add_operation_generator():
     add_operations = [
-        '[aggiungere]{"entity": "operation", "value": "add"}',
-        '[aggiungi]{"entity": "operation", "value": "add"}',
-        '[inserisci]{"entity": "operation", "value": "add"}',
-        '[inserire]{"entity": "operation", "value": "add"}',
-        '[compra]{"entity": "operation", "value": "add"}',
-        '[comprare]{"entity": "operation", "value": "add"}',
-        '[inserisci]{"entity": "operation", "value": "add"}'
+        '[aggiungere]{"entity":"operation", "value": "add"}',
+        '[aggiungi]{"entity":"operation", "value": "add"}',
+        '[inserire]{"entity":"operation", "value": "add"}',
+        '[inserisci]{"entity":"operation", "value": "add"}',
+        '[comprare]{"entity":"operation", "value": "add"}',
+        '[compra]{"entity":"operation", "value": "add"}',
     ]
     while True:
         yield random.choice(add_operations)
@@ -53,12 +58,16 @@ def add_operation_generator():
 
 def remove_operation_generator():
     remove_operations = [
-        '[rimuovi]{"entity": "operation", "value": "remove"}',
-        '[rimuovere]{"entity": "operation", "value": "remove"}',
-        '[elimina]{"entity": "operation", "value": "remove"}',
-        '[eliminare]{"entity": "operation", "value": "remove"}',
-        '[sottrarre]{"entity": "operation", "value": "remove"}',
-        '[sottrai]{"entity": "operation", "value": "remove"}',
+        '[rimuovere]{"entity":"operation", "value": "remove"}',
+        '[rimuovi]{"entity":"operation", "value": "remove"}',
+        '[cancellare]{"entity":"operation", "value": "remove"}',
+        '[cancella]{"entity":"operation", "value": "remove"}',
+        '[distruggere]{"entity":"operation", "value": "remove"}',
+        '[distruggi]{"entity":"operation", "value": "remove"}',
+        '[sottrarre]{"entity":"operation", "value": "remove"}',
+        '[sottrai]{"entity":"operation", "value": "remove"}',
+        '[togliere]{"entity":"operation", "value": "remove"}',
+        '[togli]{"entity":"operation", "value": "remove"}',
     ]
     while True:
         yield random.choice(remove_operations)

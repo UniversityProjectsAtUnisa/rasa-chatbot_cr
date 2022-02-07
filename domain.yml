@@ -67,7 +67,7 @@ responses:
         - type: slot
           name: user
           value: null
-      text: Ciao ciao
+      text: Ciao ciao.
     - condition:
         - type: slot
           name: user
@@ -83,14 +83,14 @@ responses:
           name: user
           value: null
       text: Alla prossima!
-    - text: Ciao ciao {user}
+    - text: Ciao ciao {user}.
     - text: Ci vediamo più tardi {user}!
     - text: Buona giornata {user}.
     - text: Alla prossima {user}!
 
   utter_pleased:
-    - text: Piacere di conoscerti, {user}
-    - text: È un piacere incontrarti, {user}
+    - text: Piacere di conoscerti, {user}.
+    - text: È un piacere incontrarti, {user}.
 
   utter_capabilities:
     - text: Posso aiutare a gestire una lista della spesa per tutte le persone che parlano con me. Puoi chiederermi di aggiungere o rimuovere qualcosa dalla tua lista oppure di vederla.
@@ -154,13 +154,13 @@ responses:
           name: user
           value: null
       text: Ciao di nuovo!
-    - text: Ci siamo già salutati, {user}
+    - text: Ci siamo già salutati, {user}.
     - text: Ciao di nuovo {user}!
 
   utter_default:
     - text: Scusa non ho capito. Puoi ripetere, per favore?
     - text: Credo di non aver capito. Puoi riformulare la frase?
-  
+
   utter_endconversation_command:
     - text: __endconversation__
 

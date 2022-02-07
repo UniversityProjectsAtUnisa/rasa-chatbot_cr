@@ -85,7 +85,7 @@ class W2NPreprocessor(Component):
         ('mille', '1000'), ('mila', '1000'),
         ('milione', '1000000'), ('milioni', '1000000'),
         ('miliardo', '1000000000'), ('miliardi', '1000000000'),
-        ('uno', '1'), ('un', '1'),
+        ('uno', '1'), ('una', '1'), ('un', '1'),
         ('due', '2'),
         ('tre', '3'),
         ('quattro', '4'),
