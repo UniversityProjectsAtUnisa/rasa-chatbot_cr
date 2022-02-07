@@ -188,7 +188,7 @@ nlu:
       - [952](CARDINAL) [melograno](item)
       - [996](CARDINAL) [pesche](item)
       - [aggiungere]{"entity": "operation", "value": "add"} alla lista
-      - [aggiungi]{"entity": "operation", "value": "add" [sogliola](item) alla mia lista
+      - [aggiungi]{"entity": "operation", "value": "add"} [sogliola](item) alla mia lista
       - [alloro](item)
       - [asparagi](item)
       - [cannella](item)
@@ -230,8 +230,8 @@ nlu:
       - delle [uova](item)
       - per favore [aggiungere]{"entity": "operation", "value": "add"}
       - per favore [aggiungere]{"entity": "operation", "value": "add"} [1403](CARDINAL) [olive](item) alla mia lista della spesa
-      - per favore [aggiungi]{"entity": "operation", "value": "add" [arance](item) alla lista
-      - per favore [aggiungi]{"entity": "operation", "value": "add" [legumi secchi](item) alla mia lista
+      - per favore [aggiungi]{"entity": "operation", "value": "add"} [arance](item) alla lista
+      - per favore [aggiungi]{"entity": "operation", "value": "add"} [legumi secchi](item) alla mia lista
       - per favore [compra]{"entity": "operation", "value": "add"} [capretto](item) alla lista
       - per favore [elimina]{"entity": "operation", "value": "remove"} [1356](CARDINAL) [olive](item)
       - per favore [elimina]{"entity": "operation", "value": "remove"} [salsa](item) dalla mia lista
@@ -256,7 +256,7 @@ nlu:
       - voglio [aggiungere]{"entity": "operation", "value": "add"} [637](CARDINAL) [timo](item) alla lista
       - voglio [aggiungere]{"entity": "operation", "value": "add"} [cernia](item) alla lista
       - voglio [aggiungere]{"entity": "operation", "value": "add"} alla mia lista
-      - voglio [aggiungi]{"entity": "operation", "value": "add" [capretto](item) alla lista
+      - voglio [aggiungi]{"entity": "operation", "value": "add"} [capretto](item) alla lista
       - voglio [compra]{"entity": "operation", "value": "add"} [cicoria](item) alla lista
       - voglio [elimina]{"entity": "operation", "value": "remove"} [30](CARDINAL) [finocchi](item)
       - voglio [eliminare]{"entity": "operation", "value": "remove"}
@@ -271,8 +271,8 @@ nlu:
       - voglio [sottrai]{"entity": "operation", "value": "remove"}
       - vorrei [aggiungere]{"entity": "operation", "value": "add"} [249](CARDINAL) [orata](item) alla lista
       - vorrei [aggiungere]{"entity": "operation", "value": "add"} [pomodoro](item) alla mia lista della spesa
-      - vorrei [aggiungi]{"entity": "operation", "value": "add" [68](CARDINAL) [salmone](item) alla mia lista
-      - vorrei [aggiungi]{"entity": "operation", "value": "add" [pomodori](item) alla mia lista
+      - vorrei [aggiungi]{"entity": "operation", "value": "add"} [68](CARDINAL) [salmone](item) alla mia lista
+      - vorrei [aggiungi]{"entity": "operation", "value": "add"} [pomodori](item) alla mia lista
       - vorrei [compra]{"entity": "operation", "value": "add"} [329](CARDINAL) [aglio](item) alla mia lista
       - vorrei [compra]{"entity": "operation", "value": "add"} [821](CARDINAL) [legumi secchi](item)
       - vorrei [compra]{"entity": "operation", "value": "add"} [lenticchie](item) alla lista
@@ -361,7 +361,7 @@ nlu:
       - distruggi
       - sottrarre
       - sottrai
-  
+
   - regex: CARDINAL
     examples: |
       - [1-9]\d*

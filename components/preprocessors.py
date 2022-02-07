@@ -237,13 +237,13 @@ class W2NPreprocessor(Component):
             origin_left = split_data[left][1]
             origin_right = split_data[right][2]
 
-            newtext += phrase[idx:origin_left]
+            newtext += number_sentence[idx:origin_left]
             number = self.w2n(self.normalize_text(" ".join(split_words[left:right + 1])))
             newtext += str(number)
 
             idx = origin_right
 
-        newtext += phrase[idx:]
+        newtext += number_sentence[idx:]
         message.set('text', newtext, True)
 
     def persist(self, file_name: Text, model_dir: Text) -> Optional[Dict[Text, Any]]:
