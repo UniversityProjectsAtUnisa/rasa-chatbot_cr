@@ -2,6 +2,8 @@ from collections import defaultdict
 import re
 import typing
 from typing import Any, Optional, Text, Dict, List, Tuple, Type
+from num2words import num2words
+
 
 from rasa.nlu.components import Component
 from rasa.nlu.config import RasaNLUModelConfig
@@ -95,7 +97,7 @@ class W2NPreprocessor(Component):
     )
 
     defaults = {"exclude": ",-.", "substitute": " "}
-    supported_language_list = "en"
+    supported_language_list = "it"
     not_supported_language_list = None
 
     def __init__(self, component_config: Optional[Dict[Text, Any]] = None) -> None:
@@ -153,6 +155,14 @@ class W2NPreprocessor(Component):
                           result[len(result) - length + non_zero_values:])
         return result
 
+    @staticmethod
+    def _n2w(number_sentence):
+        chunks = number_sentence.split()
+        for i in range(len(chunks)):
+            if chunks[i].isnumeric():
+                chunks[i] = num2words(int(chunks[i]), lang="it")
+        return " ".join(chunks)
+
     def _is_valid_word(self, word):
         try:
             self.w2n(word)
@@ -204,6 +214,7 @@ class W2NPreprocessor(Component):
         # Split su "uno o più spazi"
         # Tupla di (parola, inizio, fine)
         # Quando metti insieme: text [:inizio1] numero1 text[fine1:inizio2]...
+        number_sentence = self._n2w(number_sentence)
         split_data = self._split_with_indices(number_sentence)
 
         split_words = [word[0] for word in split_data]
