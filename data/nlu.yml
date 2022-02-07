@@ -84,6 +84,7 @@ nlu:
       - non voglio continuare
       - fermare
       - annulla
+      - basta così
 
   - intent: show_items
     examples: |

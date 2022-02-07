@@ -40,6 +40,9 @@ slots:
   user:
     type: text
     influence_conversation: true
+  _user:
+    type: text
+    influence_conversation: false
   CARDINAL:
     type: text
     influence_conversation: false
@@ -65,7 +68,7 @@ responses:
         - type: slot
           name: user
           value: null
-      text: Bye
+      text: Ciao ciao
     - condition:
         - type: slot
           name: user
@@ -81,7 +84,7 @@ responses:
           name: user
           value: null
       text: Alla prossima!
-    - text: Ciao {user}
+    - text: Ciao ciao {user}
     - text: Ci vediamo più tardi {user}!
     - text: Buona giornata {user}.
     - text: Alla prossima {user}!
@@ -91,7 +94,7 @@ responses:
     - text: È un piacere incontrarti, {user}
 
   utter_capabilities:
-    - text: Posso aiutarti a gestire una lista della spesa per tutte le persone che parlano con me. Puoi chiederermi di aggiungere o rimuovere qualcosa dalla tua lista oppure di vederla.
+    - text: Posso aiutare a gestire una lista della spesa per tutte le persone che parlano con me. Puoi chiederermi di aggiungere o rimuovere qualcosa dalla tua lista oppure di vederla.
     - text: Sono un assistente per le liste della spesa. Posso aggiungere o rimuovere elementi dalla tua lista o posso mostratela.
 
   utter_ask_user:
@@ -128,7 +131,7 @@ responses:
     - text: Ci siamo mai visti?
 
   utter_stop:
-    - text: richiesta cancellata!
+    - text: Richiesta cancellata!
 
   utter_help:
     - text: Come posso aiutarti?
@@ -156,7 +159,7 @@ responses:
     - text: Ciao di nuovo {user}!
 
   utter_default:
-    - text: Scusa non ho capito. Puoi ripetere, perfavore?
+    - text: Scusa non ho capito. Puoi ripetere, per favore?
     - text: Credo di non aver capito. Puoi riformulare la frase?
   
   utter_endconversation_command:

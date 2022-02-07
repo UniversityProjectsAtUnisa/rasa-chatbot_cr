@@ -1,3 +1,4 @@
+import sys
 from typing import Any, Text, Dict, List
 from collections import OrderedDict
 
@@ -67,7 +68,7 @@ class ActionIdentification(Action):
 
         dispatcher.utter_message(text=f"__{self.commands[int(should_know_user)]}__,{username}")
 
-        return [SlotSet("should_know_user", None)]
+        return [SlotSet("should_know_user", None), SlotSet("_user", username)]
 
 
 class ActionShowItems(Action):
@@ -148,8 +149,6 @@ class ActionGreet(Action):
 
 
 class ActionUser(Action):
-    user = None
-
     def name(self) -> Text:
         return "action_manage_user"
 
@@ -160,11 +159,16 @@ class ActionUser(Action):
         domain: Dict[Text, Any]
     ) -> List[Dict[Text, Any]]:
         current_user = tracker.get_slot("user")
-        if not self.user:
-            self.user = current_user
-        if self.user != current_user:
+        active_user = tracker.get_slot("_user")
+        if not current_user:
+            print("ERROR: Unexpected slot value", file=sys.stderr)
+            return []
+        if not active_user:
+            return [*ActionGreet().run(dispatcher, tracker, domain), SlotSet("_user", current_user)]
+
+        if active_user != current_user:
             dispatcher.utter_message(text=f"__help_new_session__")
-            return [SlotSet("user", self.user)]
+            return [SlotSet("user", active_user)]
         else:
             intent = tracker.get_intent_of_latest_message()
             if intent == "greet":
