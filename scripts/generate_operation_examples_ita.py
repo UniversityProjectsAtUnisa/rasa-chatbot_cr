@@ -9,12 +9,12 @@ from pathlib import Path
 
 
 PROJECT_PATH = Path(__file__).absolute().parent.parent
-DATA_FOLDER = "data_ita"
+DATA_FOLDER = "data"
 DATA_PATH = PROJECT_PATH.joinpath(DATA_FOLDER)
 
 
 def item_generator():
-    item_file = DATA_PATH.joinpath('lookups/item_ita.yml')
+    item_file = DATA_PATH.joinpath('lookups/item.yml')
     items = get_examples_from_yml(item_file)
     while True:
         yield random.choice(items)
@@ -76,7 +76,7 @@ def CARDINAL_generator():
 
 
 def user_generator():
-    user_file = DATA_PATH.joinpath('lookups/user_ita.yml')
+    user_file = DATA_PATH.joinpath('lookups/user.yml')
     users = get_examples_from_yml(user_file)
     while True:
         yield random.choice(users)
