@@ -15,7 +15,6 @@ intents:
   - out_of_scope
   - affirm
   - deny
-  - activate
 
 entities:
   - CARDINAL
