@@ -141,18 +141,18 @@ responses:
         - type: slot
           name: user
           value: null
-      text: Ci siamo già visti.
+      text: Ci siamo già salutati.
     - condition:
         - type: slot
           name: user
           value: null
-      text: I already greeted you.
+      text: Ti ho già salutato.
     - condition:
         - type: slot
           name: user
           value: null
       text: Ciao di nuovo!
-    - text: Ci siamo già visti, {user}
+    - text: Ci siamo già salutati, {user}
     - text: Ciao di nuovo {user}!
 
   utter_default:
@@ -164,6 +164,7 @@ responses:
 
 actions:
   - action_greet
+  - action_manage_user
   - action_identification
   - action_item
   - action_show_items

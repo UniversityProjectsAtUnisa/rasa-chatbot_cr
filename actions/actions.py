@@ -3,7 +3,7 @@ from collections import OrderedDict
 
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import SlotSet
+from rasa_sdk.events import SlotSet, FollowupAction
 from rasa_sdk.types import DomainDict
 
 
@@ -16,7 +16,7 @@ class ActionItem(Action):
         item = "" if item is None else item
         quantity = "" if quantity is None else quantity
 
-        # Se andavano già bene esci
+        # If they were already right just return them
         item_cond = all(not word.isnumeric() for word in item.split())
         quantity_cond = quantity.replace(" ", '').isnumeric()
 
@@ -29,7 +29,7 @@ class ActionItem(Action):
                 final_quantity = word
                 break
 
-        # concatena togli numeri togli duplicati
+        # concatenate, remove numbers and duplicates
         itemquantity = (item + " " + quantity).split()
 
         duplicated_list = list(
@@ -45,7 +45,7 @@ class ActionItem(Action):
         user = tracker.get_slot("user")
 
         item, quantity = self.sanitize_itemquantity(item, quantity)
-        
+
         if quantity == "":
             # when I say "remove item" I want to remove all of them
             quantity = '1' if operation == "add" else "all"
@@ -141,6 +141,36 @@ class ActionGreet(Action):
     ) -> List[Dict[Text, Any]]:
         greeted = tracker.get_slot("greeted")
 
-        dispatcher.utter_message(response="utter_greet" if not greeted else "utter_already_greet")
+        dispatcher.utter_message(
+            response="utter_greet" if not greeted else "utter_already_greet")
 
         return [SlotSet("greeted", True)]
+
+
+class ActionUser(Action):
+    user = None
+
+    def name(self) -> Text:
+        return "action_manage_user"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        current_user = tracker.get_slot("user")
+        if not self.user:
+            self.user = current_user
+        if self.user != current_user:
+            dispatcher.utter_message(text=f"__help_new_session__")
+            return [SlotSet("user", self.user)]
+        else:
+            intent = tracker.get_intent_of_latest_message()
+            if intent == "greet":
+                return ActionGreet().run(dispatcher, tracker, domain)
+                # return[FollowupAction("action_greet")]
+            elif intent == "introduce_myself":
+                dispatcher.utter_message(response="utter_pleased")
+                dispatcher.utter_message(response="utter_help")
+            return []

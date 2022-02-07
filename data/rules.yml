@@ -6,7 +6,7 @@ rules:
       - intent: greet
       - slot_was_set:
           - user: "anything"
-      - action: action_greet
+      - action: action_manage_user
 
   - rule: Say goodbye anytime the user says goodbye
     steps:
@@ -50,8 +50,7 @@ rules:
       - intent: introduce_myself
       - slot_was_set:
         - user: "anything"
-      - action: utter_pleased
-      - action: utter_help
+      - action: action_manage_user
 
   - rule: Activate item form
     condition:
