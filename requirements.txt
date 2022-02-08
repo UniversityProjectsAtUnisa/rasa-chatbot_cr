@@ -1,4 +1,3 @@
-word2number
 pyyaml
 nltk
 num2words
