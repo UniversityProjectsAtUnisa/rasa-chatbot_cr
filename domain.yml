@@ -11,6 +11,7 @@ intents:
   - introduce_myself
   - operation_on_item
   - show_items
+  - empty_list
   - stop
   - out_of_scope
   - affirm
@@ -161,15 +162,14 @@ responses:
     - text: Scusa non ho capito. Puoi ripetere, per favore?
     - text: Credo di non aver capito. Puoi riformulare la frase?
 
-  utter_endconversation_command:
-    - text: __endconversation__
-
 actions:
   - action_greet
   - action_manage_user
   - action_identification
   - action_item
   - action_show_items
+  - action_empty_list
+  - action_endconversation
   - action_stop_form
   - utter_already_greet
   - utter_ask_item
@@ -183,7 +183,6 @@ actions:
   - utter_stop
   - utter_stop_nothing
   - validate_item_form
-  - utter_endconversation_command
 
 forms:
   item_form:

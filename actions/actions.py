@@ -80,6 +80,24 @@ class ActionShowItems(Action):
         return []
 
 
+class ActionEndConversation(Action):
+    def name(self) -> Text:
+        return "action_endconversation"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="__endconversation__")
+        return []
+
+
+class ActionEmptyList(Action):
+    def name(self) -> Text:
+        return "action_empty_list"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="__empty__")
+        return []
+
+
 class ActionStopForm(Action):
     def name(self) -> Text:
         return "action_stop_form"

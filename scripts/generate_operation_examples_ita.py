@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import json
-from os import remove
 from test_generator import get_examples_from_yml
 import random
 import argparse
@@ -11,6 +10,9 @@ from pathlib import Path
 PROJECT_PATH = Path(__file__).absolute().parent.parent
 DATA_FOLDER = "data"
 DATA_PATH = PROJECT_PATH.joinpath(DATA_FOLDER)
+
+PREFIX_CHANCE = 0.5
+SUFFIX_CHANCE = 0.8
 
 
 def item_generator():
@@ -28,6 +30,8 @@ def operation_generator():
         '[inserisci]{"entity":"operation", "value": "add"}',
         '[comprare]{"entity":"operation", "value": "add"}',
         '[compra]{"entity":"operation", "value": "add"}',
+        '[mettere]{"entity":"operation", "value": "add"}',
+        '[metti]{"entity":"operation", "value": "add"}',
         '[rimuovere]{"entity":"operation", "value": "remove"}',
         '[rimuovi]{"entity":"operation", "value": "remove"}',
         '[cancellare]{"entity":"operation", "value": "remove"}',
@@ -51,12 +55,14 @@ def add_operation_generator():
         '[inserisci]{"entity":"operation", "value": "add"}',
         '[comprare]{"entity":"operation", "value": "add"}',
         '[compra]{"entity":"operation", "value": "add"}',
+        '[mettere]{"entity":"operation", "value": "add"}',
+        '[metti]{"entity":"operation", "value": "add"}',
     ]
     while True:
         yield random.choice(add_operations)
 
 
-def remove_operation_generator():
+def remove_operation_generator(add_tutto=False):
     remove_operations = [
         '[rimuovere]{"entity":"operation", "value": "remove"}',
         '[rimuovi]{"entity":"operation", "value": "remove"}',
@@ -69,8 +75,12 @@ def remove_operation_generator():
         '[togliere]{"entity":"operation", "value": "remove"}',
         '[togli]{"entity":"operation", "value": "remove"}',
     ]
+    tutto_chunks = ['tutto', 'tutto il', 'tutto lo', 'tutti', 'tutti i', 'tutte le', 'tutta', 'tutta la']
     while True:
-        yield random.choice(remove_operations)
+        op = random.choice(remove_operations)
+        if add_tutto:
+            op += f" {random.choice(tutto_chunks)}"
+        yield op
 
 
 def _clamp(n, _min, _max):
@@ -98,9 +108,9 @@ def get_example_from_template(template):
         example = template['example']
         pre = random.choice(template.get('prefixes', ['']))
         suff = random.choice(template.get('suffixes', ['']))
-        if pre:
+        if random.random() > PREFIX_CHANCE and pre:
             example = f'{pre} {example}'
-        if suff:
+        if random.random() > SUFFIX_CHANCE and suff:
             example = f'{example} {suff}'
         return example
     return template
@@ -124,6 +134,7 @@ def main(seed: int, template_amt: int, intent: str, basic_only: bool):
     entity_mapper = {
         "(item)": item_generator(),
         "(operation)": None,
+        "(remove_tutto_operation)": remove_operation_generator(True),
         "(CARDINAL)": CARDINAL_generator(),
         "(user)": user_generator()
     }
@@ -136,8 +147,11 @@ def main(seed: int, template_amt: int, intent: str, basic_only: bool):
 
     examples = set()
 
-    for _ in range(AMOUNT_PER_TEMPLATE):
-        for t in templates:
+    for t in templates:
+        multiplier = 1.0
+        if isinstance(t, dict) and 'amount_multiplier' in t:
+            multiplier = t['amount_multiplier']
+        for _ in range(int(multiplier*AMOUNT_PER_TEMPLATE)):
             example = get_example_from_template(t)
 
             op_generator = operation_generators["all"]
@@ -150,6 +164,8 @@ def main(seed: int, template_amt: int, intent: str, basic_only: bool):
                 if k in example:
                     if k == "(operation)":
                         example = example.replace(k, next(op_generator))
+                    elif k == "(remove_tutto_operation)":
+                        example = example.replace(k, next(v))
                     else:
                         example = example.replace(k, f"[{next(v)}]{k}")
 

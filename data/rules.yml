@@ -12,7 +12,7 @@ rules:
     steps:
       - intent: goodbye
       - action: utter_goodbye
-      - action: utter_endconversation_command
+      - action: action_endconversation
       - action: action_restart
 
   - rule: Say capabilities when the user asks for them
@@ -43,13 +43,19 @@ rules:
       - action: action_show_items
       # - action: action_restart
 
+  - rule: Empty list when user asks
+    steps:
+      - intent: empty_list
+      - action: action_empty_list
+      # - action: action_restart
+
   - rule: Pleased to meet the new user
     condition:
       - active_loop: null
     steps:
       - intent: introduce_myself
       - slot_was_set:
-        - user: "anything"
+          - user: "anything"
       - action: action_manage_user
 
   - rule: Activate item form
@@ -76,8 +82,8 @@ rules:
       - active_loop: null
     steps:
       - or:
-        - intent: greet
-        - intent: introduce_myself
+          - intent: greet
+          - intent: introduce_myself
       - slot_was_set:
           - user: null
       - action: action_greet
