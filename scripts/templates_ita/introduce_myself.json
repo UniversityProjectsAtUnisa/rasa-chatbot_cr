@@ -1,0 +1,12 @@
+{
+    "basic": [
+        "(user)"
+    ],
+    "full": [
+        "sono (user)",
+        "io sono (user)",
+        "sono io (user)",
+        "il mio nome è (user)",
+        "mi chiamo (user)"
+    ]
+}

@@ -6,13 +6,13 @@ rules:
       - intent: greet
       - slot_was_set:
           - user: "anything"
-      - action: action_greet
+      - action: action_manage_user
 
   - rule: Say goodbye anytime the user says goodbye
     steps:
       - intent: goodbye
       - action: utter_goodbye
-      - action: utter_endconversation_command
+      - action: action_endconversation
       - action: action_restart
 
   - rule: Say capabilities when the user asks for them
@@ -43,13 +43,20 @@ rules:
       - action: action_show_items
       # - action: action_restart
 
+  - rule: Empty list when user asks
+    steps:
+      - intent: empty_list
+      - action: action_empty_list
+      # - action: action_restart
+
   - rule: Pleased to meet the new user
     condition:
       - active_loop: null
     steps:
       - intent: introduce_myself
-      - action: utter_pleased
-      - action: utter_help
+      - slot_was_set:
+          - user: "anything"
+      - action: action_manage_user
 
   - rule: Activate item form
     condition:
@@ -74,10 +81,12 @@ rules:
     condition:
       - active_loop: null
     steps:
-      - intent: greet
-      - action: action_greet
+      - or:
+          - intent: greet
+          - intent: introduce_myself
       - slot_was_set:
           - user: null
+      - action: action_greet
       - action: identification_form
       - active_loop: identification_form
 

@@ -1,0 +1,24 @@
+{
+    "basic": [
+        "ciao",
+        "ciao il mio nome è (user)",
+        "ciao sono (user)",
+        "ciao mi chiamo (user)"
+    ],
+    "full": [
+        "ciao robot sono (user)",
+        "ciao robot mi chiamo (user)",
+        "ciao robot il mio nome è (user)",
+        "hey sono (user)",
+        "hey il mio nome è (user)",
+        "buongiorno sono (user)",
+        "buongiorno mi chiamo (user)",
+        "buongiorno il mio nome è (user)",
+        "buon pomeriggio sono (user)",
+        "buon pomeriggio mi chiamo (user)",
+        "buon pomeriggio il mio nome è (user)",
+        "ciao amico sono (user)",
+        "ciao amico mi chiamo (user)",
+        "ciao amico il mio nome è (user)"
+    ]
+}
